@@ -1,4 +1,4 @@
-import type { User } from '../../../../temp/prisma/generated/client'
+import type { User } from '../../../prisma/generated/client'
 import { createParamDecorator, ExecutionContext } from '@nestjs/common'
 
 export const CurrentUser = createParamDecorator(
