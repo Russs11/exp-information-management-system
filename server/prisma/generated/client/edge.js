@@ -138,7 +138,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\OSPanel\\domains\\localhost\\react_lab\\exp-information-management-system\\server\\prisma\\generated\\client",
+      "value": "C:\\OpenServer\\domains\\localhost\\react_lab\\exp-information-management-system\\server\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -155,7 +155,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../..",
@@ -165,6 +165,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -173,8 +174,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output = \"generated/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id       String   @id @default(cuid())\n  createAt DateTime @default(now()) @map(\"create_at\")\n  updateAt DateTime @updatedAt @map(\"update_at\")\n\n  email    String  @unique\n  name     String?\n  password String\n\n  role Role\n\n  omps OMP[]\n\n  @@map(\"user\")\n}\n\nmodel OMP {\n  id       String   @id @default(cuid())\n  createAt DateTime @default(now()) @map(\"create_at\")\n  updateAt DateTime @updatedAt @map(\"update_at\")\n\n  user   User   @relation(fields: [userId], references: [id])\n  userId String @map(\"user_id\")\n\n  @@map(\"omp\")\n}\n\nenum Role {\n  admin\n  user\n}\n",
-  "inlineSchemaHash": "5c96766f76a223b0d2271a6b41a3f4c557a6c317cf526780dcdea2c23fd2615e",
+  "inlineSchema": "// This is your Prisma schema file,\r\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\r\n\r\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\r\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\r\n\r\ngenerator client {\r\n  provider = \"prisma-client-js\"\r\n  output = \"generated/client\"\r\n}\r\n\r\ndatasource db {\r\n  provider = \"postgresql\"\r\n  url      = env(\"DATABASE_URL\")\r\n}\r\n\r\nmodel User {\r\n  id       String   @id @default(cuid())\r\n  createAt DateTime @default(now()) @map(\"create_at\")\r\n  updateAt DateTime @updatedAt @map(\"update_at\")\r\n\r\n  email    String  @unique\r\n  name     String?\r\n  password String\r\n\r\n  role Role\r\n\r\n  omps OMP[]\r\n\r\n  @@map(\"user\")\r\n}\r\n\r\nmodel OMP {\r\n  id       String   @id @default(cuid())\r\n  createAt DateTime @default(now()) @map(\"create_at\")\r\n  updateAt DateTime @updatedAt @map(\"update_at\")\r\n\r\n  user   User   @relation(fields: [userId], references: [id])\r\n  userId String @map(\"user_id\")\r\n\r\n  @@map(\"omp\")\r\n}\r\n\r\nenum Role {\r\n  admin\r\n  user\r\n}\r\n",
+  "inlineSchemaHash": "691b18787168e9cd052a7de3cd15598b6422d7abded0aeedf2cab1e7f203b933",
   "copyEngine": true
 }
 config.dirname = '/'
