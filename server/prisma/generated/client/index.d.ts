@@ -1150,7 +1150,7 @@ export namespace Prisma {
     email: string
     name: string | null
     password: string
-    role: $Enums.Role | null
+    role: $Enums.Role
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1210,7 +1210,7 @@ export namespace Prisma {
       email: string
       name: string | null
       password: string
-      role: $Enums.Role | null
+      role: $Enums.Role
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -3003,7 +3003,7 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     name?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
-    role?: EnumRoleNullableFilter<"User"> | $Enums.Role | null
+    role?: EnumRoleFilter<"User"> | $Enums.Role
     omps?: OMPListRelationFilter
   }
 
@@ -3014,7 +3014,7 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrderInput | SortOrder
     password?: SortOrder
-    role?: SortOrderInput | SortOrder
+    role?: SortOrder
     omps?: OMPOrderByRelationAggregateInput
   }
 
@@ -3028,7 +3028,7 @@ export namespace Prisma {
     updateAt?: DateTimeFilter<"User"> | Date | string
     name?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
-    role?: EnumRoleNullableFilter<"User"> | $Enums.Role | null
+    role?: EnumRoleFilter<"User"> | $Enums.Role
     omps?: OMPListRelationFilter
   }, "id" | "email">
 
@@ -3039,7 +3039,7 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrderInput | SortOrder
     password?: SortOrder
-    role?: SortOrderInput | SortOrder
+    role?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -3055,7 +3055,7 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
     password?: StringWithAggregatesFilter<"User"> | string
-    role?: EnumRoleNullableWithAggregatesFilter<"User"> | $Enums.Role | null
+    role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
   }
 
   export type OMPWhereInput = {
@@ -3115,7 +3115,7 @@ export namespace Prisma {
     email: string
     name?: string | null
     password: string
-    role?: $Enums.Role | null
+    role?: $Enums.Role
     omps?: OMPCreateNestedManyWithoutUserInput
   }
 
@@ -3126,7 +3126,7 @@ export namespace Prisma {
     email: string
     name?: string | null
     password: string
-    role?: $Enums.Role | null
+    role?: $Enums.Role
     omps?: OMPUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -3137,7 +3137,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     omps?: OMPUpdateManyWithoutUserNestedInput
   }
 
@@ -3148,7 +3148,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     omps?: OMPUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -3159,7 +3159,7 @@ export namespace Prisma {
     email: string
     name?: string | null
     password: string
-    role?: $Enums.Role | null
+    role?: $Enums.Role
   }
 
   export type UserUpdateManyMutationInput = {
@@ -3169,7 +3169,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -3179,7 +3179,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
   export type OMPCreateInput = {
@@ -3271,11 +3271,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type EnumRoleNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel> | null
-    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumRoleNullableFilter<$PrismaModel> | $Enums.Role | null
+  export type EnumRoleFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
   export type OMPListRelationFilter = {
@@ -3373,14 +3373,14 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type EnumRoleNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel> | null
-    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumRoleNullableWithAggregatesFilter<$PrismaModel> | $Enums.Role | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumRoleNullableFilter<$PrismaModel>
-    _max?: NestedEnumRoleNullableFilter<$PrismaModel>
+  export type EnumRoleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumRoleWithAggregatesFilter<$PrismaModel> | $Enums.Role
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRoleFilter<$PrismaModel>
+    _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
   export type UserRelationFilter = {
@@ -3435,8 +3435,8 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type NullableEnumRoleFieldUpdateOperationsInput = {
-    set?: $Enums.Role | null
+  export type EnumRoleFieldUpdateOperationsInput = {
+    set?: $Enums.Role
   }
 
   export type OMPUpdateManyWithoutUserNestedInput = {
@@ -3520,11 +3520,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedEnumRoleNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel> | null
-    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumRoleNullableFilter<$PrismaModel> | $Enums.Role | null
+  export type NestedEnumRoleFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -3597,14 +3597,14 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedEnumRoleNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel> | null
-    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumRoleNullableWithAggregatesFilter<$PrismaModel> | $Enums.Role | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumRoleNullableFilter<$PrismaModel>
-    _max?: NestedEnumRoleNullableFilter<$PrismaModel>
+  export type NestedEnumRoleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumRoleWithAggregatesFilter<$PrismaModel> | $Enums.Role
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRoleFilter<$PrismaModel>
+    _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
   export type OMPCreateWithoutUserInput = {
@@ -3662,7 +3662,7 @@ export namespace Prisma {
     email: string
     name?: string | null
     password: string
-    role?: $Enums.Role | null
+    role?: $Enums.Role
   }
 
   export type UserUncheckedCreateWithoutOmpsInput = {
@@ -3672,7 +3672,7 @@ export namespace Prisma {
     email: string
     name?: string | null
     password: string
-    role?: $Enums.Role | null
+    role?: $Enums.Role
   }
 
   export type UserCreateOrConnectWithoutOmpsInput = {
@@ -3698,7 +3698,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
   export type UserUncheckedUpdateWithoutOmpsInput = {
@@ -3708,7 +3708,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
   export type OMPCreateManyUserInput = {

@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { hash } from 'argon2'
+import { Role } from 'prisma/generated/client'
 import { AuthDto } from 'src/auth/dto/auth.dto'
 import { PrismaService } from 'src/prisma.service'
 
@@ -21,6 +22,7 @@ export class UserService {
 	}
 
 	async create(dto: AuthDto) {
+
 		const user = {
 			email: dto.email,
 			name: '',
