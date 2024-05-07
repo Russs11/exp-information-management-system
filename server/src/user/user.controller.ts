@@ -7,9 +7,9 @@ import { UserService } from './user.service';
 export class UserController {
 	constructor(private readonly userService: UserService) {}
 
-	@Get()
+	@Get('profile')
 	@Auth()
 	async getProfile(@CurrentUser('id') id: string) {
-		return 'user/getProfile'
+		return this.userService.getById(id)
 	}
 }
