@@ -18,11 +18,6 @@ import { AuthDto } from './dto/auth.dto'
 export class AuthController {
 	constructor(private readonly authService: AuthService) {}
 
-	@Get('hello')
-	hello() {
-		return 'hello world'
-	}
-
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	@Post('login')

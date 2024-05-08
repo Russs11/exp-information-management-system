@@ -1,7 +1,17 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+	Controller,
+	Get,
+	Post,
+	Body,
+	Patch,
+	Param,
+	Delete,
+	Res
+} from '@nestjs/common'
 import { Auth } from 'src/auth/decorators/auth.decorator'
 import { CurrentUser } from 'src/auth/decorators/user.decorator'
-import { UserService } from './user.service';
+import { UserService } from './user.service'
+import { Request, Response } from 'express'
 
 @Controller('user')
 export class UserController {
@@ -10,6 +20,7 @@ export class UserController {
 	@Get('profile')
 	@Auth()
 	async getProfile(@CurrentUser('id') id: string) {
+		console.log('profile: ');
 		return this.userService.getById(id)
 	}
 }
