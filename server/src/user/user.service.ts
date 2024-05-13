@@ -10,6 +10,7 @@ export class UserService {
 	constructor(private prisma: PrismaService) {}
 
 	getById(id: string) {
+		console.log('getById: ')
 		return this.prisma.user.findUnique({
 			where: { id },
 			include: {}
