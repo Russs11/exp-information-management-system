@@ -35,7 +35,6 @@ export class AuthService {
 	}
 
 	async getNewTokens(refreshToken: string) {
-		console.log('getNewTokens in AuthService: ')
 		const result = await this.jwt.verifyAsync(refreshToken)
 
 		if (!result) {throw new UnauthorizedException('Invalid refresh token')}

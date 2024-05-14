@@ -1,17 +1,16 @@
 import {
 	Controller,
 	Get,
-	Post,
 	Body,
-	Patch,
-	Param,
-	Delete,
-	Res
+	UsePipes,
+	HttpCode,
+	ValidationPipe,
+	Put
 } from '@nestjs/common'
 import { Auth } from 'src/auth/decorators/auth.decorator'
 import { CurrentUser } from 'src/auth/decorators/user.decorator'
 import { UserService } from './user.service'
-import { Request, Response } from 'express'
+import { UserDto } from './dto/user.dto'
 
 @Controller('user')
 export class UserController {
@@ -20,7 +19,15 @@ export class UserController {
 	@Get('profile')
 	@Auth()
 	async getProfile(@CurrentUser('id') id: string) {
-		console.log('getProfile in UserController: ')
-		return this.userService.getById(id)
+		const { password, ...user } = await this.userService.getById(id)
+		return user
+	}
+
+	@UsePipes(new ValidationPipe())
+	@HttpCode(200)
+	@Auth()
+	@Put('update')
+	async updateUser(@CurrentUser('id') id: string, @Body() userDto: UserDto) {
+		return await this.userService.update(id, userDto)
 	}
 }

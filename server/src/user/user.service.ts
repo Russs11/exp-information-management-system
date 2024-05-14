@@ -10,7 +10,6 @@ export class UserService {
 	constructor(private prisma: PrismaService) {}
 
 	getById(id: string) {
-		console.log('getById: ')
 		return this.prisma.user.findUnique({
 			where: { id },
 			include: {}
@@ -45,7 +44,16 @@ export class UserService {
 
 		return this.prisma.user.update({
 			where: { id },
-			data
+			data,
+			select: {
+				id: true,
+				createAt: true,
+				updateAt: true,
+				email: true,
+				name: true,
+				password: false,
+				role: true
+			}
 		})
 	}
 }
