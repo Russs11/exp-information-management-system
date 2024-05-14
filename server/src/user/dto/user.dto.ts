@@ -1,4 +1,11 @@
-import { IsOptional, IsEmail, MinLength, IsString, IsEnum } from 'class-validator'
+import { Transform } from 'class-transformer'
+import {
+	IsOptional,
+	IsEmail,
+	MinLength,
+	IsString,
+	IsEnum
+} from 'class-validator'
 import { Role } from 'prisma/generated/client'
 
 export class UserDto {
@@ -17,5 +24,6 @@ export class UserDto {
 
 	@IsEnum(Role)
 	@IsOptional()
+	@Transform(({ value }) => ('' + value).toLowerCase())
 	role: Role
 }
