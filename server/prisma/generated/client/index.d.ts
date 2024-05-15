@@ -19,10 +19,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model OMP
+ * Model IOS
  * 
  */
-export type OMP = $Result.DefaultSelection<Prisma.$OMPPayload>
+export type IOS = $Result.DefaultSelection<Prisma.$IOSPayload>
 
 /**
  * Enums
@@ -174,14 +174,14 @@ export class PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs>;
 
   /**
-   * `prisma.oMP`: Exposes CRUD operations for the **OMP** model.
+   * `prisma.iOS`: Exposes CRUD operations for the **IOS** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more OMPS
-    * const oMPS = await prisma.oMP.findMany()
+    * // Fetch zero or more IOS
+    * const iOS = await prisma.iOS.findMany()
     * ```
     */
-  get oMP(): Prisma.OMPDelegate<ExtArgs>;
+  get iOS(): Prisma.IOSDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -653,7 +653,7 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    OMP: 'OMP'
+    IOS: 'IOS'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -670,7 +670,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'user' | 'oMP'
+      modelProps: 'user' | 'iOS'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -740,69 +740,69 @@ export namespace Prisma {
           }
         }
       }
-      OMP: {
-        payload: Prisma.$OMPPayload<ExtArgs>
-        fields: Prisma.OMPFieldRefs
+      IOS: {
+        payload: Prisma.$IOSPayload<ExtArgs>
+        fields: Prisma.IOSFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.OMPFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OMPPayload> | null
+            args: Prisma.IOSFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$IOSPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.OMPFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OMPPayload>
+            args: Prisma.IOSFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$IOSPayload>
           }
           findFirst: {
-            args: Prisma.OMPFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OMPPayload> | null
+            args: Prisma.IOSFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$IOSPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.OMPFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OMPPayload>
+            args: Prisma.IOSFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$IOSPayload>
           }
           findMany: {
-            args: Prisma.OMPFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OMPPayload>[]
+            args: Prisma.IOSFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$IOSPayload>[]
           }
           create: {
-            args: Prisma.OMPCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OMPPayload>
+            args: Prisma.IOSCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$IOSPayload>
           }
           createMany: {
-            args: Prisma.OMPCreateManyArgs<ExtArgs>,
+            args: Prisma.IOSCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.OMPDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OMPPayload>
+            args: Prisma.IOSDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$IOSPayload>
           }
           update: {
-            args: Prisma.OMPUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OMPPayload>
+            args: Prisma.IOSUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$IOSPayload>
           }
           deleteMany: {
-            args: Prisma.OMPDeleteManyArgs<ExtArgs>,
+            args: Prisma.IOSDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.OMPUpdateManyArgs<ExtArgs>,
+            args: Prisma.IOSUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.OMPUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OMPPayload>
+            args: Prisma.IOSUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$IOSPayload>
           }
           aggregate: {
-            args: Prisma.OMPAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateOMP>
+            args: Prisma.IOSAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateIOS>
           }
           groupBy: {
-            args: Prisma.OMPGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<OMPGroupByOutputType>[]
+            args: Prisma.IOSGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<IOSGroupByOutputType>[]
           }
           count: {
-            args: Prisma.OMPCountArgs<ExtArgs>,
-            result: $Utils.Optional<OMPCountAggregateOutputType> | number
+            args: Prisma.IOSCountArgs<ExtArgs>,
+            result: $Utils.Optional<IOSCountAggregateOutputType> | number
           }
         }
       }
@@ -965,11 +965,11 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    omps: number
+    ioss: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    omps?: boolean | UserCountOutputTypeCountOmpsArgs
+    ioss?: boolean | UserCountOutputTypeCountIossArgs
   }
 
   // Custom InputTypes
@@ -988,8 +988,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountOmpsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: OMPWhereInput
+  export type UserCountOutputTypeCountIossArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: IOSWhereInput
   }
 
 
@@ -1178,7 +1178,7 @@ export namespace Prisma {
     name?: boolean
     password?: boolean
     role?: boolean
-    omps?: boolean | User$ompsArgs<ExtArgs>
+    ioss?: boolean | User$iossArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1193,7 +1193,7 @@ export namespace Prisma {
   }
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    omps?: boolean | User$ompsArgs<ExtArgs>
+    ioss?: boolean | User$iossArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -1201,7 +1201,7 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      omps: Prisma.$OMPPayload<ExtArgs>[]
+      ioss: Prisma.$IOSPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1576,7 +1576,7 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    omps<T extends User$ompsArgs<ExtArgs> = {}>(args?: Subset<T, User$ompsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OMPPayload<ExtArgs>, T, 'findMany'> | Null>;
+    ioss<T extends User$iossArgs<ExtArgs> = {}>(args?: Subset<T, User$iossArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1925,23 +1925,23 @@ export namespace Prisma {
 
 
   /**
-   * User.omps
+   * User.ioss
    */
-  export type User$ompsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$iossArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OMP
+     * Select specific fields to fetch from the IOS
      */
-    select?: OMPSelect<ExtArgs> | null
+    select?: IOSSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: OMPInclude<ExtArgs> | null
-    where?: OMPWhereInput
-    orderBy?: OMPOrderByWithRelationInput | OMPOrderByWithRelationInput[]
-    cursor?: OMPWhereUniqueInput
+    include?: IOSInclude<ExtArgs> | null
+    where?: IOSWhereInput
+    orderBy?: IOSOrderByWithRelationInput | IOSOrderByWithRelationInput[]
+    cursor?: IOSWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: OMPScalarFieldEnum | OMPScalarFieldEnum[]
+    distinct?: IOSScalarFieldEnum | IOSScalarFieldEnum[]
   }
 
 
@@ -1962,178 +1962,187 @@ export namespace Prisma {
 
 
   /**
-   * Model OMP
+   * Model IOS
    */
 
-  export type AggregateOMP = {
-    _count: OMPCountAggregateOutputType | null
-    _min: OMPMinAggregateOutputType | null
-    _max: OMPMaxAggregateOutputType | null
+  export type AggregateIOS = {
+    _count: IOSCountAggregateOutputType | null
+    _min: IOSMinAggregateOutputType | null
+    _max: IOSMaxAggregateOutputType | null
   }
 
-  export type OMPMinAggregateOutputType = {
+  export type IOSMinAggregateOutputType = {
     id: string | null
     createAt: Date | null
     updateAt: Date | null
+    dateOfTheInspectionOfTheScene: Date | null
     userId: string | null
   }
 
-  export type OMPMaxAggregateOutputType = {
+  export type IOSMaxAggregateOutputType = {
     id: string | null
     createAt: Date | null
     updateAt: Date | null
+    dateOfTheInspectionOfTheScene: Date | null
     userId: string | null
   }
 
-  export type OMPCountAggregateOutputType = {
+  export type IOSCountAggregateOutputType = {
     id: number
     createAt: number
     updateAt: number
+    dateOfTheInspectionOfTheScene: number
     userId: number
     _all: number
   }
 
 
-  export type OMPMinAggregateInputType = {
+  export type IOSMinAggregateInputType = {
     id?: true
     createAt?: true
     updateAt?: true
+    dateOfTheInspectionOfTheScene?: true
     userId?: true
   }
 
-  export type OMPMaxAggregateInputType = {
+  export type IOSMaxAggregateInputType = {
     id?: true
     createAt?: true
     updateAt?: true
+    dateOfTheInspectionOfTheScene?: true
     userId?: true
   }
 
-  export type OMPCountAggregateInputType = {
+  export type IOSCountAggregateInputType = {
     id?: true
     createAt?: true
     updateAt?: true
+    dateOfTheInspectionOfTheScene?: true
     userId?: true
     _all?: true
   }
 
-  export type OMPAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which OMP to aggregate.
+     * Filter which IOS to aggregate.
      */
-    where?: OMPWhereInput
+    where?: IOSWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OMPS to fetch.
+     * Determine the order of IOS to fetch.
      */
-    orderBy?: OMPOrderByWithRelationInput | OMPOrderByWithRelationInput[]
+    orderBy?: IOSOrderByWithRelationInput | IOSOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: OMPWhereUniqueInput
+    cursor?: IOSWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` OMPS from the position of the cursor.
+     * Take `±n` IOS from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` OMPS.
+     * Skip the first `n` IOS.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned OMPS
+     * Count returned IOS
     **/
-    _count?: true | OMPCountAggregateInputType
+    _count?: true | IOSCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: OMPMinAggregateInputType
+    _min?: IOSMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: OMPMaxAggregateInputType
+    _max?: IOSMaxAggregateInputType
   }
 
-  export type GetOMPAggregateType<T extends OMPAggregateArgs> = {
-        [P in keyof T & keyof AggregateOMP]: P extends '_count' | 'count'
+  export type GetIOSAggregateType<T extends IOSAggregateArgs> = {
+        [P in keyof T & keyof AggregateIOS]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateOMP[P]>
-      : GetScalarType<T[P], AggregateOMP[P]>
+        : GetScalarType<T[P], AggregateIOS[P]>
+      : GetScalarType<T[P], AggregateIOS[P]>
   }
 
 
 
 
-  export type OMPGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: OMPWhereInput
-    orderBy?: OMPOrderByWithAggregationInput | OMPOrderByWithAggregationInput[]
-    by: OMPScalarFieldEnum[] | OMPScalarFieldEnum
-    having?: OMPScalarWhereWithAggregatesInput
+  export type IOSGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: IOSWhereInput
+    orderBy?: IOSOrderByWithAggregationInput | IOSOrderByWithAggregationInput[]
+    by: IOSScalarFieldEnum[] | IOSScalarFieldEnum
+    having?: IOSScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: OMPCountAggregateInputType | true
-    _min?: OMPMinAggregateInputType
-    _max?: OMPMaxAggregateInputType
+    _count?: IOSCountAggregateInputType | true
+    _min?: IOSMinAggregateInputType
+    _max?: IOSMaxAggregateInputType
   }
 
-  export type OMPGroupByOutputType = {
+  export type IOSGroupByOutputType = {
     id: string
     createAt: Date
     updateAt: Date
+    dateOfTheInspectionOfTheScene: Date
     userId: string
-    _count: OMPCountAggregateOutputType | null
-    _min: OMPMinAggregateOutputType | null
-    _max: OMPMaxAggregateOutputType | null
+    _count: IOSCountAggregateOutputType | null
+    _min: IOSMinAggregateOutputType | null
+    _max: IOSMaxAggregateOutputType | null
   }
 
-  type GetOMPGroupByPayload<T extends OMPGroupByArgs> = Prisma.PrismaPromise<
+  type GetIOSGroupByPayload<T extends IOSGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<OMPGroupByOutputType, T['by']> &
+      PickEnumerable<IOSGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof OMPGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof IOSGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], OMPGroupByOutputType[P]>
-            : GetScalarType<T[P], OMPGroupByOutputType[P]>
+              : GetScalarType<T[P], IOSGroupByOutputType[P]>
+            : GetScalarType<T[P], IOSGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type OMPSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type IOSSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     createAt?: boolean
     updateAt?: boolean
+    dateOfTheInspectionOfTheScene?: boolean
     userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["oMP"]>
+  }, ExtArgs["result"]["iOS"]>
 
-  export type OMPSelectScalar = {
+  export type IOSSelectScalar = {
     id?: boolean
     createAt?: boolean
     updateAt?: boolean
+    dateOfTheInspectionOfTheScene?: boolean
     userId?: boolean
   }
 
-  export type OMPInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
 
-  export type $OMPPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "OMP"
+  export type $IOSPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "IOS"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
     }
@@ -2141,161 +2150,162 @@ export namespace Prisma {
       id: string
       createAt: Date
       updateAt: Date
+      dateOfTheInspectionOfTheScene: Date
       userId: string
-    }, ExtArgs["result"]["oMP"]>
+    }, ExtArgs["result"]["iOS"]>
     composites: {}
   }
 
 
-  type OMPGetPayload<S extends boolean | null | undefined | OMPDefaultArgs> = $Result.GetResult<Prisma.$OMPPayload, S>
+  type IOSGetPayload<S extends boolean | null | undefined | IOSDefaultArgs> = $Result.GetResult<Prisma.$IOSPayload, S>
 
-  type OMPCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<OMPFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: OMPCountAggregateInputType | true
+  type IOSCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<IOSFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: IOSCountAggregateInputType | true
     }
 
-  export interface OMPDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['OMP'], meta: { name: 'OMP' } }
+  export interface IOSDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['IOS'], meta: { name: 'IOS' } }
     /**
-     * Find zero or one OMP that matches the filter.
-     * @param {OMPFindUniqueArgs} args - Arguments to find a OMP
+     * Find zero or one IOS that matches the filter.
+     * @param {IOSFindUniqueArgs} args - Arguments to find a IOS
      * @example
-     * // Get one OMP
-     * const oMP = await prisma.oMP.findUnique({
+     * // Get one IOS
+     * const iOS = await prisma.iOS.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends OMPFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, OMPFindUniqueArgs<ExtArgs>>
-    ): Prisma__OMPClient<$Result.GetResult<Prisma.$OMPPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends IOSFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, IOSFindUniqueArgs<ExtArgs>>
+    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one OMP that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one IOS that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {OMPFindUniqueOrThrowArgs} args - Arguments to find a OMP
+     * @param {IOSFindUniqueOrThrowArgs} args - Arguments to find a IOS
      * @example
-     * // Get one OMP
-     * const oMP = await prisma.oMP.findUniqueOrThrow({
+     * // Get one IOS
+     * const iOS = await prisma.iOS.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends OMPFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, OMPFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__OMPClient<$Result.GetResult<Prisma.$OMPPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends IOSFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, IOSFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first OMP that matches the filter.
+     * Find the first IOS that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OMPFindFirstArgs} args - Arguments to find a OMP
+     * @param {IOSFindFirstArgs} args - Arguments to find a IOS
      * @example
-     * // Get one OMP
-     * const oMP = await prisma.oMP.findFirst({
+     * // Get one IOS
+     * const iOS = await prisma.iOS.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends OMPFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, OMPFindFirstArgs<ExtArgs>>
-    ): Prisma__OMPClient<$Result.GetResult<Prisma.$OMPPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends IOSFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, IOSFindFirstArgs<ExtArgs>>
+    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first OMP that matches the filter or
+     * Find the first IOS that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OMPFindFirstOrThrowArgs} args - Arguments to find a OMP
+     * @param {IOSFindFirstOrThrowArgs} args - Arguments to find a IOS
      * @example
-     * // Get one OMP
-     * const oMP = await prisma.oMP.findFirstOrThrow({
+     * // Get one IOS
+     * const iOS = await prisma.iOS.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends OMPFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, OMPFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__OMPClient<$Result.GetResult<Prisma.$OMPPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends IOSFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, IOSFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more OMPS that matches the filter.
+     * Find zero or more IOS that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OMPFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {IOSFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all OMPS
-     * const oMPS = await prisma.oMP.findMany()
+     * // Get all IOS
+     * const iOS = await prisma.iOS.findMany()
      * 
-     * // Get first 10 OMPS
-     * const oMPS = await prisma.oMP.findMany({ take: 10 })
+     * // Get first 10 IOS
+     * const iOS = await prisma.iOS.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const oMPWithIdOnly = await prisma.oMP.findMany({ select: { id: true } })
+     * const iOSWithIdOnly = await prisma.iOS.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends OMPFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, OMPFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OMPPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends IOSFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, IOSFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a OMP.
-     * @param {OMPCreateArgs} args - Arguments to create a OMP.
+     * Create a IOS.
+     * @param {IOSCreateArgs} args - Arguments to create a IOS.
      * @example
-     * // Create one OMP
-     * const OMP = await prisma.oMP.create({
+     * // Create one IOS
+     * const IOS = await prisma.iOS.create({
      *   data: {
-     *     // ... data to create a OMP
+     *     // ... data to create a IOS
      *   }
      * })
      * 
     **/
-    create<T extends OMPCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, OMPCreateArgs<ExtArgs>>
-    ): Prisma__OMPClient<$Result.GetResult<Prisma.$OMPPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends IOSCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, IOSCreateArgs<ExtArgs>>
+    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many OMPS.
-     *     @param {OMPCreateManyArgs} args - Arguments to create many OMPS.
+     * Create many IOS.
+     *     @param {IOSCreateManyArgs} args - Arguments to create many IOS.
      *     @example
-     *     // Create many OMPS
-     *     const oMP = await prisma.oMP.createMany({
+     *     // Create many IOS
+     *     const iOS = await prisma.iOS.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends OMPCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, OMPCreateManyArgs<ExtArgs>>
+    createMany<T extends IOSCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, IOSCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a OMP.
-     * @param {OMPDeleteArgs} args - Arguments to delete one OMP.
+     * Delete a IOS.
+     * @param {IOSDeleteArgs} args - Arguments to delete one IOS.
      * @example
-     * // Delete one OMP
-     * const OMP = await prisma.oMP.delete({
+     * // Delete one IOS
+     * const IOS = await prisma.iOS.delete({
      *   where: {
-     *     // ... filter to delete one OMP
+     *     // ... filter to delete one IOS
      *   }
      * })
      * 
     **/
-    delete<T extends OMPDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, OMPDeleteArgs<ExtArgs>>
-    ): Prisma__OMPClient<$Result.GetResult<Prisma.$OMPPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends IOSDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, IOSDeleteArgs<ExtArgs>>
+    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one OMP.
-     * @param {OMPUpdateArgs} args - Arguments to update one OMP.
+     * Update one IOS.
+     * @param {IOSUpdateArgs} args - Arguments to update one IOS.
      * @example
-     * // Update one OMP
-     * const oMP = await prisma.oMP.update({
+     * // Update one IOS
+     * const iOS = await prisma.iOS.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2305,34 +2315,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends OMPUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, OMPUpdateArgs<ExtArgs>>
-    ): Prisma__OMPClient<$Result.GetResult<Prisma.$OMPPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends IOSUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, IOSUpdateArgs<ExtArgs>>
+    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more OMPS.
-     * @param {OMPDeleteManyArgs} args - Arguments to filter OMPS to delete.
+     * Delete zero or more IOS.
+     * @param {IOSDeleteManyArgs} args - Arguments to filter IOS to delete.
      * @example
-     * // Delete a few OMPS
-     * const { count } = await prisma.oMP.deleteMany({
+     * // Delete a few IOS
+     * const { count } = await prisma.iOS.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends OMPDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, OMPDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends IOSDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, IOSDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more OMPS.
+     * Update zero or more IOS.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OMPUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {IOSUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many OMPS
-     * const oMP = await prisma.oMP.updateMany({
+     * // Update many IOS
+     * const iOS = await prisma.iOS.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2342,59 +2352,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends OMPUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, OMPUpdateManyArgs<ExtArgs>>
+    updateMany<T extends IOSUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, IOSUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one OMP.
-     * @param {OMPUpsertArgs} args - Arguments to update or create a OMP.
+     * Create or update one IOS.
+     * @param {IOSUpsertArgs} args - Arguments to update or create a IOS.
      * @example
-     * // Update or create a OMP
-     * const oMP = await prisma.oMP.upsert({
+     * // Update or create a IOS
+     * const iOS = await prisma.iOS.upsert({
      *   create: {
-     *     // ... data to create a OMP
+     *     // ... data to create a IOS
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the OMP we want to update
+     *     // ... the filter for the IOS we want to update
      *   }
      * })
     **/
-    upsert<T extends OMPUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, OMPUpsertArgs<ExtArgs>>
-    ): Prisma__OMPClient<$Result.GetResult<Prisma.$OMPPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends IOSUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, IOSUpsertArgs<ExtArgs>>
+    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of OMPS.
+     * Count the number of IOS.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OMPCountArgs} args - Arguments to filter OMPS to count.
+     * @param {IOSCountArgs} args - Arguments to filter IOS to count.
      * @example
-     * // Count the number of OMPS
-     * const count = await prisma.oMP.count({
+     * // Count the number of IOS
+     * const count = await prisma.iOS.count({
      *   where: {
-     *     // ... the filter for the OMPS we want to count
+     *     // ... the filter for the IOS we want to count
      *   }
      * })
     **/
-    count<T extends OMPCountArgs>(
-      args?: Subset<T, OMPCountArgs>,
+    count<T extends IOSCountArgs>(
+      args?: Subset<T, IOSCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], OMPCountAggregateOutputType>
+          : GetScalarType<T['select'], IOSCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a OMP.
+     * Allows you to perform aggregations operations on a IOS.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OMPAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {IOSAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2414,13 +2424,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends OMPAggregateArgs>(args: Subset<T, OMPAggregateArgs>): Prisma.PrismaPromise<GetOMPAggregateType<T>>
+    aggregate<T extends IOSAggregateArgs>(args: Subset<T, IOSAggregateArgs>): Prisma.PrismaPromise<GetIOSAggregateType<T>>
 
     /**
-     * Group by OMP.
+     * Group by IOS.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OMPGroupByArgs} args - Group by arguments.
+     * @param {IOSGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2435,14 +2445,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends OMPGroupByArgs,
+      T extends IOSGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: OMPGroupByArgs['orderBy'] }
-        : { orderBy?: OMPGroupByArgs['orderBy'] },
+        ? { orderBy: IOSGroupByArgs['orderBy'] }
+        : { orderBy?: IOSGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2491,20 +2501,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, OMPGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOMPGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, IOSGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetIOSGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the OMP model
+   * Fields of the IOS model
    */
-  readonly fields: OMPFieldRefs;
+  readonly fields: IOSFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for OMP.
+   * The delegate class that acts as a "Promise-like" for IOS.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__OMPClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__IOSClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
@@ -2534,336 +2544,337 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the OMP model
+   * Fields of the IOS model
    */ 
-  interface OMPFieldRefs {
-    readonly id: FieldRef<"OMP", 'String'>
-    readonly createAt: FieldRef<"OMP", 'DateTime'>
-    readonly updateAt: FieldRef<"OMP", 'DateTime'>
-    readonly userId: FieldRef<"OMP", 'String'>
+  interface IOSFieldRefs {
+    readonly id: FieldRef<"IOS", 'String'>
+    readonly createAt: FieldRef<"IOS", 'DateTime'>
+    readonly updateAt: FieldRef<"IOS", 'DateTime'>
+    readonly dateOfTheInspectionOfTheScene: FieldRef<"IOS", 'DateTime'>
+    readonly userId: FieldRef<"IOS", 'String'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * OMP findUnique
+   * IOS findUnique
    */
-  export type OMPFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OMP
+     * Select specific fields to fetch from the IOS
      */
-    select?: OMPSelect<ExtArgs> | null
+    select?: IOSSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: OMPInclude<ExtArgs> | null
+    include?: IOSInclude<ExtArgs> | null
     /**
-     * Filter, which OMP to fetch.
+     * Filter, which IOS to fetch.
      */
-    where: OMPWhereUniqueInput
+    where: IOSWhereUniqueInput
   }
 
 
   /**
-   * OMP findUniqueOrThrow
+   * IOS findUniqueOrThrow
    */
-  export type OMPFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OMP
+     * Select specific fields to fetch from the IOS
      */
-    select?: OMPSelect<ExtArgs> | null
+    select?: IOSSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: OMPInclude<ExtArgs> | null
+    include?: IOSInclude<ExtArgs> | null
     /**
-     * Filter, which OMP to fetch.
+     * Filter, which IOS to fetch.
      */
-    where: OMPWhereUniqueInput
+    where: IOSWhereUniqueInput
   }
 
 
   /**
-   * OMP findFirst
+   * IOS findFirst
    */
-  export type OMPFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OMP
+     * Select specific fields to fetch from the IOS
      */
-    select?: OMPSelect<ExtArgs> | null
+    select?: IOSSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: OMPInclude<ExtArgs> | null
+    include?: IOSInclude<ExtArgs> | null
     /**
-     * Filter, which OMP to fetch.
+     * Filter, which IOS to fetch.
      */
-    where?: OMPWhereInput
+    where?: IOSWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OMPS to fetch.
+     * Determine the order of IOS to fetch.
      */
-    orderBy?: OMPOrderByWithRelationInput | OMPOrderByWithRelationInput[]
+    orderBy?: IOSOrderByWithRelationInput | IOSOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for OMPS.
+     * Sets the position for searching for IOS.
      */
-    cursor?: OMPWhereUniqueInput
+    cursor?: IOSWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` OMPS from the position of the cursor.
+     * Take `±n` IOS from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` OMPS.
+     * Skip the first `n` IOS.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of OMPS.
+     * Filter by unique combinations of IOS.
      */
-    distinct?: OMPScalarFieldEnum | OMPScalarFieldEnum[]
+    distinct?: IOSScalarFieldEnum | IOSScalarFieldEnum[]
   }
 
 
   /**
-   * OMP findFirstOrThrow
+   * IOS findFirstOrThrow
    */
-  export type OMPFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OMP
+     * Select specific fields to fetch from the IOS
      */
-    select?: OMPSelect<ExtArgs> | null
+    select?: IOSSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: OMPInclude<ExtArgs> | null
+    include?: IOSInclude<ExtArgs> | null
     /**
-     * Filter, which OMP to fetch.
+     * Filter, which IOS to fetch.
      */
-    where?: OMPWhereInput
+    where?: IOSWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OMPS to fetch.
+     * Determine the order of IOS to fetch.
      */
-    orderBy?: OMPOrderByWithRelationInput | OMPOrderByWithRelationInput[]
+    orderBy?: IOSOrderByWithRelationInput | IOSOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for OMPS.
+     * Sets the position for searching for IOS.
      */
-    cursor?: OMPWhereUniqueInput
+    cursor?: IOSWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` OMPS from the position of the cursor.
+     * Take `±n` IOS from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` OMPS.
+     * Skip the first `n` IOS.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of OMPS.
+     * Filter by unique combinations of IOS.
      */
-    distinct?: OMPScalarFieldEnum | OMPScalarFieldEnum[]
+    distinct?: IOSScalarFieldEnum | IOSScalarFieldEnum[]
   }
 
 
   /**
-   * OMP findMany
+   * IOS findMany
    */
-  export type OMPFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OMP
+     * Select specific fields to fetch from the IOS
      */
-    select?: OMPSelect<ExtArgs> | null
+    select?: IOSSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: OMPInclude<ExtArgs> | null
+    include?: IOSInclude<ExtArgs> | null
     /**
-     * Filter, which OMPS to fetch.
+     * Filter, which IOS to fetch.
      */
-    where?: OMPWhereInput
+    where?: IOSWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OMPS to fetch.
+     * Determine the order of IOS to fetch.
      */
-    orderBy?: OMPOrderByWithRelationInput | OMPOrderByWithRelationInput[]
+    orderBy?: IOSOrderByWithRelationInput | IOSOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing OMPS.
+     * Sets the position for listing IOS.
      */
-    cursor?: OMPWhereUniqueInput
+    cursor?: IOSWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` OMPS from the position of the cursor.
+     * Take `±n` IOS from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` OMPS.
+     * Skip the first `n` IOS.
      */
     skip?: number
-    distinct?: OMPScalarFieldEnum | OMPScalarFieldEnum[]
+    distinct?: IOSScalarFieldEnum | IOSScalarFieldEnum[]
   }
 
 
   /**
-   * OMP create
+   * IOS create
    */
-  export type OMPCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OMP
+     * Select specific fields to fetch from the IOS
      */
-    select?: OMPSelect<ExtArgs> | null
+    select?: IOSSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: OMPInclude<ExtArgs> | null
+    include?: IOSInclude<ExtArgs> | null
     /**
-     * The data needed to create a OMP.
+     * The data needed to create a IOS.
      */
-    data: XOR<OMPCreateInput, OMPUncheckedCreateInput>
+    data: XOR<IOSCreateInput, IOSUncheckedCreateInput>
   }
 
 
   /**
-   * OMP createMany
+   * IOS createMany
    */
-  export type OMPCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many OMPS.
+     * The data used to create many IOS.
      */
-    data: OMPCreateManyInput | OMPCreateManyInput[]
+    data: IOSCreateManyInput | IOSCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * OMP update
+   * IOS update
    */
-  export type OMPUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OMP
+     * Select specific fields to fetch from the IOS
      */
-    select?: OMPSelect<ExtArgs> | null
+    select?: IOSSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: OMPInclude<ExtArgs> | null
+    include?: IOSInclude<ExtArgs> | null
     /**
-     * The data needed to update a OMP.
+     * The data needed to update a IOS.
      */
-    data: XOR<OMPUpdateInput, OMPUncheckedUpdateInput>
+    data: XOR<IOSUpdateInput, IOSUncheckedUpdateInput>
     /**
-     * Choose, which OMP to update.
+     * Choose, which IOS to update.
      */
-    where: OMPWhereUniqueInput
+    where: IOSWhereUniqueInput
   }
 
 
   /**
-   * OMP updateMany
+   * IOS updateMany
    */
-  export type OMPUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update OMPS.
+     * The data used to update IOS.
      */
-    data: XOR<OMPUpdateManyMutationInput, OMPUncheckedUpdateManyInput>
+    data: XOR<IOSUpdateManyMutationInput, IOSUncheckedUpdateManyInput>
     /**
-     * Filter which OMPS to update
+     * Filter which IOS to update
      */
-    where?: OMPWhereInput
+    where?: IOSWhereInput
   }
 
 
   /**
-   * OMP upsert
+   * IOS upsert
    */
-  export type OMPUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OMP
+     * Select specific fields to fetch from the IOS
      */
-    select?: OMPSelect<ExtArgs> | null
+    select?: IOSSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: OMPInclude<ExtArgs> | null
+    include?: IOSInclude<ExtArgs> | null
     /**
-     * The filter to search for the OMP to update in case it exists.
+     * The filter to search for the IOS to update in case it exists.
      */
-    where: OMPWhereUniqueInput
+    where: IOSWhereUniqueInput
     /**
-     * In case the OMP found by the `where` argument doesn't exist, create a new OMP with this data.
+     * In case the IOS found by the `where` argument doesn't exist, create a new IOS with this data.
      */
-    create: XOR<OMPCreateInput, OMPUncheckedCreateInput>
+    create: XOR<IOSCreateInput, IOSUncheckedCreateInput>
     /**
-     * In case the OMP was found with the provided `where` argument, update it with this data.
+     * In case the IOS was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<OMPUpdateInput, OMPUncheckedUpdateInput>
+    update: XOR<IOSUpdateInput, IOSUncheckedUpdateInput>
   }
 
 
   /**
-   * OMP delete
+   * IOS delete
    */
-  export type OMPDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OMP
+     * Select specific fields to fetch from the IOS
      */
-    select?: OMPSelect<ExtArgs> | null
+    select?: IOSSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: OMPInclude<ExtArgs> | null
+    include?: IOSInclude<ExtArgs> | null
     /**
-     * Filter which OMP to delete.
+     * Filter which IOS to delete.
      */
-    where: OMPWhereUniqueInput
+    where: IOSWhereUniqueInput
   }
 
 
   /**
-   * OMP deleteMany
+   * IOS deleteMany
    */
-  export type OMPDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which OMPS to delete
+     * Filter which IOS to delete
      */
-    where?: OMPWhereInput
+    where?: IOSWhereInput
   }
 
 
   /**
-   * OMP without action
+   * IOS without action
    */
-  export type OMPDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IOSDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OMP
+     * Select specific fields to fetch from the IOS
      */
-    select?: OMPSelect<ExtArgs> | null
+    select?: IOSSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: OMPInclude<ExtArgs> | null
+    include?: IOSInclude<ExtArgs> | null
   }
 
 
@@ -2895,14 +2906,15 @@ export namespace Prisma {
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const OMPScalarFieldEnum: {
+  export const IOSScalarFieldEnum: {
     id: 'id',
     createAt: 'createAt',
     updateAt: 'updateAt',
+    dateOfTheInspectionOfTheScene: 'dateOfTheInspectionOfTheScene',
     userId: 'userId'
   };
 
-  export type OMPScalarFieldEnum = (typeof OMPScalarFieldEnum)[keyof typeof OMPScalarFieldEnum]
+  export type IOSScalarFieldEnum = (typeof IOSScalarFieldEnum)[keyof typeof IOSScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3004,7 +3016,7 @@ export namespace Prisma {
     name?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
-    omps?: OMPListRelationFilter
+    ioss?: IOSListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -3015,7 +3027,7 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     password?: SortOrder
     role?: SortOrder
-    omps?: OMPOrderByRelationAggregateInput
+    ioss?: IOSOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -3029,7 +3041,7 @@ export namespace Prisma {
     name?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
-    omps?: OMPListRelationFilter
+    ioss?: IOSListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -3058,54 +3070,59 @@ export namespace Prisma {
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
   }
 
-  export type OMPWhereInput = {
-    AND?: OMPWhereInput | OMPWhereInput[]
-    OR?: OMPWhereInput[]
-    NOT?: OMPWhereInput | OMPWhereInput[]
-    id?: StringFilter<"OMP"> | string
-    createAt?: DateTimeFilter<"OMP"> | Date | string
-    updateAt?: DateTimeFilter<"OMP"> | Date | string
-    userId?: StringFilter<"OMP"> | string
+  export type IOSWhereInput = {
+    AND?: IOSWhereInput | IOSWhereInput[]
+    OR?: IOSWhereInput[]
+    NOT?: IOSWhereInput | IOSWhereInput[]
+    id?: StringFilter<"IOS"> | string
+    createAt?: DateTimeFilter<"IOS"> | Date | string
+    updateAt?: DateTimeFilter<"IOS"> | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeFilter<"IOS"> | Date | string
+    userId?: StringFilter<"IOS"> | string
     user?: XOR<UserRelationFilter, UserWhereInput>
   }
 
-  export type OMPOrderByWithRelationInput = {
+  export type IOSOrderByWithRelationInput = {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
+    dateOfTheInspectionOfTheScene?: SortOrder
     userId?: SortOrder
     user?: UserOrderByWithRelationInput
   }
 
-  export type OMPWhereUniqueInput = Prisma.AtLeast<{
+  export type IOSWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: OMPWhereInput | OMPWhereInput[]
-    OR?: OMPWhereInput[]
-    NOT?: OMPWhereInput | OMPWhereInput[]
-    createAt?: DateTimeFilter<"OMP"> | Date | string
-    updateAt?: DateTimeFilter<"OMP"> | Date | string
-    userId?: StringFilter<"OMP"> | string
+    AND?: IOSWhereInput | IOSWhereInput[]
+    OR?: IOSWhereInput[]
+    NOT?: IOSWhereInput | IOSWhereInput[]
+    createAt?: DateTimeFilter<"IOS"> | Date | string
+    updateAt?: DateTimeFilter<"IOS"> | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeFilter<"IOS"> | Date | string
+    userId?: StringFilter<"IOS"> | string
     user?: XOR<UserRelationFilter, UserWhereInput>
   }, "id">
 
-  export type OMPOrderByWithAggregationInput = {
+  export type IOSOrderByWithAggregationInput = {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
+    dateOfTheInspectionOfTheScene?: SortOrder
     userId?: SortOrder
-    _count?: OMPCountOrderByAggregateInput
-    _max?: OMPMaxOrderByAggregateInput
-    _min?: OMPMinOrderByAggregateInput
+    _count?: IOSCountOrderByAggregateInput
+    _max?: IOSMaxOrderByAggregateInput
+    _min?: IOSMinOrderByAggregateInput
   }
 
-  export type OMPScalarWhereWithAggregatesInput = {
-    AND?: OMPScalarWhereWithAggregatesInput | OMPScalarWhereWithAggregatesInput[]
-    OR?: OMPScalarWhereWithAggregatesInput[]
-    NOT?: OMPScalarWhereWithAggregatesInput | OMPScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"OMP"> | string
-    createAt?: DateTimeWithAggregatesFilter<"OMP"> | Date | string
-    updateAt?: DateTimeWithAggregatesFilter<"OMP"> | Date | string
-    userId?: StringWithAggregatesFilter<"OMP"> | string
+  export type IOSScalarWhereWithAggregatesInput = {
+    AND?: IOSScalarWhereWithAggregatesInput | IOSScalarWhereWithAggregatesInput[]
+    OR?: IOSScalarWhereWithAggregatesInput[]
+    NOT?: IOSScalarWhereWithAggregatesInput | IOSScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"IOS"> | string
+    createAt?: DateTimeWithAggregatesFilter<"IOS"> | Date | string
+    updateAt?: DateTimeWithAggregatesFilter<"IOS"> | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeWithAggregatesFilter<"IOS"> | Date | string
+    userId?: StringWithAggregatesFilter<"IOS"> | string
   }
 
   export type UserCreateInput = {
@@ -3116,7 +3133,7 @@ export namespace Prisma {
     name?: string | null
     password: string
     role?: $Enums.Role
-    omps?: OMPCreateNestedManyWithoutUserInput
+    ioss?: IOSCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -3127,7 +3144,7 @@ export namespace Prisma {
     name?: string | null
     password: string
     role?: $Enums.Role
-    omps?: OMPUncheckedCreateNestedManyWithoutUserInput
+    ioss?: IOSUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -3138,7 +3155,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    omps?: OMPUpdateManyWithoutUserNestedInput
+    ioss?: IOSUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -3149,7 +3166,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    omps?: OMPUncheckedUpdateManyWithoutUserNestedInput
+    ioss?: IOSUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -3182,51 +3199,58 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
-  export type OMPCreateInput = {
+  export type IOSCreateInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
-    user: UserCreateNestedOneWithoutOmpsInput
+    dateOfTheInspectionOfTheScene: Date | string
+    user: UserCreateNestedOneWithoutIossInput
   }
 
-  export type OMPUncheckedCreateInput = {
+  export type IOSUncheckedCreateInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
+    dateOfTheInspectionOfTheScene: Date | string
     userId: string
   }
 
-  export type OMPUpdateInput = {
+  export type IOSUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutOmpsNestedInput
+    dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutIossNestedInput
   }
 
-  export type OMPUncheckedUpdateInput = {
+  export type IOSUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type OMPCreateManyInput = {
+  export type IOSCreateManyInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
+    dateOfTheInspectionOfTheScene: Date | string
     userId: string
   }
 
-  export type OMPUpdateManyMutationInput = {
+  export type IOSUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type OMPUncheckedUpdateManyInput = {
+  export type IOSUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -3278,10 +3302,10 @@ export namespace Prisma {
     not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
-  export type OMPListRelationFilter = {
-    every?: OMPWhereInput
-    some?: OMPWhereInput
-    none?: OMPWhereInput
+  export type IOSListRelationFilter = {
+    every?: IOSWhereInput
+    some?: IOSWhereInput
+    none?: IOSWhereInput
   }
 
   export type SortOrderInput = {
@@ -3289,7 +3313,7 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type OMPOrderByRelationAggregateInput = {
+  export type IOSOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -3388,39 +3412,42 @@ export namespace Prisma {
     isNot?: UserWhereInput
   }
 
-  export type OMPCountOrderByAggregateInput = {
+  export type IOSCountOrderByAggregateInput = {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
+    dateOfTheInspectionOfTheScene?: SortOrder
     userId?: SortOrder
   }
 
-  export type OMPMaxOrderByAggregateInput = {
+  export type IOSMaxOrderByAggregateInput = {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
+    dateOfTheInspectionOfTheScene?: SortOrder
     userId?: SortOrder
   }
 
-  export type OMPMinOrderByAggregateInput = {
+  export type IOSMinOrderByAggregateInput = {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
+    dateOfTheInspectionOfTheScene?: SortOrder
     userId?: SortOrder
   }
 
-  export type OMPCreateNestedManyWithoutUserInput = {
-    create?: XOR<OMPCreateWithoutUserInput, OMPUncheckedCreateWithoutUserInput> | OMPCreateWithoutUserInput[] | OMPUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: OMPCreateOrConnectWithoutUserInput | OMPCreateOrConnectWithoutUserInput[]
-    createMany?: OMPCreateManyUserInputEnvelope
-    connect?: OMPWhereUniqueInput | OMPWhereUniqueInput[]
+  export type IOSCreateNestedManyWithoutUserInput = {
+    create?: XOR<IOSCreateWithoutUserInput, IOSUncheckedCreateWithoutUserInput> | IOSCreateWithoutUserInput[] | IOSUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: IOSCreateOrConnectWithoutUserInput | IOSCreateOrConnectWithoutUserInput[]
+    createMany?: IOSCreateManyUserInputEnvelope
+    connect?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
   }
 
-  export type OMPUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<OMPCreateWithoutUserInput, OMPUncheckedCreateWithoutUserInput> | OMPCreateWithoutUserInput[] | OMPUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: OMPCreateOrConnectWithoutUserInput | OMPCreateOrConnectWithoutUserInput[]
-    createMany?: OMPCreateManyUserInputEnvelope
-    connect?: OMPWhereUniqueInput | OMPWhereUniqueInput[]
+  export type IOSUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<IOSCreateWithoutUserInput, IOSUncheckedCreateWithoutUserInput> | IOSCreateWithoutUserInput[] | IOSUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: IOSCreateOrConnectWithoutUserInput | IOSCreateOrConnectWithoutUserInput[]
+    createMany?: IOSCreateManyUserInputEnvelope
+    connect?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3439,46 +3466,46 @@ export namespace Prisma {
     set?: $Enums.Role
   }
 
-  export type OMPUpdateManyWithoutUserNestedInput = {
-    create?: XOR<OMPCreateWithoutUserInput, OMPUncheckedCreateWithoutUserInput> | OMPCreateWithoutUserInput[] | OMPUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: OMPCreateOrConnectWithoutUserInput | OMPCreateOrConnectWithoutUserInput[]
-    upsert?: OMPUpsertWithWhereUniqueWithoutUserInput | OMPUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: OMPCreateManyUserInputEnvelope
-    set?: OMPWhereUniqueInput | OMPWhereUniqueInput[]
-    disconnect?: OMPWhereUniqueInput | OMPWhereUniqueInput[]
-    delete?: OMPWhereUniqueInput | OMPWhereUniqueInput[]
-    connect?: OMPWhereUniqueInput | OMPWhereUniqueInput[]
-    update?: OMPUpdateWithWhereUniqueWithoutUserInput | OMPUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: OMPUpdateManyWithWhereWithoutUserInput | OMPUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: OMPScalarWhereInput | OMPScalarWhereInput[]
+  export type IOSUpdateManyWithoutUserNestedInput = {
+    create?: XOR<IOSCreateWithoutUserInput, IOSUncheckedCreateWithoutUserInput> | IOSCreateWithoutUserInput[] | IOSUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: IOSCreateOrConnectWithoutUserInput | IOSCreateOrConnectWithoutUserInput[]
+    upsert?: IOSUpsertWithWhereUniqueWithoutUserInput | IOSUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: IOSCreateManyUserInputEnvelope
+    set?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
+    disconnect?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
+    delete?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
+    connect?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
+    update?: IOSUpdateWithWhereUniqueWithoutUserInput | IOSUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: IOSUpdateManyWithWhereWithoutUserInput | IOSUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: IOSScalarWhereInput | IOSScalarWhereInput[]
   }
 
-  export type OMPUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<OMPCreateWithoutUserInput, OMPUncheckedCreateWithoutUserInput> | OMPCreateWithoutUserInput[] | OMPUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: OMPCreateOrConnectWithoutUserInput | OMPCreateOrConnectWithoutUserInput[]
-    upsert?: OMPUpsertWithWhereUniqueWithoutUserInput | OMPUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: OMPCreateManyUserInputEnvelope
-    set?: OMPWhereUniqueInput | OMPWhereUniqueInput[]
-    disconnect?: OMPWhereUniqueInput | OMPWhereUniqueInput[]
-    delete?: OMPWhereUniqueInput | OMPWhereUniqueInput[]
-    connect?: OMPWhereUniqueInput | OMPWhereUniqueInput[]
-    update?: OMPUpdateWithWhereUniqueWithoutUserInput | OMPUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: OMPUpdateManyWithWhereWithoutUserInput | OMPUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: OMPScalarWhereInput | OMPScalarWhereInput[]
+  export type IOSUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<IOSCreateWithoutUserInput, IOSUncheckedCreateWithoutUserInput> | IOSCreateWithoutUserInput[] | IOSUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: IOSCreateOrConnectWithoutUserInput | IOSCreateOrConnectWithoutUserInput[]
+    upsert?: IOSUpsertWithWhereUniqueWithoutUserInput | IOSUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: IOSCreateManyUserInputEnvelope
+    set?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
+    disconnect?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
+    delete?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
+    connect?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
+    update?: IOSUpdateWithWhereUniqueWithoutUserInput | IOSUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: IOSUpdateManyWithWhereWithoutUserInput | IOSUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: IOSScalarWhereInput | IOSScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutOmpsInput = {
-    create?: XOR<UserCreateWithoutOmpsInput, UserUncheckedCreateWithoutOmpsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutOmpsInput
+  export type UserCreateNestedOneWithoutIossInput = {
+    create?: XOR<UserCreateWithoutIossInput, UserUncheckedCreateWithoutIossInput>
+    connectOrCreate?: UserCreateOrConnectWithoutIossInput
     connect?: UserWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutOmpsNestedInput = {
-    create?: XOR<UserCreateWithoutOmpsInput, UserUncheckedCreateWithoutOmpsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutOmpsInput
-    upsert?: UserUpsertWithoutOmpsInput
+  export type UserUpdateOneRequiredWithoutIossNestedInput = {
+    create?: XOR<UserCreateWithoutIossInput, UserUncheckedCreateWithoutIossInput>
+    connectOrCreate?: UserCreateOrConnectWithoutIossInput
+    upsert?: UserUpsertWithoutIossInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutOmpsInput, UserUpdateWithoutOmpsInput>, UserUncheckedUpdateWithoutOmpsInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutIossInput, UserUpdateWithoutIossInput>, UserUncheckedUpdateWithoutIossInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -3607,55 +3634,58 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
-  export type OMPCreateWithoutUserInput = {
+  export type IOSCreateWithoutUserInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
+    dateOfTheInspectionOfTheScene: Date | string
   }
 
-  export type OMPUncheckedCreateWithoutUserInput = {
+  export type IOSUncheckedCreateWithoutUserInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
+    dateOfTheInspectionOfTheScene: Date | string
   }
 
-  export type OMPCreateOrConnectWithoutUserInput = {
-    where: OMPWhereUniqueInput
-    create: XOR<OMPCreateWithoutUserInput, OMPUncheckedCreateWithoutUserInput>
+  export type IOSCreateOrConnectWithoutUserInput = {
+    where: IOSWhereUniqueInput
+    create: XOR<IOSCreateWithoutUserInput, IOSUncheckedCreateWithoutUserInput>
   }
 
-  export type OMPCreateManyUserInputEnvelope = {
-    data: OMPCreateManyUserInput | OMPCreateManyUserInput[]
+  export type IOSCreateManyUserInputEnvelope = {
+    data: IOSCreateManyUserInput | IOSCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
-  export type OMPUpsertWithWhereUniqueWithoutUserInput = {
-    where: OMPWhereUniqueInput
-    update: XOR<OMPUpdateWithoutUserInput, OMPUncheckedUpdateWithoutUserInput>
-    create: XOR<OMPCreateWithoutUserInput, OMPUncheckedCreateWithoutUserInput>
+  export type IOSUpsertWithWhereUniqueWithoutUserInput = {
+    where: IOSWhereUniqueInput
+    update: XOR<IOSUpdateWithoutUserInput, IOSUncheckedUpdateWithoutUserInput>
+    create: XOR<IOSCreateWithoutUserInput, IOSUncheckedCreateWithoutUserInput>
   }
 
-  export type OMPUpdateWithWhereUniqueWithoutUserInput = {
-    where: OMPWhereUniqueInput
-    data: XOR<OMPUpdateWithoutUserInput, OMPUncheckedUpdateWithoutUserInput>
+  export type IOSUpdateWithWhereUniqueWithoutUserInput = {
+    where: IOSWhereUniqueInput
+    data: XOR<IOSUpdateWithoutUserInput, IOSUncheckedUpdateWithoutUserInput>
   }
 
-  export type OMPUpdateManyWithWhereWithoutUserInput = {
-    where: OMPScalarWhereInput
-    data: XOR<OMPUpdateManyMutationInput, OMPUncheckedUpdateManyWithoutUserInput>
+  export type IOSUpdateManyWithWhereWithoutUserInput = {
+    where: IOSScalarWhereInput
+    data: XOR<IOSUpdateManyMutationInput, IOSUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type OMPScalarWhereInput = {
-    AND?: OMPScalarWhereInput | OMPScalarWhereInput[]
-    OR?: OMPScalarWhereInput[]
-    NOT?: OMPScalarWhereInput | OMPScalarWhereInput[]
-    id?: StringFilter<"OMP"> | string
-    createAt?: DateTimeFilter<"OMP"> | Date | string
-    updateAt?: DateTimeFilter<"OMP"> | Date | string
-    userId?: StringFilter<"OMP"> | string
+  export type IOSScalarWhereInput = {
+    AND?: IOSScalarWhereInput | IOSScalarWhereInput[]
+    OR?: IOSScalarWhereInput[]
+    NOT?: IOSScalarWhereInput | IOSScalarWhereInput[]
+    id?: StringFilter<"IOS"> | string
+    createAt?: DateTimeFilter<"IOS"> | Date | string
+    updateAt?: DateTimeFilter<"IOS"> | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeFilter<"IOS"> | Date | string
+    userId?: StringFilter<"IOS"> | string
   }
 
-  export type UserCreateWithoutOmpsInput = {
+  export type UserCreateWithoutIossInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
@@ -3665,7 +3695,7 @@ export namespace Prisma {
     role?: $Enums.Role
   }
 
-  export type UserUncheckedCreateWithoutOmpsInput = {
+  export type UserUncheckedCreateWithoutIossInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
@@ -3675,23 +3705,23 @@ export namespace Prisma {
     role?: $Enums.Role
   }
 
-  export type UserCreateOrConnectWithoutOmpsInput = {
+  export type UserCreateOrConnectWithoutIossInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutOmpsInput, UserUncheckedCreateWithoutOmpsInput>
+    create: XOR<UserCreateWithoutIossInput, UserUncheckedCreateWithoutIossInput>
   }
 
-  export type UserUpsertWithoutOmpsInput = {
-    update: XOR<UserUpdateWithoutOmpsInput, UserUncheckedUpdateWithoutOmpsInput>
-    create: XOR<UserCreateWithoutOmpsInput, UserUncheckedCreateWithoutOmpsInput>
+  export type UserUpsertWithoutIossInput = {
+    update: XOR<UserUpdateWithoutIossInput, UserUncheckedUpdateWithoutIossInput>
+    create: XOR<UserCreateWithoutIossInput, UserUncheckedCreateWithoutIossInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutOmpsInput = {
+  export type UserUpdateToOneWithWhereWithoutIossInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutOmpsInput, UserUncheckedUpdateWithoutOmpsInput>
+    data: XOR<UserUpdateWithoutIossInput, UserUncheckedUpdateWithoutIossInput>
   }
 
-  export type UserUpdateWithoutOmpsInput = {
+  export type UserUpdateWithoutIossInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3701,7 +3731,7 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
-  export type UserUncheckedUpdateWithoutOmpsInput = {
+  export type UserUncheckedUpdateWithoutIossInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3711,28 +3741,32 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
-  export type OMPCreateManyUserInput = {
+  export type IOSCreateManyUserInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
+    dateOfTheInspectionOfTheScene: Date | string
   }
 
-  export type OMPUpdateWithoutUserInput = {
+  export type IOSUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type OMPUncheckedUpdateWithoutUserInput = {
+  export type IOSUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type OMPUncheckedUpdateManyWithoutUserInput = {
+  export type IOSUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
@@ -3749,9 +3783,9 @@ export namespace Prisma {
      */
     export type UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use OMPDefaultArgs instead
+     * @deprecated Use IOSDefaultArgs instead
      */
-    export type OMPArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = OMPDefaultArgs<ExtArgs>
+    export type IOSArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = IOSDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

@@ -129,10 +129,11 @@ exports.Prisma.UserScalarFieldEnum = {
   role: 'role'
 };
 
-exports.Prisma.OMPScalarFieldEnum = {
+exports.Prisma.IOSScalarFieldEnum = {
   id: 'id',
   createAt: 'createAt',
   updateAt: 'updateAt',
+  dateOfTheInspectionOfTheScene: 'dateOfTheInspectionOfTheScene',
   userId: 'userId'
 };
 
@@ -157,7 +158,7 @@ exports.Role = exports.$Enums.Role = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  OMP: 'OMP'
+  IOS: 'IOS'
 };
 
 /**
