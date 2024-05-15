@@ -6,6 +6,6 @@ export class IOSService {
 	constructor(private prisma: PrismaService) { }
 	
 	async getAll(userId: string) {
-		// return this.prisma.ios
+		return this.prisma.iOS.findMany({where: userId})
 	}
 }
