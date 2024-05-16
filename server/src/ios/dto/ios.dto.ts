@@ -1,6 +1,6 @@
 import { IsOptional, IsString } from 'class-validator'
 
-export class IOSDto {
+export class InspectionOfSceneDto {
 	@IsString()
 	@IsOptional()
 	dateOfTheInspectionOfTheScene: string

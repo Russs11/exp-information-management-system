@@ -19,10 +19,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model IOS
+ * Model InspectionOfScene
  * 
  */
-export type IOS = $Result.DefaultSelection<Prisma.$IOSPayload>
+export type InspectionOfScene = $Result.DefaultSelection<Prisma.$InspectionOfScenePayload>
 
 /**
  * Enums
@@ -174,14 +174,14 @@ export class PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs>;
 
   /**
-   * `prisma.iOS`: Exposes CRUD operations for the **IOS** model.
+   * `prisma.inspectionOfScene`: Exposes CRUD operations for the **InspectionOfScene** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more IOS
-    * const iOS = await prisma.iOS.findMany()
+    * // Fetch zero or more InspectionOfScenes
+    * const inspectionOfScenes = await prisma.inspectionOfScene.findMany()
     * ```
     */
-  get iOS(): Prisma.IOSDelegate<ExtArgs>;
+  get inspectionOfScene(): Prisma.InspectionOfSceneDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -653,7 +653,7 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    IOS: 'IOS'
+    InspectionOfScene: 'InspectionOfScene'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -670,7 +670,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'user' | 'iOS'
+      modelProps: 'user' | 'inspectionOfScene'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -740,69 +740,69 @@ export namespace Prisma {
           }
         }
       }
-      IOS: {
-        payload: Prisma.$IOSPayload<ExtArgs>
-        fields: Prisma.IOSFieldRefs
+      InspectionOfScene: {
+        payload: Prisma.$InspectionOfScenePayload<ExtArgs>
+        fields: Prisma.InspectionOfSceneFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.IOSFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$IOSPayload> | null
+            args: Prisma.InspectionOfSceneFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InspectionOfScenePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.IOSFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$IOSPayload>
+            args: Prisma.InspectionOfSceneFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InspectionOfScenePayload>
           }
           findFirst: {
-            args: Prisma.IOSFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$IOSPayload> | null
+            args: Prisma.InspectionOfSceneFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InspectionOfScenePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.IOSFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$IOSPayload>
+            args: Prisma.InspectionOfSceneFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InspectionOfScenePayload>
           }
           findMany: {
-            args: Prisma.IOSFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$IOSPayload>[]
+            args: Prisma.InspectionOfSceneFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InspectionOfScenePayload>[]
           }
           create: {
-            args: Prisma.IOSCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$IOSPayload>
+            args: Prisma.InspectionOfSceneCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InspectionOfScenePayload>
           }
           createMany: {
-            args: Prisma.IOSCreateManyArgs<ExtArgs>,
+            args: Prisma.InspectionOfSceneCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.IOSDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$IOSPayload>
+            args: Prisma.InspectionOfSceneDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InspectionOfScenePayload>
           }
           update: {
-            args: Prisma.IOSUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$IOSPayload>
+            args: Prisma.InspectionOfSceneUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InspectionOfScenePayload>
           }
           deleteMany: {
-            args: Prisma.IOSDeleteManyArgs<ExtArgs>,
+            args: Prisma.InspectionOfSceneDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.IOSUpdateManyArgs<ExtArgs>,
+            args: Prisma.InspectionOfSceneUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.IOSUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$IOSPayload>
+            args: Prisma.InspectionOfSceneUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InspectionOfScenePayload>
           }
           aggregate: {
-            args: Prisma.IOSAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateIOS>
+            args: Prisma.InspectionOfSceneAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateInspectionOfScene>
           }
           groupBy: {
-            args: Prisma.IOSGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<IOSGroupByOutputType>[]
+            args: Prisma.InspectionOfSceneGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<InspectionOfSceneGroupByOutputType>[]
           }
           count: {
-            args: Prisma.IOSCountArgs<ExtArgs>,
-            result: $Utils.Optional<IOSCountAggregateOutputType> | number
+            args: Prisma.InspectionOfSceneCountArgs<ExtArgs>,
+            result: $Utils.Optional<InspectionOfSceneCountAggregateOutputType> | number
           }
         }
       }
@@ -989,7 +989,7 @@ export namespace Prisma {
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountIossArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: IOSWhereInput
+    where?: InspectionOfSceneWhereInput
   }
 
 
@@ -1201,7 +1201,7 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      ioss: Prisma.$IOSPayload<ExtArgs>[]
+      ioss: Prisma.$InspectionOfScenePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1576,7 +1576,7 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    ioss<T extends User$iossArgs<ExtArgs> = {}>(args?: Subset<T, User$iossArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'findMany'> | Null>;
+    ioss<T extends User$iossArgs<ExtArgs> = {}>(args?: Subset<T, User$iossArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1929,19 +1929,19 @@ export namespace Prisma {
    */
   export type User$iossArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IOS
+     * Select specific fields to fetch from the InspectionOfScene
      */
-    select?: IOSSelect<ExtArgs> | null
+    select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: IOSInclude<ExtArgs> | null
-    where?: IOSWhereInput
-    orderBy?: IOSOrderByWithRelationInput | IOSOrderByWithRelationInput[]
-    cursor?: IOSWhereUniqueInput
+    include?: InspectionOfSceneInclude<ExtArgs> | null
+    where?: InspectionOfSceneWhereInput
+    orderBy?: InspectionOfSceneOrderByWithRelationInput | InspectionOfSceneOrderByWithRelationInput[]
+    cursor?: InspectionOfSceneWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: IOSScalarFieldEnum | IOSScalarFieldEnum[]
+    distinct?: InspectionOfSceneScalarFieldEnum | InspectionOfSceneScalarFieldEnum[]
   }
 
 
@@ -1962,187 +1962,205 @@ export namespace Prisma {
 
 
   /**
-   * Model IOS
+   * Model InspectionOfScene
    */
 
-  export type AggregateIOS = {
-    _count: IOSCountAggregateOutputType | null
-    _min: IOSMinAggregateOutputType | null
-    _max: IOSMaxAggregateOutputType | null
+  export type AggregateInspectionOfScene = {
+    _count: InspectionOfSceneCountAggregateOutputType | null
+    _min: InspectionOfSceneMinAggregateOutputType | null
+    _max: InspectionOfSceneMaxAggregateOutputType | null
   }
 
-  export type IOSMinAggregateOutputType = {
+  export type InspectionOfSceneMinAggregateOutputType = {
     id: string | null
     createAt: Date | null
     updateAt: Date | null
     dateOfTheInspectionOfTheScene: Date | null
+    addressOfTheScene: string | null
+    reasonForInspectionOfTheScene: string | null
     userId: string | null
   }
 
-  export type IOSMaxAggregateOutputType = {
+  export type InspectionOfSceneMaxAggregateOutputType = {
     id: string | null
     createAt: Date | null
     updateAt: Date | null
     dateOfTheInspectionOfTheScene: Date | null
+    addressOfTheScene: string | null
+    reasonForInspectionOfTheScene: string | null
     userId: string | null
   }
 
-  export type IOSCountAggregateOutputType = {
+  export type InspectionOfSceneCountAggregateOutputType = {
     id: number
     createAt: number
     updateAt: number
     dateOfTheInspectionOfTheScene: number
+    addressOfTheScene: number
+    reasonForInspectionOfTheScene: number
     userId: number
     _all: number
   }
 
 
-  export type IOSMinAggregateInputType = {
+  export type InspectionOfSceneMinAggregateInputType = {
     id?: true
     createAt?: true
     updateAt?: true
     dateOfTheInspectionOfTheScene?: true
+    addressOfTheScene?: true
+    reasonForInspectionOfTheScene?: true
     userId?: true
   }
 
-  export type IOSMaxAggregateInputType = {
+  export type InspectionOfSceneMaxAggregateInputType = {
     id?: true
     createAt?: true
     updateAt?: true
     dateOfTheInspectionOfTheScene?: true
+    addressOfTheScene?: true
+    reasonForInspectionOfTheScene?: true
     userId?: true
   }
 
-  export type IOSCountAggregateInputType = {
+  export type InspectionOfSceneCountAggregateInputType = {
     id?: true
     createAt?: true
     updateAt?: true
     dateOfTheInspectionOfTheScene?: true
+    addressOfTheScene?: true
+    reasonForInspectionOfTheScene?: true
     userId?: true
     _all?: true
   }
 
-  export type IOSAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which IOS to aggregate.
+     * Filter which InspectionOfScene to aggregate.
      */
-    where?: IOSWhereInput
+    where?: InspectionOfSceneWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of IOS to fetch.
+     * Determine the order of InspectionOfScenes to fetch.
      */
-    orderBy?: IOSOrderByWithRelationInput | IOSOrderByWithRelationInput[]
+    orderBy?: InspectionOfSceneOrderByWithRelationInput | InspectionOfSceneOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: IOSWhereUniqueInput
+    cursor?: InspectionOfSceneWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` IOS from the position of the cursor.
+     * Take `±n` InspectionOfScenes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` IOS.
+     * Skip the first `n` InspectionOfScenes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned IOS
+     * Count returned InspectionOfScenes
     **/
-    _count?: true | IOSCountAggregateInputType
+    _count?: true | InspectionOfSceneCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: IOSMinAggregateInputType
+    _min?: InspectionOfSceneMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: IOSMaxAggregateInputType
+    _max?: InspectionOfSceneMaxAggregateInputType
   }
 
-  export type GetIOSAggregateType<T extends IOSAggregateArgs> = {
-        [P in keyof T & keyof AggregateIOS]: P extends '_count' | 'count'
+  export type GetInspectionOfSceneAggregateType<T extends InspectionOfSceneAggregateArgs> = {
+        [P in keyof T & keyof AggregateInspectionOfScene]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateIOS[P]>
-      : GetScalarType<T[P], AggregateIOS[P]>
+        : GetScalarType<T[P], AggregateInspectionOfScene[P]>
+      : GetScalarType<T[P], AggregateInspectionOfScene[P]>
   }
 
 
 
 
-  export type IOSGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: IOSWhereInput
-    orderBy?: IOSOrderByWithAggregationInput | IOSOrderByWithAggregationInput[]
-    by: IOSScalarFieldEnum[] | IOSScalarFieldEnum
-    having?: IOSScalarWhereWithAggregatesInput
+  export type InspectionOfSceneGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InspectionOfSceneWhereInput
+    orderBy?: InspectionOfSceneOrderByWithAggregationInput | InspectionOfSceneOrderByWithAggregationInput[]
+    by: InspectionOfSceneScalarFieldEnum[] | InspectionOfSceneScalarFieldEnum
+    having?: InspectionOfSceneScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: IOSCountAggregateInputType | true
-    _min?: IOSMinAggregateInputType
-    _max?: IOSMaxAggregateInputType
+    _count?: InspectionOfSceneCountAggregateInputType | true
+    _min?: InspectionOfSceneMinAggregateInputType
+    _max?: InspectionOfSceneMaxAggregateInputType
   }
 
-  export type IOSGroupByOutputType = {
+  export type InspectionOfSceneGroupByOutputType = {
     id: string
     createAt: Date
     updateAt: Date
     dateOfTheInspectionOfTheScene: Date
+    addressOfTheScene: string
+    reasonForInspectionOfTheScene: string
     userId: string
-    _count: IOSCountAggregateOutputType | null
-    _min: IOSMinAggregateOutputType | null
-    _max: IOSMaxAggregateOutputType | null
+    _count: InspectionOfSceneCountAggregateOutputType | null
+    _min: InspectionOfSceneMinAggregateOutputType | null
+    _max: InspectionOfSceneMaxAggregateOutputType | null
   }
 
-  type GetIOSGroupByPayload<T extends IOSGroupByArgs> = Prisma.PrismaPromise<
+  type GetInspectionOfSceneGroupByPayload<T extends InspectionOfSceneGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<IOSGroupByOutputType, T['by']> &
+      PickEnumerable<InspectionOfSceneGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof IOSGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof InspectionOfSceneGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], IOSGroupByOutputType[P]>
-            : GetScalarType<T[P], IOSGroupByOutputType[P]>
+              : GetScalarType<T[P], InspectionOfSceneGroupByOutputType[P]>
+            : GetScalarType<T[P], InspectionOfSceneGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type IOSSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type InspectionOfSceneSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     createAt?: boolean
     updateAt?: boolean
     dateOfTheInspectionOfTheScene?: boolean
+    addressOfTheScene?: boolean
+    reasonForInspectionOfTheScene?: boolean
     userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["iOS"]>
+  }, ExtArgs["result"]["inspectionOfScene"]>
 
-  export type IOSSelectScalar = {
+  export type InspectionOfSceneSelectScalar = {
     id?: boolean
     createAt?: boolean
     updateAt?: boolean
     dateOfTheInspectionOfTheScene?: boolean
+    addressOfTheScene?: boolean
+    reasonForInspectionOfTheScene?: boolean
     userId?: boolean
   }
 
-  export type IOSInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
 
-  export type $IOSPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "IOS"
+  export type $InspectionOfScenePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "InspectionOfScene"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
     }
@@ -2151,161 +2169,163 @@ export namespace Prisma {
       createAt: Date
       updateAt: Date
       dateOfTheInspectionOfTheScene: Date
+      addressOfTheScene: string
+      reasonForInspectionOfTheScene: string
       userId: string
-    }, ExtArgs["result"]["iOS"]>
+    }, ExtArgs["result"]["inspectionOfScene"]>
     composites: {}
   }
 
 
-  type IOSGetPayload<S extends boolean | null | undefined | IOSDefaultArgs> = $Result.GetResult<Prisma.$IOSPayload, S>
+  type InspectionOfSceneGetPayload<S extends boolean | null | undefined | InspectionOfSceneDefaultArgs> = $Result.GetResult<Prisma.$InspectionOfScenePayload, S>
 
-  type IOSCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<IOSFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: IOSCountAggregateInputType | true
+  type InspectionOfSceneCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<InspectionOfSceneFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: InspectionOfSceneCountAggregateInputType | true
     }
 
-  export interface IOSDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['IOS'], meta: { name: 'IOS' } }
+  export interface InspectionOfSceneDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['InspectionOfScene'], meta: { name: 'InspectionOfScene' } }
     /**
-     * Find zero or one IOS that matches the filter.
-     * @param {IOSFindUniqueArgs} args - Arguments to find a IOS
+     * Find zero or one InspectionOfScene that matches the filter.
+     * @param {InspectionOfSceneFindUniqueArgs} args - Arguments to find a InspectionOfScene
      * @example
-     * // Get one IOS
-     * const iOS = await prisma.iOS.findUnique({
+     * // Get one InspectionOfScene
+     * const inspectionOfScene = await prisma.inspectionOfScene.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends IOSFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, IOSFindUniqueArgs<ExtArgs>>
-    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends InspectionOfSceneFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, InspectionOfSceneFindUniqueArgs<ExtArgs>>
+    ): Prisma__InspectionOfSceneClient<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one IOS that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one InspectionOfScene that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {IOSFindUniqueOrThrowArgs} args - Arguments to find a IOS
+     * @param {InspectionOfSceneFindUniqueOrThrowArgs} args - Arguments to find a InspectionOfScene
      * @example
-     * // Get one IOS
-     * const iOS = await prisma.iOS.findUniqueOrThrow({
+     * // Get one InspectionOfScene
+     * const inspectionOfScene = await prisma.inspectionOfScene.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends IOSFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, IOSFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends InspectionOfSceneFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, InspectionOfSceneFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__InspectionOfSceneClient<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first IOS that matches the filter.
+     * Find the first InspectionOfScene that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IOSFindFirstArgs} args - Arguments to find a IOS
+     * @param {InspectionOfSceneFindFirstArgs} args - Arguments to find a InspectionOfScene
      * @example
-     * // Get one IOS
-     * const iOS = await prisma.iOS.findFirst({
+     * // Get one InspectionOfScene
+     * const inspectionOfScene = await prisma.inspectionOfScene.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends IOSFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, IOSFindFirstArgs<ExtArgs>>
-    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends InspectionOfSceneFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, InspectionOfSceneFindFirstArgs<ExtArgs>>
+    ): Prisma__InspectionOfSceneClient<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first IOS that matches the filter or
+     * Find the first InspectionOfScene that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IOSFindFirstOrThrowArgs} args - Arguments to find a IOS
+     * @param {InspectionOfSceneFindFirstOrThrowArgs} args - Arguments to find a InspectionOfScene
      * @example
-     * // Get one IOS
-     * const iOS = await prisma.iOS.findFirstOrThrow({
+     * // Get one InspectionOfScene
+     * const inspectionOfScene = await prisma.inspectionOfScene.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends IOSFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, IOSFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends InspectionOfSceneFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, InspectionOfSceneFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__InspectionOfSceneClient<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more IOS that matches the filter.
+     * Find zero or more InspectionOfScenes that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IOSFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {InspectionOfSceneFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all IOS
-     * const iOS = await prisma.iOS.findMany()
+     * // Get all InspectionOfScenes
+     * const inspectionOfScenes = await prisma.inspectionOfScene.findMany()
      * 
-     * // Get first 10 IOS
-     * const iOS = await prisma.iOS.findMany({ take: 10 })
+     * // Get first 10 InspectionOfScenes
+     * const inspectionOfScenes = await prisma.inspectionOfScene.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const iOSWithIdOnly = await prisma.iOS.findMany({ select: { id: true } })
+     * const inspectionOfSceneWithIdOnly = await prisma.inspectionOfScene.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends IOSFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, IOSFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends InspectionOfSceneFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, InspectionOfSceneFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a IOS.
-     * @param {IOSCreateArgs} args - Arguments to create a IOS.
+     * Create a InspectionOfScene.
+     * @param {InspectionOfSceneCreateArgs} args - Arguments to create a InspectionOfScene.
      * @example
-     * // Create one IOS
-     * const IOS = await prisma.iOS.create({
+     * // Create one InspectionOfScene
+     * const InspectionOfScene = await prisma.inspectionOfScene.create({
      *   data: {
-     *     // ... data to create a IOS
+     *     // ... data to create a InspectionOfScene
      *   }
      * })
      * 
     **/
-    create<T extends IOSCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, IOSCreateArgs<ExtArgs>>
-    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends InspectionOfSceneCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, InspectionOfSceneCreateArgs<ExtArgs>>
+    ): Prisma__InspectionOfSceneClient<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many IOS.
-     *     @param {IOSCreateManyArgs} args - Arguments to create many IOS.
+     * Create many InspectionOfScenes.
+     *     @param {InspectionOfSceneCreateManyArgs} args - Arguments to create many InspectionOfScenes.
      *     @example
-     *     // Create many IOS
-     *     const iOS = await prisma.iOS.createMany({
+     *     // Create many InspectionOfScenes
+     *     const inspectionOfScene = await prisma.inspectionOfScene.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends IOSCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, IOSCreateManyArgs<ExtArgs>>
+    createMany<T extends InspectionOfSceneCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, InspectionOfSceneCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a IOS.
-     * @param {IOSDeleteArgs} args - Arguments to delete one IOS.
+     * Delete a InspectionOfScene.
+     * @param {InspectionOfSceneDeleteArgs} args - Arguments to delete one InspectionOfScene.
      * @example
-     * // Delete one IOS
-     * const IOS = await prisma.iOS.delete({
+     * // Delete one InspectionOfScene
+     * const InspectionOfScene = await prisma.inspectionOfScene.delete({
      *   where: {
-     *     // ... filter to delete one IOS
+     *     // ... filter to delete one InspectionOfScene
      *   }
      * })
      * 
     **/
-    delete<T extends IOSDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, IOSDeleteArgs<ExtArgs>>
-    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends InspectionOfSceneDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, InspectionOfSceneDeleteArgs<ExtArgs>>
+    ): Prisma__InspectionOfSceneClient<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one IOS.
-     * @param {IOSUpdateArgs} args - Arguments to update one IOS.
+     * Update one InspectionOfScene.
+     * @param {InspectionOfSceneUpdateArgs} args - Arguments to update one InspectionOfScene.
      * @example
-     * // Update one IOS
-     * const iOS = await prisma.iOS.update({
+     * // Update one InspectionOfScene
+     * const inspectionOfScene = await prisma.inspectionOfScene.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2315,34 +2335,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends IOSUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, IOSUpdateArgs<ExtArgs>>
-    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends InspectionOfSceneUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, InspectionOfSceneUpdateArgs<ExtArgs>>
+    ): Prisma__InspectionOfSceneClient<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more IOS.
-     * @param {IOSDeleteManyArgs} args - Arguments to filter IOS to delete.
+     * Delete zero or more InspectionOfScenes.
+     * @param {InspectionOfSceneDeleteManyArgs} args - Arguments to filter InspectionOfScenes to delete.
      * @example
-     * // Delete a few IOS
-     * const { count } = await prisma.iOS.deleteMany({
+     * // Delete a few InspectionOfScenes
+     * const { count } = await prisma.inspectionOfScene.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends IOSDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, IOSDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends InspectionOfSceneDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, InspectionOfSceneDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more IOS.
+     * Update zero or more InspectionOfScenes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IOSUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {InspectionOfSceneUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many IOS
-     * const iOS = await prisma.iOS.updateMany({
+     * // Update many InspectionOfScenes
+     * const inspectionOfScene = await prisma.inspectionOfScene.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2352,59 +2372,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends IOSUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, IOSUpdateManyArgs<ExtArgs>>
+    updateMany<T extends InspectionOfSceneUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, InspectionOfSceneUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one IOS.
-     * @param {IOSUpsertArgs} args - Arguments to update or create a IOS.
+     * Create or update one InspectionOfScene.
+     * @param {InspectionOfSceneUpsertArgs} args - Arguments to update or create a InspectionOfScene.
      * @example
-     * // Update or create a IOS
-     * const iOS = await prisma.iOS.upsert({
+     * // Update or create a InspectionOfScene
+     * const inspectionOfScene = await prisma.inspectionOfScene.upsert({
      *   create: {
-     *     // ... data to create a IOS
+     *     // ... data to create a InspectionOfScene
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the IOS we want to update
+     *     // ... the filter for the InspectionOfScene we want to update
      *   }
      * })
     **/
-    upsert<T extends IOSUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, IOSUpsertArgs<ExtArgs>>
-    ): Prisma__IOSClient<$Result.GetResult<Prisma.$IOSPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends InspectionOfSceneUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, InspectionOfSceneUpsertArgs<ExtArgs>>
+    ): Prisma__InspectionOfSceneClient<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of IOS.
+     * Count the number of InspectionOfScenes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IOSCountArgs} args - Arguments to filter IOS to count.
+     * @param {InspectionOfSceneCountArgs} args - Arguments to filter InspectionOfScenes to count.
      * @example
-     * // Count the number of IOS
-     * const count = await prisma.iOS.count({
+     * // Count the number of InspectionOfScenes
+     * const count = await prisma.inspectionOfScene.count({
      *   where: {
-     *     // ... the filter for the IOS we want to count
+     *     // ... the filter for the InspectionOfScenes we want to count
      *   }
      * })
     **/
-    count<T extends IOSCountArgs>(
-      args?: Subset<T, IOSCountArgs>,
+    count<T extends InspectionOfSceneCountArgs>(
+      args?: Subset<T, InspectionOfSceneCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], IOSCountAggregateOutputType>
+          : GetScalarType<T['select'], InspectionOfSceneCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a IOS.
+     * Allows you to perform aggregations operations on a InspectionOfScene.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IOSAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {InspectionOfSceneAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2424,13 +2444,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends IOSAggregateArgs>(args: Subset<T, IOSAggregateArgs>): Prisma.PrismaPromise<GetIOSAggregateType<T>>
+    aggregate<T extends InspectionOfSceneAggregateArgs>(args: Subset<T, InspectionOfSceneAggregateArgs>): Prisma.PrismaPromise<GetInspectionOfSceneAggregateType<T>>
 
     /**
-     * Group by IOS.
+     * Group by InspectionOfScene.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IOSGroupByArgs} args - Group by arguments.
+     * @param {InspectionOfSceneGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2445,14 +2465,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends IOSGroupByArgs,
+      T extends InspectionOfSceneGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: IOSGroupByArgs['orderBy'] }
-        : { orderBy?: IOSGroupByArgs['orderBy'] },
+        ? { orderBy: InspectionOfSceneGroupByArgs['orderBy'] }
+        : { orderBy?: InspectionOfSceneGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2501,20 +2521,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, IOSGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetIOSGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, InspectionOfSceneGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetInspectionOfSceneGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the IOS model
+   * Fields of the InspectionOfScene model
    */
-  readonly fields: IOSFieldRefs;
+  readonly fields: InspectionOfSceneFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for IOS.
+   * The delegate class that acts as a "Promise-like" for InspectionOfScene.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__IOSClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__InspectionOfSceneClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
@@ -2544,337 +2564,339 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the IOS model
+   * Fields of the InspectionOfScene model
    */ 
-  interface IOSFieldRefs {
-    readonly id: FieldRef<"IOS", 'String'>
-    readonly createAt: FieldRef<"IOS", 'DateTime'>
-    readonly updateAt: FieldRef<"IOS", 'DateTime'>
-    readonly dateOfTheInspectionOfTheScene: FieldRef<"IOS", 'DateTime'>
-    readonly userId: FieldRef<"IOS", 'String'>
+  interface InspectionOfSceneFieldRefs {
+    readonly id: FieldRef<"InspectionOfScene", 'String'>
+    readonly createAt: FieldRef<"InspectionOfScene", 'DateTime'>
+    readonly updateAt: FieldRef<"InspectionOfScene", 'DateTime'>
+    readonly dateOfTheInspectionOfTheScene: FieldRef<"InspectionOfScene", 'DateTime'>
+    readonly addressOfTheScene: FieldRef<"InspectionOfScene", 'String'>
+    readonly reasonForInspectionOfTheScene: FieldRef<"InspectionOfScene", 'String'>
+    readonly userId: FieldRef<"InspectionOfScene", 'String'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * IOS findUnique
+   * InspectionOfScene findUnique
    */
-  export type IOSFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IOS
+     * Select specific fields to fetch from the InspectionOfScene
      */
-    select?: IOSSelect<ExtArgs> | null
+    select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: IOSInclude<ExtArgs> | null
+    include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
-     * Filter, which IOS to fetch.
+     * Filter, which InspectionOfScene to fetch.
      */
-    where: IOSWhereUniqueInput
+    where: InspectionOfSceneWhereUniqueInput
   }
 
 
   /**
-   * IOS findUniqueOrThrow
+   * InspectionOfScene findUniqueOrThrow
    */
-  export type IOSFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IOS
+     * Select specific fields to fetch from the InspectionOfScene
      */
-    select?: IOSSelect<ExtArgs> | null
+    select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: IOSInclude<ExtArgs> | null
+    include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
-     * Filter, which IOS to fetch.
+     * Filter, which InspectionOfScene to fetch.
      */
-    where: IOSWhereUniqueInput
+    where: InspectionOfSceneWhereUniqueInput
   }
 
 
   /**
-   * IOS findFirst
+   * InspectionOfScene findFirst
    */
-  export type IOSFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IOS
+     * Select specific fields to fetch from the InspectionOfScene
      */
-    select?: IOSSelect<ExtArgs> | null
+    select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: IOSInclude<ExtArgs> | null
+    include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
-     * Filter, which IOS to fetch.
+     * Filter, which InspectionOfScene to fetch.
      */
-    where?: IOSWhereInput
+    where?: InspectionOfSceneWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of IOS to fetch.
+     * Determine the order of InspectionOfScenes to fetch.
      */
-    orderBy?: IOSOrderByWithRelationInput | IOSOrderByWithRelationInput[]
+    orderBy?: InspectionOfSceneOrderByWithRelationInput | InspectionOfSceneOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for IOS.
+     * Sets the position for searching for InspectionOfScenes.
      */
-    cursor?: IOSWhereUniqueInput
+    cursor?: InspectionOfSceneWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` IOS from the position of the cursor.
+     * Take `±n` InspectionOfScenes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` IOS.
+     * Skip the first `n` InspectionOfScenes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of IOS.
+     * Filter by unique combinations of InspectionOfScenes.
      */
-    distinct?: IOSScalarFieldEnum | IOSScalarFieldEnum[]
+    distinct?: InspectionOfSceneScalarFieldEnum | InspectionOfSceneScalarFieldEnum[]
   }
 
 
   /**
-   * IOS findFirstOrThrow
+   * InspectionOfScene findFirstOrThrow
    */
-  export type IOSFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IOS
+     * Select specific fields to fetch from the InspectionOfScene
      */
-    select?: IOSSelect<ExtArgs> | null
+    select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: IOSInclude<ExtArgs> | null
+    include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
-     * Filter, which IOS to fetch.
+     * Filter, which InspectionOfScene to fetch.
      */
-    where?: IOSWhereInput
+    where?: InspectionOfSceneWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of IOS to fetch.
+     * Determine the order of InspectionOfScenes to fetch.
      */
-    orderBy?: IOSOrderByWithRelationInput | IOSOrderByWithRelationInput[]
+    orderBy?: InspectionOfSceneOrderByWithRelationInput | InspectionOfSceneOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for IOS.
+     * Sets the position for searching for InspectionOfScenes.
      */
-    cursor?: IOSWhereUniqueInput
+    cursor?: InspectionOfSceneWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` IOS from the position of the cursor.
+     * Take `±n` InspectionOfScenes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` IOS.
+     * Skip the first `n` InspectionOfScenes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of IOS.
+     * Filter by unique combinations of InspectionOfScenes.
      */
-    distinct?: IOSScalarFieldEnum | IOSScalarFieldEnum[]
+    distinct?: InspectionOfSceneScalarFieldEnum | InspectionOfSceneScalarFieldEnum[]
   }
 
 
   /**
-   * IOS findMany
+   * InspectionOfScene findMany
    */
-  export type IOSFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IOS
+     * Select specific fields to fetch from the InspectionOfScene
      */
-    select?: IOSSelect<ExtArgs> | null
+    select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: IOSInclude<ExtArgs> | null
+    include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
-     * Filter, which IOS to fetch.
+     * Filter, which InspectionOfScenes to fetch.
      */
-    where?: IOSWhereInput
+    where?: InspectionOfSceneWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of IOS to fetch.
+     * Determine the order of InspectionOfScenes to fetch.
      */
-    orderBy?: IOSOrderByWithRelationInput | IOSOrderByWithRelationInput[]
+    orderBy?: InspectionOfSceneOrderByWithRelationInput | InspectionOfSceneOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing IOS.
+     * Sets the position for listing InspectionOfScenes.
      */
-    cursor?: IOSWhereUniqueInput
+    cursor?: InspectionOfSceneWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` IOS from the position of the cursor.
+     * Take `±n` InspectionOfScenes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` IOS.
+     * Skip the first `n` InspectionOfScenes.
      */
     skip?: number
-    distinct?: IOSScalarFieldEnum | IOSScalarFieldEnum[]
+    distinct?: InspectionOfSceneScalarFieldEnum | InspectionOfSceneScalarFieldEnum[]
   }
 
 
   /**
-   * IOS create
+   * InspectionOfScene create
    */
-  export type IOSCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IOS
+     * Select specific fields to fetch from the InspectionOfScene
      */
-    select?: IOSSelect<ExtArgs> | null
+    select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: IOSInclude<ExtArgs> | null
+    include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
-     * The data needed to create a IOS.
+     * The data needed to create a InspectionOfScene.
      */
-    data: XOR<IOSCreateInput, IOSUncheckedCreateInput>
+    data: XOR<InspectionOfSceneCreateInput, InspectionOfSceneUncheckedCreateInput>
   }
 
 
   /**
-   * IOS createMany
+   * InspectionOfScene createMany
    */
-  export type IOSCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many IOS.
+     * The data used to create many InspectionOfScenes.
      */
-    data: IOSCreateManyInput | IOSCreateManyInput[]
+    data: InspectionOfSceneCreateManyInput | InspectionOfSceneCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * IOS update
+   * InspectionOfScene update
    */
-  export type IOSUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IOS
+     * Select specific fields to fetch from the InspectionOfScene
      */
-    select?: IOSSelect<ExtArgs> | null
+    select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: IOSInclude<ExtArgs> | null
+    include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
-     * The data needed to update a IOS.
+     * The data needed to update a InspectionOfScene.
      */
-    data: XOR<IOSUpdateInput, IOSUncheckedUpdateInput>
+    data: XOR<InspectionOfSceneUpdateInput, InspectionOfSceneUncheckedUpdateInput>
     /**
-     * Choose, which IOS to update.
+     * Choose, which InspectionOfScene to update.
      */
-    where: IOSWhereUniqueInput
+    where: InspectionOfSceneWhereUniqueInput
   }
 
 
   /**
-   * IOS updateMany
+   * InspectionOfScene updateMany
    */
-  export type IOSUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update IOS.
+     * The data used to update InspectionOfScenes.
      */
-    data: XOR<IOSUpdateManyMutationInput, IOSUncheckedUpdateManyInput>
+    data: XOR<InspectionOfSceneUpdateManyMutationInput, InspectionOfSceneUncheckedUpdateManyInput>
     /**
-     * Filter which IOS to update
+     * Filter which InspectionOfScenes to update
      */
-    where?: IOSWhereInput
+    where?: InspectionOfSceneWhereInput
   }
 
 
   /**
-   * IOS upsert
+   * InspectionOfScene upsert
    */
-  export type IOSUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IOS
+     * Select specific fields to fetch from the InspectionOfScene
      */
-    select?: IOSSelect<ExtArgs> | null
+    select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: IOSInclude<ExtArgs> | null
+    include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
-     * The filter to search for the IOS to update in case it exists.
+     * The filter to search for the InspectionOfScene to update in case it exists.
      */
-    where: IOSWhereUniqueInput
+    where: InspectionOfSceneWhereUniqueInput
     /**
-     * In case the IOS found by the `where` argument doesn't exist, create a new IOS with this data.
+     * In case the InspectionOfScene found by the `where` argument doesn't exist, create a new InspectionOfScene with this data.
      */
-    create: XOR<IOSCreateInput, IOSUncheckedCreateInput>
+    create: XOR<InspectionOfSceneCreateInput, InspectionOfSceneUncheckedCreateInput>
     /**
-     * In case the IOS was found with the provided `where` argument, update it with this data.
+     * In case the InspectionOfScene was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<IOSUpdateInput, IOSUncheckedUpdateInput>
+    update: XOR<InspectionOfSceneUpdateInput, InspectionOfSceneUncheckedUpdateInput>
   }
 
 
   /**
-   * IOS delete
+   * InspectionOfScene delete
    */
-  export type IOSDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IOS
+     * Select specific fields to fetch from the InspectionOfScene
      */
-    select?: IOSSelect<ExtArgs> | null
+    select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: IOSInclude<ExtArgs> | null
+    include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
-     * Filter which IOS to delete.
+     * Filter which InspectionOfScene to delete.
      */
-    where: IOSWhereUniqueInput
+    where: InspectionOfSceneWhereUniqueInput
   }
 
 
   /**
-   * IOS deleteMany
+   * InspectionOfScene deleteMany
    */
-  export type IOSDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which IOS to delete
+     * Filter which InspectionOfScenes to delete
      */
-    where?: IOSWhereInput
+    where?: InspectionOfSceneWhereInput
   }
 
 
   /**
-   * IOS without action
+   * InspectionOfScene without action
    */
-  export type IOSDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InspectionOfSceneDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IOS
+     * Select specific fields to fetch from the InspectionOfScene
      */
-    select?: IOSSelect<ExtArgs> | null
+    select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: IOSInclude<ExtArgs> | null
+    include?: InspectionOfSceneInclude<ExtArgs> | null
   }
 
 
@@ -2906,15 +2928,17 @@ export namespace Prisma {
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const IOSScalarFieldEnum: {
+  export const InspectionOfSceneScalarFieldEnum: {
     id: 'id',
     createAt: 'createAt',
     updateAt: 'updateAt',
     dateOfTheInspectionOfTheScene: 'dateOfTheInspectionOfTheScene',
+    addressOfTheScene: 'addressOfTheScene',
+    reasonForInspectionOfTheScene: 'reasonForInspectionOfTheScene',
     userId: 'userId'
   };
 
-  export type IOSScalarFieldEnum = (typeof IOSScalarFieldEnum)[keyof typeof IOSScalarFieldEnum]
+  export type InspectionOfSceneScalarFieldEnum = (typeof InspectionOfSceneScalarFieldEnum)[keyof typeof InspectionOfSceneScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3016,7 +3040,7 @@ export namespace Prisma {
     name?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
-    ioss?: IOSListRelationFilter
+    ioss?: InspectionOfSceneListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -3027,7 +3051,7 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     password?: SortOrder
     role?: SortOrder
-    ioss?: IOSOrderByRelationAggregateInput
+    ioss?: InspectionOfSceneOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -3041,7 +3065,7 @@ export namespace Prisma {
     name?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
-    ioss?: IOSListRelationFilter
+    ioss?: InspectionOfSceneListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -3070,59 +3094,69 @@ export namespace Prisma {
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
   }
 
-  export type IOSWhereInput = {
-    AND?: IOSWhereInput | IOSWhereInput[]
-    OR?: IOSWhereInput[]
-    NOT?: IOSWhereInput | IOSWhereInput[]
-    id?: StringFilter<"IOS"> | string
-    createAt?: DateTimeFilter<"IOS"> | Date | string
-    updateAt?: DateTimeFilter<"IOS"> | Date | string
-    dateOfTheInspectionOfTheScene?: DateTimeFilter<"IOS"> | Date | string
-    userId?: StringFilter<"IOS"> | string
+  export type InspectionOfSceneWhereInput = {
+    AND?: InspectionOfSceneWhereInput | InspectionOfSceneWhereInput[]
+    OR?: InspectionOfSceneWhereInput[]
+    NOT?: InspectionOfSceneWhereInput | InspectionOfSceneWhereInput[]
+    id?: StringFilter<"InspectionOfScene"> | string
+    createAt?: DateTimeFilter<"InspectionOfScene"> | Date | string
+    updateAt?: DateTimeFilter<"InspectionOfScene"> | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeFilter<"InspectionOfScene"> | Date | string
+    addressOfTheScene?: StringFilter<"InspectionOfScene"> | string
+    reasonForInspectionOfTheScene?: StringFilter<"InspectionOfScene"> | string
+    userId?: StringFilter<"InspectionOfScene"> | string
     user?: XOR<UserRelationFilter, UserWhereInput>
   }
 
-  export type IOSOrderByWithRelationInput = {
+  export type InspectionOfSceneOrderByWithRelationInput = {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
     dateOfTheInspectionOfTheScene?: SortOrder
+    addressOfTheScene?: SortOrder
+    reasonForInspectionOfTheScene?: SortOrder
     userId?: SortOrder
     user?: UserOrderByWithRelationInput
   }
 
-  export type IOSWhereUniqueInput = Prisma.AtLeast<{
+  export type InspectionOfSceneWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: IOSWhereInput | IOSWhereInput[]
-    OR?: IOSWhereInput[]
-    NOT?: IOSWhereInput | IOSWhereInput[]
-    createAt?: DateTimeFilter<"IOS"> | Date | string
-    updateAt?: DateTimeFilter<"IOS"> | Date | string
-    dateOfTheInspectionOfTheScene?: DateTimeFilter<"IOS"> | Date | string
-    userId?: StringFilter<"IOS"> | string
+    AND?: InspectionOfSceneWhereInput | InspectionOfSceneWhereInput[]
+    OR?: InspectionOfSceneWhereInput[]
+    NOT?: InspectionOfSceneWhereInput | InspectionOfSceneWhereInput[]
+    createAt?: DateTimeFilter<"InspectionOfScene"> | Date | string
+    updateAt?: DateTimeFilter<"InspectionOfScene"> | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeFilter<"InspectionOfScene"> | Date | string
+    addressOfTheScene?: StringFilter<"InspectionOfScene"> | string
+    reasonForInspectionOfTheScene?: StringFilter<"InspectionOfScene"> | string
+    userId?: StringFilter<"InspectionOfScene"> | string
     user?: XOR<UserRelationFilter, UserWhereInput>
   }, "id">
 
-  export type IOSOrderByWithAggregationInput = {
+  export type InspectionOfSceneOrderByWithAggregationInput = {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
     dateOfTheInspectionOfTheScene?: SortOrder
+    addressOfTheScene?: SortOrder
+    reasonForInspectionOfTheScene?: SortOrder
     userId?: SortOrder
-    _count?: IOSCountOrderByAggregateInput
-    _max?: IOSMaxOrderByAggregateInput
-    _min?: IOSMinOrderByAggregateInput
+    _count?: InspectionOfSceneCountOrderByAggregateInput
+    _max?: InspectionOfSceneMaxOrderByAggregateInput
+    _min?: InspectionOfSceneMinOrderByAggregateInput
   }
 
-  export type IOSScalarWhereWithAggregatesInput = {
-    AND?: IOSScalarWhereWithAggregatesInput | IOSScalarWhereWithAggregatesInput[]
-    OR?: IOSScalarWhereWithAggregatesInput[]
-    NOT?: IOSScalarWhereWithAggregatesInput | IOSScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"IOS"> | string
-    createAt?: DateTimeWithAggregatesFilter<"IOS"> | Date | string
-    updateAt?: DateTimeWithAggregatesFilter<"IOS"> | Date | string
-    dateOfTheInspectionOfTheScene?: DateTimeWithAggregatesFilter<"IOS"> | Date | string
-    userId?: StringWithAggregatesFilter<"IOS"> | string
+  export type InspectionOfSceneScalarWhereWithAggregatesInput = {
+    AND?: InspectionOfSceneScalarWhereWithAggregatesInput | InspectionOfSceneScalarWhereWithAggregatesInput[]
+    OR?: InspectionOfSceneScalarWhereWithAggregatesInput[]
+    NOT?: InspectionOfSceneScalarWhereWithAggregatesInput | InspectionOfSceneScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"InspectionOfScene"> | string
+    createAt?: DateTimeWithAggregatesFilter<"InspectionOfScene"> | Date | string
+    updateAt?: DateTimeWithAggregatesFilter<"InspectionOfScene"> | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeWithAggregatesFilter<"InspectionOfScene"> | Date | string
+    addressOfTheScene?: StringWithAggregatesFilter<"InspectionOfScene"> | string
+    reasonForInspectionOfTheScene?: StringWithAggregatesFilter<"InspectionOfScene"> | string
+    userId?: StringWithAggregatesFilter<"InspectionOfScene"> | string
   }
 
   export type UserCreateInput = {
@@ -3133,7 +3167,7 @@ export namespace Prisma {
     name?: string | null
     password: string
     role?: $Enums.Role
-    ioss?: IOSCreateNestedManyWithoutUserInput
+    ioss?: InspectionOfSceneCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -3144,7 +3178,7 @@ export namespace Prisma {
     name?: string | null
     password: string
     role?: $Enums.Role
-    ioss?: IOSUncheckedCreateNestedManyWithoutUserInput
+    ioss?: InspectionOfSceneUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -3155,7 +3189,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    ioss?: IOSUpdateManyWithoutUserNestedInput
+    ioss?: InspectionOfSceneUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -3166,7 +3200,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    ioss?: IOSUncheckedUpdateManyWithoutUserNestedInput
+    ioss?: InspectionOfSceneUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -3199,58 +3233,72 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
-  export type IOSCreateInput = {
+  export type InspectionOfSceneCreateInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
     dateOfTheInspectionOfTheScene: Date | string
+    addressOfTheScene: string
+    reasonForInspectionOfTheScene: string
     user: UserCreateNestedOneWithoutIossInput
   }
 
-  export type IOSUncheckedCreateInput = {
+  export type InspectionOfSceneUncheckedCreateInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
     dateOfTheInspectionOfTheScene: Date | string
+    addressOfTheScene: string
+    reasonForInspectionOfTheScene: string
     userId: string
   }
 
-  export type IOSUpdateInput = {
+  export type InspectionOfSceneUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
+    addressOfTheScene?: StringFieldUpdateOperationsInput | string
+    reasonForInspectionOfTheScene?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutIossNestedInput
   }
 
-  export type IOSUncheckedUpdateInput = {
+  export type InspectionOfSceneUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
+    addressOfTheScene?: StringFieldUpdateOperationsInput | string
+    reasonForInspectionOfTheScene?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type IOSCreateManyInput = {
+  export type InspectionOfSceneCreateManyInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
     dateOfTheInspectionOfTheScene: Date | string
+    addressOfTheScene: string
+    reasonForInspectionOfTheScene: string
     userId: string
   }
 
-  export type IOSUpdateManyMutationInput = {
+  export type InspectionOfSceneUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
+    addressOfTheScene?: StringFieldUpdateOperationsInput | string
+    reasonForInspectionOfTheScene?: StringFieldUpdateOperationsInput | string
   }
 
-  export type IOSUncheckedUpdateManyInput = {
+  export type InspectionOfSceneUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
+    addressOfTheScene?: StringFieldUpdateOperationsInput | string
+    reasonForInspectionOfTheScene?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -3302,10 +3350,10 @@ export namespace Prisma {
     not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
-  export type IOSListRelationFilter = {
-    every?: IOSWhereInput
-    some?: IOSWhereInput
-    none?: IOSWhereInput
+  export type InspectionOfSceneListRelationFilter = {
+    every?: InspectionOfSceneWhereInput
+    some?: InspectionOfSceneWhereInput
+    none?: InspectionOfSceneWhereInput
   }
 
   export type SortOrderInput = {
@@ -3313,7 +3361,7 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type IOSOrderByRelationAggregateInput = {
+  export type InspectionOfSceneOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -3412,42 +3460,48 @@ export namespace Prisma {
     isNot?: UserWhereInput
   }
 
-  export type IOSCountOrderByAggregateInput = {
+  export type InspectionOfSceneCountOrderByAggregateInput = {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
     dateOfTheInspectionOfTheScene?: SortOrder
+    addressOfTheScene?: SortOrder
+    reasonForInspectionOfTheScene?: SortOrder
     userId?: SortOrder
   }
 
-  export type IOSMaxOrderByAggregateInput = {
+  export type InspectionOfSceneMaxOrderByAggregateInput = {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
     dateOfTheInspectionOfTheScene?: SortOrder
+    addressOfTheScene?: SortOrder
+    reasonForInspectionOfTheScene?: SortOrder
     userId?: SortOrder
   }
 
-  export type IOSMinOrderByAggregateInput = {
+  export type InspectionOfSceneMinOrderByAggregateInput = {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
     dateOfTheInspectionOfTheScene?: SortOrder
+    addressOfTheScene?: SortOrder
+    reasonForInspectionOfTheScene?: SortOrder
     userId?: SortOrder
   }
 
-  export type IOSCreateNestedManyWithoutUserInput = {
-    create?: XOR<IOSCreateWithoutUserInput, IOSUncheckedCreateWithoutUserInput> | IOSCreateWithoutUserInput[] | IOSUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: IOSCreateOrConnectWithoutUserInput | IOSCreateOrConnectWithoutUserInput[]
-    createMany?: IOSCreateManyUserInputEnvelope
-    connect?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
+  export type InspectionOfSceneCreateNestedManyWithoutUserInput = {
+    create?: XOR<InspectionOfSceneCreateWithoutUserInput, InspectionOfSceneUncheckedCreateWithoutUserInput> | InspectionOfSceneCreateWithoutUserInput[] | InspectionOfSceneUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: InspectionOfSceneCreateOrConnectWithoutUserInput | InspectionOfSceneCreateOrConnectWithoutUserInput[]
+    createMany?: InspectionOfSceneCreateManyUserInputEnvelope
+    connect?: InspectionOfSceneWhereUniqueInput | InspectionOfSceneWhereUniqueInput[]
   }
 
-  export type IOSUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<IOSCreateWithoutUserInput, IOSUncheckedCreateWithoutUserInput> | IOSCreateWithoutUserInput[] | IOSUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: IOSCreateOrConnectWithoutUserInput | IOSCreateOrConnectWithoutUserInput[]
-    createMany?: IOSCreateManyUserInputEnvelope
-    connect?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
+  export type InspectionOfSceneUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<InspectionOfSceneCreateWithoutUserInput, InspectionOfSceneUncheckedCreateWithoutUserInput> | InspectionOfSceneCreateWithoutUserInput[] | InspectionOfSceneUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: InspectionOfSceneCreateOrConnectWithoutUserInput | InspectionOfSceneCreateOrConnectWithoutUserInput[]
+    createMany?: InspectionOfSceneCreateManyUserInputEnvelope
+    connect?: InspectionOfSceneWhereUniqueInput | InspectionOfSceneWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3466,32 +3520,32 @@ export namespace Prisma {
     set?: $Enums.Role
   }
 
-  export type IOSUpdateManyWithoutUserNestedInput = {
-    create?: XOR<IOSCreateWithoutUserInput, IOSUncheckedCreateWithoutUserInput> | IOSCreateWithoutUserInput[] | IOSUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: IOSCreateOrConnectWithoutUserInput | IOSCreateOrConnectWithoutUserInput[]
-    upsert?: IOSUpsertWithWhereUniqueWithoutUserInput | IOSUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: IOSCreateManyUserInputEnvelope
-    set?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
-    disconnect?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
-    delete?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
-    connect?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
-    update?: IOSUpdateWithWhereUniqueWithoutUserInput | IOSUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: IOSUpdateManyWithWhereWithoutUserInput | IOSUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: IOSScalarWhereInput | IOSScalarWhereInput[]
+  export type InspectionOfSceneUpdateManyWithoutUserNestedInput = {
+    create?: XOR<InspectionOfSceneCreateWithoutUserInput, InspectionOfSceneUncheckedCreateWithoutUserInput> | InspectionOfSceneCreateWithoutUserInput[] | InspectionOfSceneUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: InspectionOfSceneCreateOrConnectWithoutUserInput | InspectionOfSceneCreateOrConnectWithoutUserInput[]
+    upsert?: InspectionOfSceneUpsertWithWhereUniqueWithoutUserInput | InspectionOfSceneUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: InspectionOfSceneCreateManyUserInputEnvelope
+    set?: InspectionOfSceneWhereUniqueInput | InspectionOfSceneWhereUniqueInput[]
+    disconnect?: InspectionOfSceneWhereUniqueInput | InspectionOfSceneWhereUniqueInput[]
+    delete?: InspectionOfSceneWhereUniqueInput | InspectionOfSceneWhereUniqueInput[]
+    connect?: InspectionOfSceneWhereUniqueInput | InspectionOfSceneWhereUniqueInput[]
+    update?: InspectionOfSceneUpdateWithWhereUniqueWithoutUserInput | InspectionOfSceneUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: InspectionOfSceneUpdateManyWithWhereWithoutUserInput | InspectionOfSceneUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: InspectionOfSceneScalarWhereInput | InspectionOfSceneScalarWhereInput[]
   }
 
-  export type IOSUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<IOSCreateWithoutUserInput, IOSUncheckedCreateWithoutUserInput> | IOSCreateWithoutUserInput[] | IOSUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: IOSCreateOrConnectWithoutUserInput | IOSCreateOrConnectWithoutUserInput[]
-    upsert?: IOSUpsertWithWhereUniqueWithoutUserInput | IOSUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: IOSCreateManyUserInputEnvelope
-    set?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
-    disconnect?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
-    delete?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
-    connect?: IOSWhereUniqueInput | IOSWhereUniqueInput[]
-    update?: IOSUpdateWithWhereUniqueWithoutUserInput | IOSUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: IOSUpdateManyWithWhereWithoutUserInput | IOSUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: IOSScalarWhereInput | IOSScalarWhereInput[]
+  export type InspectionOfSceneUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<InspectionOfSceneCreateWithoutUserInput, InspectionOfSceneUncheckedCreateWithoutUserInput> | InspectionOfSceneCreateWithoutUserInput[] | InspectionOfSceneUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: InspectionOfSceneCreateOrConnectWithoutUserInput | InspectionOfSceneCreateOrConnectWithoutUserInput[]
+    upsert?: InspectionOfSceneUpsertWithWhereUniqueWithoutUserInput | InspectionOfSceneUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: InspectionOfSceneCreateManyUserInputEnvelope
+    set?: InspectionOfSceneWhereUniqueInput | InspectionOfSceneWhereUniqueInput[]
+    disconnect?: InspectionOfSceneWhereUniqueInput | InspectionOfSceneWhereUniqueInput[]
+    delete?: InspectionOfSceneWhereUniqueInput | InspectionOfSceneWhereUniqueInput[]
+    connect?: InspectionOfSceneWhereUniqueInput | InspectionOfSceneWhereUniqueInput[]
+    update?: InspectionOfSceneUpdateWithWhereUniqueWithoutUserInput | InspectionOfSceneUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: InspectionOfSceneUpdateManyWithWhereWithoutUserInput | InspectionOfSceneUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: InspectionOfSceneScalarWhereInput | InspectionOfSceneScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutIossInput = {
@@ -3634,55 +3688,61 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
-  export type IOSCreateWithoutUserInput = {
+  export type InspectionOfSceneCreateWithoutUserInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
     dateOfTheInspectionOfTheScene: Date | string
+    addressOfTheScene: string
+    reasonForInspectionOfTheScene: string
   }
 
-  export type IOSUncheckedCreateWithoutUserInput = {
+  export type InspectionOfSceneUncheckedCreateWithoutUserInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
     dateOfTheInspectionOfTheScene: Date | string
+    addressOfTheScene: string
+    reasonForInspectionOfTheScene: string
   }
 
-  export type IOSCreateOrConnectWithoutUserInput = {
-    where: IOSWhereUniqueInput
-    create: XOR<IOSCreateWithoutUserInput, IOSUncheckedCreateWithoutUserInput>
+  export type InspectionOfSceneCreateOrConnectWithoutUserInput = {
+    where: InspectionOfSceneWhereUniqueInput
+    create: XOR<InspectionOfSceneCreateWithoutUserInput, InspectionOfSceneUncheckedCreateWithoutUserInput>
   }
 
-  export type IOSCreateManyUserInputEnvelope = {
-    data: IOSCreateManyUserInput | IOSCreateManyUserInput[]
+  export type InspectionOfSceneCreateManyUserInputEnvelope = {
+    data: InspectionOfSceneCreateManyUserInput | InspectionOfSceneCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
-  export type IOSUpsertWithWhereUniqueWithoutUserInput = {
-    where: IOSWhereUniqueInput
-    update: XOR<IOSUpdateWithoutUserInput, IOSUncheckedUpdateWithoutUserInput>
-    create: XOR<IOSCreateWithoutUserInput, IOSUncheckedCreateWithoutUserInput>
+  export type InspectionOfSceneUpsertWithWhereUniqueWithoutUserInput = {
+    where: InspectionOfSceneWhereUniqueInput
+    update: XOR<InspectionOfSceneUpdateWithoutUserInput, InspectionOfSceneUncheckedUpdateWithoutUserInput>
+    create: XOR<InspectionOfSceneCreateWithoutUserInput, InspectionOfSceneUncheckedCreateWithoutUserInput>
   }
 
-  export type IOSUpdateWithWhereUniqueWithoutUserInput = {
-    where: IOSWhereUniqueInput
-    data: XOR<IOSUpdateWithoutUserInput, IOSUncheckedUpdateWithoutUserInput>
+  export type InspectionOfSceneUpdateWithWhereUniqueWithoutUserInput = {
+    where: InspectionOfSceneWhereUniqueInput
+    data: XOR<InspectionOfSceneUpdateWithoutUserInput, InspectionOfSceneUncheckedUpdateWithoutUserInput>
   }
 
-  export type IOSUpdateManyWithWhereWithoutUserInput = {
-    where: IOSScalarWhereInput
-    data: XOR<IOSUpdateManyMutationInput, IOSUncheckedUpdateManyWithoutUserInput>
+  export type InspectionOfSceneUpdateManyWithWhereWithoutUserInput = {
+    where: InspectionOfSceneScalarWhereInput
+    data: XOR<InspectionOfSceneUpdateManyMutationInput, InspectionOfSceneUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type IOSScalarWhereInput = {
-    AND?: IOSScalarWhereInput | IOSScalarWhereInput[]
-    OR?: IOSScalarWhereInput[]
-    NOT?: IOSScalarWhereInput | IOSScalarWhereInput[]
-    id?: StringFilter<"IOS"> | string
-    createAt?: DateTimeFilter<"IOS"> | Date | string
-    updateAt?: DateTimeFilter<"IOS"> | Date | string
-    dateOfTheInspectionOfTheScene?: DateTimeFilter<"IOS"> | Date | string
-    userId?: StringFilter<"IOS"> | string
+  export type InspectionOfSceneScalarWhereInput = {
+    AND?: InspectionOfSceneScalarWhereInput | InspectionOfSceneScalarWhereInput[]
+    OR?: InspectionOfSceneScalarWhereInput[]
+    NOT?: InspectionOfSceneScalarWhereInput | InspectionOfSceneScalarWhereInput[]
+    id?: StringFilter<"InspectionOfScene"> | string
+    createAt?: DateTimeFilter<"InspectionOfScene"> | Date | string
+    updateAt?: DateTimeFilter<"InspectionOfScene"> | Date | string
+    dateOfTheInspectionOfTheScene?: DateTimeFilter<"InspectionOfScene"> | Date | string
+    addressOfTheScene?: StringFilter<"InspectionOfScene"> | string
+    reasonForInspectionOfTheScene?: StringFilter<"InspectionOfScene"> | string
+    userId?: StringFilter<"InspectionOfScene"> | string
   }
 
   export type UserCreateWithoutIossInput = {
@@ -3741,32 +3801,40 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
-  export type IOSCreateManyUserInput = {
+  export type InspectionOfSceneCreateManyUserInput = {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
     dateOfTheInspectionOfTheScene: Date | string
+    addressOfTheScene: string
+    reasonForInspectionOfTheScene: string
   }
 
-  export type IOSUpdateWithoutUserInput = {
+  export type InspectionOfSceneUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
+    addressOfTheScene?: StringFieldUpdateOperationsInput | string
+    reasonForInspectionOfTheScene?: StringFieldUpdateOperationsInput | string
   }
 
-  export type IOSUncheckedUpdateWithoutUserInput = {
+  export type InspectionOfSceneUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
+    addressOfTheScene?: StringFieldUpdateOperationsInput | string
+    reasonForInspectionOfTheScene?: StringFieldUpdateOperationsInput | string
   }
 
-  export type IOSUncheckedUpdateManyWithoutUserInput = {
+  export type InspectionOfSceneUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     dateOfTheInspectionOfTheScene?: DateTimeFieldUpdateOperationsInput | Date | string
+    addressOfTheScene?: StringFieldUpdateOperationsInput | string
+    reasonForInspectionOfTheScene?: StringFieldUpdateOperationsInput | string
   }
 
 
@@ -3783,9 +3851,9 @@ export namespace Prisma {
      */
     export type UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use IOSDefaultArgs instead
+     * @deprecated Use InspectionOfSceneDefaultArgs instead
      */
-    export type IOSArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = IOSDefaultArgs<ExtArgs>
+    export type InspectionOfSceneArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = InspectionOfSceneDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

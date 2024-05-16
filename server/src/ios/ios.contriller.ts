@@ -1,7 +1,9 @@
 import { Controller } from '@nestjs/common'
-import { IOSService } from './ios.service'
+import { InspectionOfSceneService } from './ios.service'
 
 @Controller('ios')
-export class IOSController {
-	constructor(private readonly iosService: IOSService) {}
+export class InspectionOfSceneController {
+	constructor(
+		private readonly inspectionOfSceneService: InspectionOfSceneService
+	) {}
 }
