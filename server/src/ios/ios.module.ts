@@ -8,4 +8,4 @@ import { InspectionOfSceneService } from './ios.service'
 	providers: [InspectionOfSceneService, PrismaService],
 	exports: []
 })
-export class IOSModule {}
+export class InspectionOfSceneModule {}

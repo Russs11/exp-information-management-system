@@ -1,11 +1,9 @@
 import { IsOptional, IsString } from 'class-validator'
 
-export class InspectionOfSceneDto {
+export class InspectionOfSceneCreateDto {
 	@IsString()
-	@IsOptional()
 	dateOfTheInspectionOfTheScene: string
 
 	@IsString()
-	@IsOptional()
 	userId: string
 }
