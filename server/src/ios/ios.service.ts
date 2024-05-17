@@ -6,7 +6,11 @@ import { InspectionOfSceneCreateDto } from './dto/ios.dto'
 export class InspectionOfSceneService {
 	constructor(private prisma: PrismaService) {}
 
-	async getAll(userId: string) {
+	async getAll() {
+		return this.prisma.inspectionOfScene.findMany()
+	}
+
+	async getByUserId(userId: string) {
 		return this.prisma.inspectionOfScene.findMany({ where: { userId } })
 	}
 
