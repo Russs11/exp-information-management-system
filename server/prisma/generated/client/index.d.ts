@@ -240,7 +240,7 @@ export namespace Prisma {
 
   /**
    * Prisma Client JS version: 5.14.0
-   * Query Engine version: e9771e62de70f79a5e1c604a2d7c8e2a0a874b48
+   * Query Engine version: 473ed3124229e22d881cb7addf559799debae1ab
    */
   export type PrismaVersion = {
     client: string
@@ -713,10 +713,6 @@ export namespace Prisma {
             args: Prisma.UserCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
-          }
           delete: {
             args: Prisma.UserDeleteArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$UserPayload>
@@ -782,10 +778,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.InspectionOfSceneCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.InspectionOfSceneCreateManyAndReturnArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$InspectionOfScenePayload>[]
           }
           delete: {
             args: Prisma.InspectionOfSceneDeleteArgs<ExtArgs>,
@@ -1025,7 +1017,7 @@ export namespace Prisma {
     id: string | null
     createAt: Date | null
     updateAt: Date | null
-    email: string | null
+    login: string | null
     name: string | null
     password: string | null
     role: $Enums.Role | null
@@ -1035,7 +1027,7 @@ export namespace Prisma {
     id: string | null
     createAt: Date | null
     updateAt: Date | null
-    email: string | null
+    login: string | null
     name: string | null
     password: string | null
     role: $Enums.Role | null
@@ -1045,7 +1037,7 @@ export namespace Prisma {
     id: number
     createAt: number
     updateAt: number
-    email: number
+    login: number
     name: number
     password: number
     role: number
@@ -1057,7 +1049,7 @@ export namespace Prisma {
     id?: true
     createAt?: true
     updateAt?: true
-    email?: true
+    login?: true
     name?: true
     password?: true
     role?: true
@@ -1067,7 +1059,7 @@ export namespace Prisma {
     id?: true
     createAt?: true
     updateAt?: true
-    email?: true
+    login?: true
     name?: true
     password?: true
     role?: true
@@ -1077,7 +1069,7 @@ export namespace Prisma {
     id?: true
     createAt?: true
     updateAt?: true
-    email?: true
+    login?: true
     name?: true
     password?: true
     role?: true
@@ -1160,7 +1152,7 @@ export namespace Prisma {
     id: string
     createAt: Date
     updateAt: Date
-    email: string
+    login: string
     name: string | null
     password: string
     role: $Enums.Role
@@ -1187,7 +1179,7 @@ export namespace Prisma {
     id?: boolean
     createAt?: boolean
     updateAt?: boolean
-    email?: boolean
+    login?: boolean
     name?: boolean
     password?: boolean
     role?: boolean
@@ -1199,7 +1191,7 @@ export namespace Prisma {
     id?: boolean
     createAt?: boolean
     updateAt?: boolean
-    email?: boolean
+    login?: boolean
     name?: boolean
     password?: boolean
     role?: boolean
@@ -1221,7 +1213,7 @@ export namespace Prisma {
       id: string
       createAt: Date
       updateAt: Date
-      email: string
+      login: string
       name: string | null
       password: string
       role: $Enums.Role
@@ -1356,32 +1348,6 @@ export namespace Prisma {
     createMany<T extends UserCreateManyArgs<ExtArgs>>(
       args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Users and returns the data saved in the database.
-     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
-     * @example
-     * // Create many Users
-     * const user = await prisma.user.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Users and only return the `id`
-     * const userWithIdOnly = await prisma.user.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-    **/
-    createManyAndReturn<T extends UserCreateManyAndReturnArgs<ExtArgs>>(
-      args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'createManyAndReturn'>>
 
     /**
      * Delete a User.
@@ -1649,7 +1615,7 @@ export namespace Prisma {
     readonly id: FieldRef<"User", 'String'>
     readonly createAt: FieldRef<"User", 'DateTime'>
     readonly updateAt: FieldRef<"User", 'DateTime'>
-    readonly email: FieldRef<"User", 'String'>
+    readonly login: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'Role'>
@@ -1854,25 +1820,6 @@ export namespace Prisma {
    * User createMany
    */
   export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Users.
-     */
-    data: UserCreateManyInput | UserCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * User createManyAndReturn
-   */
-  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserInclude<ExtArgs> | null
     /**
      * The data used to create many Users.
      */
@@ -2348,32 +2295,6 @@ export namespace Prisma {
     createMany<T extends InspectionOfSceneCreateManyArgs<ExtArgs>>(
       args?: SelectSubset<T, InspectionOfSceneCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many InspectionOfScenes and returns the data saved in the database.
-     * @param {InspectionOfSceneCreateManyAndReturnArgs} args - Arguments to create many InspectionOfScenes.
-     * @example
-     * // Create many InspectionOfScenes
-     * const inspectionOfScene = await prisma.inspectionOfScene.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many InspectionOfScenes and only return the `id`
-     * const inspectionOfSceneWithIdOnly = await prisma.inspectionOfScene.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-    **/
-    createManyAndReturn<T extends InspectionOfSceneCreateManyAndReturnArgs<ExtArgs>>(
-      args?: SelectSubset<T, InspectionOfSceneCreateManyAndReturnArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'createManyAndReturn'>>
 
     /**
      * Delete a InspectionOfScene.
@@ -2854,25 +2775,6 @@ export namespace Prisma {
   }
 
   /**
-   * InspectionOfScene createManyAndReturn
-   */
-  export type InspectionOfSceneCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the InspectionOfScene
-     */
-    select?: InspectionOfSceneSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: InspectionOfSceneInclude<ExtArgs> | null
-    /**
-     * The data used to create many InspectionOfScenes.
-     */
-    data: InspectionOfSceneCreateManyInput | InspectionOfSceneCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
    * InspectionOfScene update
    */
   export type InspectionOfSceneUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2995,7 +2897,7 @@ export namespace Prisma {
     id: 'id',
     createAt: 'createAt',
     updateAt: 'updateAt',
-    email: 'email',
+    login: 'login',
     name: 'name',
     password: 'password',
     role: 'role'
@@ -3112,7 +3014,7 @@ export namespace Prisma {
     id?: StringFilter<"User"> | string
     createAt?: DateTimeFilter<"User"> | Date | string
     updateAt?: DateTimeFilter<"User"> | Date | string
-    email?: StringFilter<"User"> | string
+    login?: StringFilter<"User"> | string
     name?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
@@ -3123,7 +3025,7 @@ export namespace Prisma {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
-    email?: SortOrder
+    login?: SortOrder
     name?: SortOrderInput | SortOrder
     password?: SortOrder
     role?: SortOrder
@@ -3132,7 +3034,7 @@ export namespace Prisma {
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    email?: string
+    login?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
@@ -3142,13 +3044,13 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
     inspections_of_scene?: InspectionOfSceneListRelationFilter
-  }, "id" | "email">
+  }, "id" | "login">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
-    email?: SortOrder
+    login?: SortOrder
     name?: SortOrderInput | SortOrder
     password?: SortOrder
     role?: SortOrder
@@ -3164,7 +3066,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"User"> | string
     createAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updateAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    email?: StringWithAggregatesFilter<"User"> | string
+    login?: StringWithAggregatesFilter<"User"> | string
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
     password?: StringWithAggregatesFilter<"User"> | string
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
@@ -3239,7 +3141,7 @@ export namespace Prisma {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
-    email: string
+    login: string
     name?: string | null
     password: string
     role?: $Enums.Role
@@ -3250,7 +3152,7 @@ export namespace Prisma {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
-    email: string
+    login: string
     name?: string | null
     password: string
     role?: $Enums.Role
@@ -3261,7 +3163,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    email?: StringFieldUpdateOperationsInput | string
+    login?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -3272,7 +3174,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    email?: StringFieldUpdateOperationsInput | string
+    login?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -3283,7 +3185,7 @@ export namespace Prisma {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
-    email: string
+    login: string
     name?: string | null
     password: string
     role?: $Enums.Role
@@ -3293,7 +3195,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    email?: StringFieldUpdateOperationsInput | string
+    login?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -3303,7 +3205,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    email?: StringFieldUpdateOperationsInput | string
+    login?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -3445,7 +3347,7 @@ export namespace Prisma {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
-    email?: SortOrder
+    login?: SortOrder
     name?: SortOrder
     password?: SortOrder
     role?: SortOrder
@@ -3455,7 +3357,7 @@ export namespace Prisma {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
-    email?: SortOrder
+    login?: SortOrder
     name?: SortOrder
     password?: SortOrder
     role?: SortOrder
@@ -3465,7 +3367,7 @@ export namespace Prisma {
     id?: SortOrder
     createAt?: SortOrder
     updateAt?: SortOrder
-    email?: SortOrder
+    login?: SortOrder
     name?: SortOrder
     password?: SortOrder
     role?: SortOrder
@@ -3825,7 +3727,7 @@ export namespace Prisma {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
-    email: string
+    login: string
     name?: string | null
     password: string
     role?: $Enums.Role
@@ -3835,7 +3737,7 @@ export namespace Prisma {
     id?: string
     createAt?: Date | string
     updateAt?: Date | string
-    email: string
+    login: string
     name?: string | null
     password: string
     role?: $Enums.Role
@@ -3861,7 +3763,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    email?: StringFieldUpdateOperationsInput | string
+    login?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -3871,7 +3773,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    email?: StringFieldUpdateOperationsInput | string
+    login?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role

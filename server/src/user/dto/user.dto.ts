@@ -1,7 +1,6 @@
 import { Transform } from 'class-transformer'
 import {
 	IsOptional,
-	IsEmail,
 	MinLength,
 	IsString,
 	IsEnum
@@ -9,9 +8,9 @@ import {
 import { Role } from 'prisma/generated/client'
 
 export class UserDto {
-	@IsEmail()
+	@IsString()
 	@IsOptional()
-	email: string
+	login: string
 
 	@IsString()
 	@IsOptional()

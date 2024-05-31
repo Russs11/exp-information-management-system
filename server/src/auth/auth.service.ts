@@ -23,7 +23,7 @@ export class AuthService {
 	}
 
 	async register(dto: AuthDto) {
-		const oldUser = await this.userService.getByEmail(dto.email)
+		const oldUser = await this.userService.getByLogin(dto.login)
 
 		if (oldUser) throw new BadRequestException('User already exists')
 
@@ -57,7 +57,7 @@ export class AuthService {
 	}
 
 	private async validateUser(dto: AuthDto) {
-		const user = await this.userService.getByEmail(dto.email)
+		const user = await this.userService.getByLogin(dto.login)
 
 		if (!user) throw new NotFoundException('User not found')
 
