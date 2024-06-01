@@ -240,7 +240,7 @@ export namespace Prisma {
 
   /**
    * Prisma Client JS version: 5.14.0
-   * Query Engine version: 473ed3124229e22d881cb7addf559799debae1ab
+   * Query Engine version: e9771e62de70f79a5e1c604a2d7c8e2a0a874b48
    */
   export type PrismaVersion = {
     client: string
@@ -713,6 +713,10 @@ export namespace Prisma {
             args: Prisma.UserCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
+          createManyAndReturn: {
+            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
           delete: {
             args: Prisma.UserDeleteArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$UserPayload>
@@ -778,6 +782,10 @@ export namespace Prisma {
           createMany: {
             args: Prisma.InspectionOfSceneCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.InspectionOfSceneCreateManyAndReturnArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InspectionOfScenePayload>[]
           }
           delete: {
             args: Prisma.InspectionOfSceneDeleteArgs<ExtArgs>,
@@ -1350,6 +1358,32 @@ export namespace Prisma {
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
+     * Create many Users and returns the data saved in the database.
+     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
+     * @example
+     * // Create many Users
+     * const user = await prisma.user.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Users and only return the `id`
+     * const userWithIdOnly = await prisma.user.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+    **/
+    createManyAndReturn<T extends UserCreateManyAndReturnArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'createManyAndReturn'>>
+
+    /**
      * Delete a User.
      * @param {UserDeleteArgs} args - Arguments to delete one User.
      * @example
@@ -1828,6 +1862,25 @@ export namespace Prisma {
   }
 
   /**
+   * User createManyAndReturn
+   */
+  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data used to create many Users.
+     */
+    data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
    * User update
    */
   export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2295,6 +2348,32 @@ export namespace Prisma {
     createMany<T extends InspectionOfSceneCreateManyArgs<ExtArgs>>(
       args?: SelectSubset<T, InspectionOfSceneCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many InspectionOfScenes and returns the data saved in the database.
+     * @param {InspectionOfSceneCreateManyAndReturnArgs} args - Arguments to create many InspectionOfScenes.
+     * @example
+     * // Create many InspectionOfScenes
+     * const inspectionOfScene = await prisma.inspectionOfScene.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many InspectionOfScenes and only return the `id`
+     * const inspectionOfSceneWithIdOnly = await prisma.inspectionOfScene.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+    **/
+    createManyAndReturn<T extends InspectionOfSceneCreateManyAndReturnArgs<ExtArgs>>(
+      args?: SelectSubset<T, InspectionOfSceneCreateManyAndReturnArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'createManyAndReturn'>>
 
     /**
      * Delete a InspectionOfScene.
@@ -2767,6 +2846,25 @@ export namespace Prisma {
    * InspectionOfScene createMany
    */
   export type InspectionOfSceneCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many InspectionOfScenes.
+     */
+    data: InspectionOfSceneCreateManyInput | InspectionOfSceneCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * InspectionOfScene createManyAndReturn
+   */
+  export type InspectionOfSceneCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InspectionOfScene
+     */
+    select?: InspectionOfSceneSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
      * The data used to create many InspectionOfScenes.
      */

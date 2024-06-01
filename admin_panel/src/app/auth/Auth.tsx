@@ -8,7 +8,7 @@ export function Auth() {
         <div className='flex min-h-fit flex-col justify-center p-10 border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border w-1/4 min-w-96 h-fit sm:px-8'>
           <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
             <Image
-              src='/logo auth.svg'
+              src='/auth.svg'
               alt='auth_logo'
               className='dark:invert justify-self-center mx-auto h-10 w-auto'
               width={36}
@@ -65,10 +65,10 @@ export function Auth() {
                 </div>
               </div>
 
-              <div>
+              <div className='flex justify-center'>
                 <button
                   type='submit'
-                  className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                  className='flex w-1/2 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
                 >
                   Войти
                 </button>
