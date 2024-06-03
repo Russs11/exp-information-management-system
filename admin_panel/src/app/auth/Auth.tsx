@@ -4,8 +4,8 @@ import Image from 'next/image'
 export function Auth() {
   return (
     <>
-      <div className='flex justify-center py-20 h-screen min-w-96'>
-        <div className='flex min-h-fit flex-col justify-center p-10 border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border w-1/4 min-w-96 h-fit sm:px-8'>
+      <div className='flex justify-center py-20 h-screen min-w-96 bg-gray-100'>
+        <div className='flex min-h-fit flex-col justify-center p-10 border-0 border-transparent border-solid shadow-2xl rounded-2xl bg-clip-border w-1/4 min-w-96 h-fit sm:px-8'>
           <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
             <Image
               src='/auth.svg'
