@@ -4,6 +4,7 @@ export class InspectionOfSceneCreateDto {
 	@IsString()
 	dateOfTheInspectionOfTheScene: string
 
-	@IsString()
-	userId: string
+	// @IsString()
+	// @IsOptional()
+	// userId?: string
 }
