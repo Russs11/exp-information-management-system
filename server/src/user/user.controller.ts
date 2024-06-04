@@ -5,8 +5,10 @@ import {
 	UsePipes,
 	HttpCode,
 	ValidationPipe,
-	Put
+	Put,
+	Res
 } from '@nestjs/common'
+import { Response } from 'express'
 import { Auth } from 'src/auth/decorators/auth.decorator'
 import { CurrentUser } from 'src/auth/decorators/user.decorator'
 import { UserService } from './user.service'
@@ -15,6 +17,22 @@ import { UserDto } from './dto/user.dto'
 @Controller('user')
 export class UserController {
 	constructor(private readonly userService: UserService) {}
+
+	@Get('getAll')
+	@Auth()
+	async getAll(@CurrentUser('id') id: string) {
+		// @Res() res: Response
+		const users = await this.userService.findAll(id)
+		return users
+		// if (users.length > 0) {
+		// 	console.log('admin')
+		// 	return users
+		// }
+		// else {
+		// 	console.log('not admin')
+		// 	res.send('Only admin can see users list')
+		// }
+	}
 
 	@Get('profile')
 	@Auth()

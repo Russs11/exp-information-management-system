@@ -25,8 +25,8 @@ export class InspectionOfSceneService {
 
 	async update(
 		dto: Partial<InspectionOfSceneCreateDto>,
-		inspectionOfSceneId: string,
-		userId: string
+		userId: string,
+		inspectionOfSceneId: string
 	) {
 		return this.prisma.inspectionOfScene.update({
 			where: {
@@ -37,9 +37,10 @@ export class InspectionOfSceneService {
 		})
 	}
 
-	async delete(inspectionOfSceneId: string) {
+	async delete(userId: string, inspectionOfSceneId: string) {
 		return this.prisma.inspectionOfScene.delete({
 			where: {
+				userId,
 				id: inspectionOfSceneId
 			}
 		})

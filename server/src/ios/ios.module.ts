@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { PrismaService } from 'src/prisma.service'
-import { InspectionOfSceneController } from './ios.contriller'
+import { InspectionOfSceneController } from './ios.controller'
 import { InspectionOfSceneService } from './ios.service'
 
 @Module({
