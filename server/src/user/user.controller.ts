@@ -20,18 +20,14 @@ export class UserController {
 
 	@Get('getAll')
 	@Auth()
-	async getAll(@CurrentUser('id') id: string) {
-		// @Res() res: Response
+	async getAll(@CurrentUser('id') id: string, @Res() res: Response) {
 		const users = await this.userService.findAll(id)
-		return users
-		// if (users.length > 0) {
-		// 	console.log('admin')
-		// 	return users
-		// }
-		// else {
-		// 	console.log('not admin')
-		// 	res.send('Only admin can see users list')
-		// }
+		if (users.length > 0) {
+			res.send(users)
+		} else {
+			console.log('not admin')
+			res.send({ message: 'Only admin can see users list' })
+		}
 	}
 
 	@Get('profile')
