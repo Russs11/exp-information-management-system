@@ -75,4 +75,14 @@ export class UserService {
 			}
 		})
 	}
+	async delete(id: string, forDeleteUserId: string) {
+		const user = await this.prisma.user.findUnique({
+			where: { id }
+		})
+		if (user.role === 'admin') {
+			const deletedUser = await this.prisma.user.delete({
+				where: { id: forDeleteUserId }
+			})
+		}
+	}
 }
