@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
-import { Button } from '../components/ui/buttons/Button'
-import { InputField } from '../components/ui/inputField/InputField'
+import { Button } from '../../components/ui/buttons/Button'
+import { InputField } from '../../components/ui/inputField/InputField'
 
 export function Auth() {
   return (
