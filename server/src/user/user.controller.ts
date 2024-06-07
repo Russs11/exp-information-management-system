@@ -13,6 +13,7 @@ import { Auth } from 'src/auth/decorators/auth.decorator'
 import { CurrentUser } from 'src/auth/decorators/user.decorator'
 import { UserService } from './user.service'
 import { UserDto } from './dto/user.dto'
+import { IsAdmin } from './decorators/isAdmin.decorator'
 
 @Controller('user')
 export class UserController {
@@ -43,5 +44,16 @@ export class UserController {
 	@Put('update')
 	async updateUser(@CurrentUser('id') id: string, @Body() userDto: UserDto) {
 		return await this.userService.update(id, userDto)
+	}
+
+	@Get('testAdmin')
+	@Auth()
+	async getAdmin(@CurrentUser('id') id: string, @IsAdmin('role') isAdmin: string) {
+		if (isAdmin === 'admin') {
+			const { password, ...user } = await this.userService.getById(id)			
+			return user
+		} else {
+			return 'you is not an admin'
+		}
 	}
 }
