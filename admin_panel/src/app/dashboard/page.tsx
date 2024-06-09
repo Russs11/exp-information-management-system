@@ -1,3 +1,4 @@
+import { Header } from '@/components/header/Header'
 import { Metadata } from 'next'
 
 
@@ -8,5 +9,8 @@ export const metadata: Metadata = {
 }
 
 export default function DashboardPage(){
-	return <div>Dashboard</div>
+	return <div>
+		<Header></Header>
+		Dashboard
+	</div>
 } 
