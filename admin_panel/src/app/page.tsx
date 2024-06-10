@@ -8,7 +8,6 @@ export default function Home() {
         <Header />
       <div className='z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex'>
         Home
-        <Link href='/auth'>auth</Link>
       </div>
     </main>
   )
