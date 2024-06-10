@@ -1,7 +1,7 @@
 export function AddUser() {
 	return (
     <>
-      <div className='flex-auto h-full pb-10'>
+      <div className='flex-auto h-full'>
         <div className='flex justify-center overflow-auto pb-10 h-full'>
           <div className='border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit w-1/3 h-fit p-10'>
             <form>

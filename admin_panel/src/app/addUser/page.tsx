@@ -8,8 +8,7 @@ export const metadata: Metadata = {
 
 export default function AddUserPage() {
   return (
-    < div className='bg-gray-100'>
-        <Header></Header>
+    < div className='flex flex-col bg-gray-100 overflow-auto'>
         <AddUser />
     </div>
   )
