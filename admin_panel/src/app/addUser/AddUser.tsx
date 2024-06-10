@@ -37,12 +37,12 @@ export function AddUser() {
                           clip-rule='evenodd'
                         />
                       </svg>
-                      <button
+                      <Button
                         type='button'
                         className='rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'
                       >
                         Изменить
-                      </button>
+                      </Button>
                     </div>
                   </div>
 
@@ -80,7 +80,7 @@ export function AddUser() {
                               className='sr-only'
                             />
                           </label>
-                          
+
                           <p className='pl-1'>или перенесите</p>
                         </div>
                         <p className='text-xs leading-5 text-gray-600'>
@@ -234,13 +234,18 @@ export function AddUser() {
                 </div>
               </div>
               <div className='mt-6 flex items-center justify-end gap-x-6'>
-                <button
+                <Button
                   type='button'
                   className='text-sm font-semibold leading-6 text-gray-900'
                 >
                   Отмена
-                </button>
-                <Button>Сохранить</Button>
+                </Button>
+                <Button
+                  type='submit'
+                  className='rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                >
+                  Сохранить
+                </Button>
               </div>
             </form>
           </div>
