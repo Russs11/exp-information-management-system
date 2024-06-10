@@ -1,9 +1,10 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react'
 
 export interface IInputFieldProps extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>{
+	type: string,
 	id: string,
 	name: string,
-	type: string,
 	label: string
-	placeholder: string,
+	placeholder?: string,
+	autoComplete?: string
 }

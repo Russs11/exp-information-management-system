@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/buttons/Button'
+import { InputField } from '@/components/ui/inputField/InputField'
 
 export function AddUser() {
   return (
@@ -79,6 +80,7 @@ export function AddUser() {
                               className='sr-only'
                             />
                           </label>
+                          
                           <p className='pl-1'>или перенесите</p>
                         </div>
                         <p className='text-xs leading-5 text-gray-600'>
@@ -120,91 +122,57 @@ export function AddUser() {
                     </div>
 
                     <div className='sm:col-span-3'>
-                      <label
-                        htmlFor='first-name'
-                        className='block text-sm font-medium leading-6 text-gray-900'
-                      >
-                        Имя
-                      </label>
-                      <div className='mt-2'>
-                        <input
-                          type='text'
-                          name='first-name'
-                          id='first-name'
-                          autoComplete='given-name'
-                          className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-1 outline-none'
-                        />
-                      </div>
+                      <InputField
+                        type='text'
+                        id='first-name'
+                        name='first-name'
+                        autoComplete='first-name'
+                        placeholder='Введите имя'
+                        label='Имя'
+                      />
                     </div>
 
                     <div className='sm:col-span-3'>
-                      <label
-                        htmlFor='last-name'
-                        className='block text-sm font-medium leading-6 text-gray-900'
-                      >
-                        Фамилия
-                      </label>
-                      <div className='mt-2'>
-                        <input
-                          type='text'
-                          name='last-name'
-                          id='last-name'
-                          autoComplete='family-name'
-                          className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-1 outline-none'
-                        />
-                      </div>
+                      <InputField
+                        type='text'
+                        id='last-name'
+                        name='last-name'
+                        autoComplete='last-name'
+                        placeholder='Введите фамилию'
+                        label='Фамилия'
+                      />
+                    </div>
+
+                    <div className='sm:col-span-3'>
+                      <InputField
+                        type='text'
+                        id='middle-name'
+                        name='middle-name'
+                        autoComplete='middle-name'
+                        placeholder='Введите отчество'
+                        label='Отчество'
+                      />
                     </div>
                     <div className='sm:col-span-3'>
-                      <label
-                        htmlFor='middle-name'
-                        className='block text-sm font-medium leading-6 text-gray-900'
-                      >
-                        Отчество
-                      </label>
-                      <div className='mt-2'>
-                        <input
-                          type='text'
-                          name='middle-name'
-                          id='middle-name'
-                          autoComplete='family-name'
-                          className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-1 outline-none'
-                        />
-                      </div>
-                    </div>
-                    <div className='sm:col-span-3'>
-                      <label
-                        htmlFor='birth-date'
-                        className='block text-sm font-medium leading-6 text-gray-900'
-                      >
-                        Дата рождения
-                      </label>
-                      <div className='mt-2'>
-                        <input
-                          type='date'
-                          name='birth-date'
-                          id='birth-date'
-                          autoComplete='birth-date'
-                          className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-1 outline-none'
-                        />
-                      </div>
+                      <InputField
+                        type='date'
+                        id='birth-date'
+                        name='birth-date'
+                        autoComplete='birth-date'
+                        placeholder='дд.мм.гг.'
+                        label='Дата рождения'
+                      />
                     </div>
 
                     <div className='sm:col-span-4'>
-                      <label
-                        htmlFor='role'
-                        className='block text-sm font-medium leading-6 text-gray-900'
-                      >
-                        Роль
-                      </label>
-                      <div className='mt-2'>
-                        <input
-                          id='role'
-                          name='role'
-                          type='text'
-                          autoComplete='role'
-                          className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-1 outline-none'
-                        />
-                      </div>
+                      <InputField
+                        type='text'
+                        id='role'
+                        name='role'
+                        autoComplete='role'
+                        placeholder='Введите роль'
+                        label='Роль'
+                      />
                     </div>
 
                     <div className='sm:col-span-4'>
