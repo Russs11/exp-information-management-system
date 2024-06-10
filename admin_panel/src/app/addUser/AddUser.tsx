@@ -1,5 +1,7 @@
+import { Button } from '@/components/ui/buttons/Button'
+
 export function AddUser() {
-	return (
+  return (
     <>
       <div className='flex-auto h-full'>
         <div className='flex justify-center overflow-auto pb-10 h-full'>
@@ -13,7 +15,7 @@ export function AddUser() {
                   <p className='mt-1 text-sm leading-6 text-gray-600'>
                     Эта страница содержит данные о пользователе.
                   </p>
-                  
+
                   <div className='col-span-full'>
                     <label
                       htmlFor='photo'
@@ -270,12 +272,7 @@ export function AddUser() {
                 >
                   Отмена
                 </button>
-                <button
-                  type='submit'
-                  className='rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                >
-                  Сохранить
-                </button>
+                <Button>Сохранить</Button>
               </div>
             </form>
           </div>

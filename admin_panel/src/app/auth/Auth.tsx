@@ -39,7 +39,7 @@ export function Auth() {
                 placeholder='Введите пароль'
                 label='Пароль'
               />
-              <div className='flex justify-center'>
+              <div className='flex flex-col justify-center'>
                 <Button>Войти</Button>
               </div>
             </form>
