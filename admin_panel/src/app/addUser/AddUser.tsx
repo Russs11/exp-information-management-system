@@ -13,7 +13,7 @@ export function AddUser() {
                   <p className='mt-1 text-sm leading-6 text-gray-600'>
                     Эта страница содержит данные о пользователе.
                   </p>
-
+                  
                   <div className='col-span-full'>
                     <label
                       htmlFor='photo'
