@@ -1,5 +1,7 @@
+'use client'
 import { Button } from '@/components/ui/buttons/Button'
 import { InputField } from '@/components/ui/inputField/InputField'
+import { SelectField } from '@/components/ui/inputField/SelectField'
 
 export function AddUser() {
   return (
@@ -99,27 +101,14 @@ export function AddUser() {
 
                 <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
                   <div className='sm:col-span-4 min-w-fit justify-center'>
-                    <label
-                      htmlFor='username'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      Логин
-                    </label>
-                    <div className='mt-2'>
-                      <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md'>
-                        <span className='flex select-none items-center pl-3 text-gray-500 sm:text-sm'>
-                          пример
-                        </span>
-                        <input
-                          type='text'
-                          name='username'
-                          id='username'
-                          autoComplete='username'
-                          className='block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 px-1 outline-none'
-                          placeholder='Ivanov_Ivan@gmail.com'
-                        />
-                      </div>
-                    </div>
+                    <InputField
+                      type='text'
+                      id='userName'
+                      name='userName'
+                      autoComplete='userName'
+                      placeholder='пример Ivanov_Ivan@gmail.com'
+                      label='Логин'
+                    />
 
                     <div className='sm:col-span-3'>
                       <InputField
@@ -159,7 +148,7 @@ export function AddUser() {
                         id='birth-date'
                         name='birth-date'
                         autoComplete='birth-date'
-                        placeholder='дд.мм.гг.'
+                        placeholder=''
                         label='Дата рождения'
                       />
                     </div>
@@ -176,59 +165,33 @@ export function AddUser() {
                     </div>
 
                     <div className='sm:col-span-4'>
-                      <label
-                        htmlFor='password'
-                        className='block text-sm font-medium leading-6 text-gray-900'
-                      >
-                        Пароль
-                      </label>
-                      <div className='mt-2'>
-                        <input
-                          id='password'
-                          name='password'
-                          type='text'
-                          autoComplete='password'
-                          className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-1 outline-none'
-                        />
-                      </div>
+                      <InputField
+                        type='text'
+                        id='password'
+                        name='password'
+                        autoComplete='password'
+                        placeholder='Введите пароль'
+                        label='Пароль'
+                      />
                     </div>
 
                     <div className='col-span-full'>
-                      <label
-                        htmlFor='post'
-                        className='block text-sm font-medium leading-6 text-gray-900'
-                      >
-                        Должность
-                      </label>
-                      <div className='mt-2'>
-                        <input
-                          type='text'
-                          name='post'
-                          id='post'
-                          autoComplete='post'
-                          className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-1'
-                        />
-                      </div>
+                      <InputField
+                        type='text'
+                        id='post'
+                        name='post'
+                        autoComplete='post'
+                        placeholder='Введите должность'
+                        label='Должность'
+                      />
                     </div>
                     <div className='sm:col-span-3'>
-                      <label
-                        htmlFor='country'
-                        className='block text-sm font-medium leading-6 text-gray-900'
-                      >
-                        Подразделение
-                      </label>
-                      <div className='mt-2'>
-                        <select
-                          id='country'
-                          name='country'
-                          autoComplete='country-name'
-                          className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6'
-                        >
-                          <option>ОМВД по Евпатории</option>
-                          <option>ОП №2 Кевский</option>
-                          <option>ОП №3 Центральный</option>
-                        </select>
-                      </div>
+                      <SelectField
+                        id='unit'
+                        name='unit'
+                        autoComplete='unit-name'
+                        label='Подразделение'
+                      />
                     </div>
                   </div>
                 </div>

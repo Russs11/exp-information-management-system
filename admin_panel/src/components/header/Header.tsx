@@ -9,7 +9,7 @@ import { UserMenu } from '../ui/user-menu/UserMenu'
 export function Header() {
   const [isUserMenu, setIsUserMenu] = useState<boolean>(false)
   
-  console.log(isUserMenu)
+ 
   return (
     <>
       <div className='header'>
