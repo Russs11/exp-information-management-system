@@ -7,8 +7,8 @@ export function AddUser() {
   return (
     <>
       <div className='flex-auto h-full'>
-        <div className='flex justify-center overflow-auto pb-10 h-full'>
-          <div className='border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit w-1/3 h-fit p-10'>
+        <div className='flex justify-center overflow-auto pb-10 h-full '>
+          <div className='border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit w-1/3 h-fit p-10  bg-white'>
             <form>
               <div className='space-y-12 '>
                 <div className='border-b border-gray-900/10 pb-12'>

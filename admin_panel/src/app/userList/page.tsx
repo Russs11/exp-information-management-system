@@ -1,15 +1,14 @@
-
 import { Metadata } from 'next'
-import { AddUser } from './AddUser'
+import { UserList } from './UserList'
 
 export const metadata: Metadata = {
-  title: 'AddUser',
+  title: 'UserList',
 }
 
-export default function AddUserPage() {
+export default function DashboardPage() {
   return (
     <div className='flex flex-col bg-gray-100 overflow-auto'>
-      <AddUser />
+      <UserList />
     </div>
   )
 }
