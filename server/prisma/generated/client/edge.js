@@ -141,7 +141,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "E:\\vcCodeProjects\\NextJs\\exp-information-management-system\\server\\prisma\\generated\\client",
+      "value": "D:\\vsCodeProjects\\NextJs\\exp-information-management-system\\server\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
