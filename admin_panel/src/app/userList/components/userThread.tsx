@@ -23,7 +23,7 @@ export function UserThread({name, id}: IUserThread) {
             />
           </div>
           <div className='flex flex-col justify-center'>
-            <h6 className='mb-0 leading-normal text-sm'>{`${name} Иван`}</h6>
+            <h6 className='mb-0 leading-normal text-sm'>{`${name} ${id} Иван`}</h6>
             <p className='mb-0 leading-tight text-xs text-slate-400'>
               Иванович
             </p>
@@ -37,8 +37,8 @@ export function UserThread({name, id}: IUserThread) {
         <p className='mb-0 leading-tight text-xs text-slate-400'>Эксперт</p>
       </td>
       <td className='p-2 leading-normal text-center align-middle bg-transparent border-b text-sm whitespace-nowrap shadow-transparent'>
-        <span className='bg-gradient-to-tl from-emerald-500 to-teal-400 px-3.6 text-xs rounded-1.8 py-2.2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white'>
-          Online
+        <span className='text-xs rounded-1.8 py-2.2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none'>
+          User
         </span>
       </td>
       <td className='p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
