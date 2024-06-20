@@ -1,33 +1,27 @@
 'use client'
 
-import Link from 'next/link'
-import Image from 'next/image'
 import { UserThread } from './components/userThread'
 export function UserList() {
+  interface IUser {
+    name: string
+    id: number
+  }
 
-	interface IUser{
-		name: string,
-		id:number
-	}
+  let threadsArr: JSX.Element[] = []
 
-	let threadsArr: JSX.Element[] = []
+  let userArray: IUser[] = []
 
-	let userArray: IUser[] = [
-    { name: 'Ivanov', id: 1 },
-		{ name: 'Petrov', id: 2 },
-		{ name: 'Sidorov', id: 3 },
-		
-  ]
+  for (let i = 0; i < 30; i++) {
+    userArray.push({ name: 'Петров', id: i + 1 })
+  }
 
-	let userArray2 = new Array(30).fill({ name: 'Ivanov', id: 1 })
-	console.log(userArray2)
+  // let userArray2 = new Array(30).fill({ name: 'Ivanov', id: 1 })
 
-	threadsArr = userArray2.map((item, index) => {
-    return <UserThread key={index + 1} />
+  threadsArr = userArray.map((item, index) => {
+    return <UserThread key={item.id} name={item.name} id={item.id} />
   })
 
-
-
+  console.log(userArray)
   return (
     <div className='flex-auto justify-center p-0 overflow-auto h-screen md:p-12'>
       <div className='relative flex flex-col w-full mb-0 break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit'>
@@ -46,7 +40,7 @@ export function UserList() {
                     Подразделение
                   </th>
                   <th className='px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70'>
-                    Статус
+                    Роль
                   </th>
                   <th className='px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70'>
                     Последняя запись
@@ -108,7 +102,7 @@ export function UserList() {
                     </Link>
                   </td>
                 </tr> */}
-								{threadsArr}
+                {threadsArr}
               </tbody>
             </table>
           </div>

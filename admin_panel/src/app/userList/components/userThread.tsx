@@ -3,9 +3,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 
+interface IUserThread{
+  name: string,
+  id: number
+}
 
-
-export function UserThread() {
+export function UserThread({name, id}: IUserThread) {
 	return (
     <tr>
       <td className='p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
@@ -20,7 +23,7 @@ export function UserThread() {
             />
           </div>
           <div className='flex flex-col justify-center'>
-            <h6 className='mb-0 leading-normal text-sm'>Иванов Иван</h6>
+            <h6 className='mb-0 leading-normal text-sm'>{`${name} Иван`}</h6>
             <p className='mb-0 leading-tight text-xs text-slate-400'>
               Иванович
             </p>
