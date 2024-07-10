@@ -11,7 +11,7 @@ export function UserList() {
 
   let userArray: IUser[] = []
 
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 35; i++) {
     userArray.push({ name: 'Петров', id: i + 1 })
   }
 
