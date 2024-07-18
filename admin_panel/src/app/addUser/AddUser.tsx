@@ -27,9 +27,9 @@ export function AddUser() {
                       Фото
                     </label>
                     <div className='mt-2 flex items-center gap-x-3'>
-                      <div className='flex items-center justify-center w-56 h-64 rounded-lg border border-dashed border-gray-900/25'>
+                      <div className='flex items-center justify-center w-60 h-72 rounded-lg border border-dashed border-gray-900/25'>
                       <svg
-                        className='h-52 w-52 text-gray-300'
+                        className='h-56 w-56 text-gray-300'
                         viewBox='0 0 24 24'
                         fill='currentColor'
                         aria-hidden='true'
@@ -49,6 +49,7 @@ export function AddUser() {
                         Изменить
                       </Button>
                     </div>
+                    
                   </div>
 
                   {/* <div className='col-span-full'>
