@@ -2,7 +2,7 @@ import { Header } from '@/components/header/Header'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { UserList } from './userList/UserList'
+import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,10 +19,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <div className='flex flex-col h-screen overflow-hidden'>
-          <Header />
-          {children}
-        </div>
+        <Providers>
+          <div className='flex flex-col h-screen overflow-hidden'>
+            <Header />
+            {children}
+          </div>
+        </Providers>
       </body>
     </html>
   )
