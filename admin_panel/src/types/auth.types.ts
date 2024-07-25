@@ -5,10 +5,10 @@ export interface IAuthForm {
 
 export interface IUser {
   id: string
-  login: string
-  name: string
-  password: string
-  role: string
+  login?: string
+  password?:string
+  name?: string
+  role?: string
 }
 
 export interface IAuthResponse {

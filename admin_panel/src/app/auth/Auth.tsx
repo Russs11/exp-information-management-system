@@ -17,7 +17,7 @@ export function Auth() {
 
   const { mutate } = useMutation({
     mutationKey: ['auth'],
-    mutationFn: (data: IAuthForm) => authService.main('login', data),
+    mutationFn: (data: IAuthForm) => authService.main(data),
     onSuccess() {
       reset()
       push('/userList')
@@ -26,6 +26,7 @@ export function Auth() {
   })
 
   const onSubmit: SubmitHandler<IAuthForm> = data => {
+    console.log(data)
     mutate(data)
   }
 
@@ -49,30 +50,29 @@ export function Auth() {
         <div className='mt-10 sm:px-8 sm:mx-auto w-full '>
           <form className='space-y-6' onSubmit={handleSubmit(onSubmit)}>
             <InputField
+              id='email'
+              name='login'
+              type='login'
+              placeholder='Введите логин'
+              label='Логин'
               {...(register('email'),
               {
                 required: 'Email is required!',
               })}
-              id='email'
-              name='email'
-              type='email'
-              placeholder='Введите логин'
-              label='Логин'
             />
-
             <InputField
-              {...(register('password'),
-              {
-                required: 'Password is required!',
-              })}
               id='password'
               name='password'
               type='password'
               placeholder='Введите пароль'
               label='Пароль'
+              {...(register('password'),
+              {
+                required: 'Password is required!',
+              })}
             />
             <div className='flex flex-col justify-center'>
-              <Button className='rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>
+              <Button className='rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' type='submit'>
                 Войти
               </Button>
             </div>

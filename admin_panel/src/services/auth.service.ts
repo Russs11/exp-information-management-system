@@ -3,11 +3,8 @@ import { IAuthForm, IAuthResponse } from '@/types/auth.types'
 import { removeFromStorage, saveTokenStorage } from './auth-token.service'
 
 export const authService = {
-  async main(type: 'login', data: IAuthForm) {
-    const response = await axiosClassic.post<IAuthResponse>(
-      `/auth/${type}`,
-      data
-    )
+  async main(data: IAuthForm) {
+    const response = await axiosClassic.post<IAuthResponse>('/auth/login', data)
 
     if (response.data.accessToken) saveTokenStorage(response.data.accessToken)
     return response
@@ -28,5 +25,5 @@ export const authService = {
     if (response.data) removeFromStorage()
 
     return response
-  }
+  },
 }
