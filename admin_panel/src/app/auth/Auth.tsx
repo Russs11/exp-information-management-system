@@ -55,8 +55,7 @@ export function Auth() {
               type='login'
               placeholder='Введите логин'
               label='Логин'
-              {...(register('email'),
-              {
+              {...register('email', {
                 required: 'Email is required!',
               })}
             />
@@ -66,13 +65,15 @@ export function Auth() {
               type='password'
               placeholder='Введите пароль'
               label='Пароль'
-              {...(register('password'),
-              {
+              {...register('password', {
                 required: 'Password is required!',
               })}
             />
             <div className='flex flex-col justify-center'>
-              <Button className='rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' type='submit'>
+              <Button
+                className='rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                type='submit'
+              >
                 Войти
               </Button>
             </div>
