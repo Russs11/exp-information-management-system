@@ -21,4 +21,7 @@ const isAuthPage = url.includes('/auth')
 	}
 	return NextResponse.next()
 }
+export const config = {
+	matcher: ['/userList/:path*', '/auth/:path']
+}
 

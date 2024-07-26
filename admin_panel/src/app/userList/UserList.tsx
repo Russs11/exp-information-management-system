@@ -23,7 +23,7 @@ export function UserList() {
 
   console.log(userArray)
   return (
-    <div className='flex-auto justify-center p-0 overflow-auto h-screen'>
+    <div className='flex-auto justify-center p-0 overflow-auto h-screen md:p-12'>
       <div className='relative flex flex-col w-full mb-12 break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit'>
         <div className='p-6 pb-0 mb-0 bg-white rounded-t-2xl'>
           <h6>Список пользователей</h6>

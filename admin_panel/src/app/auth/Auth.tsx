@@ -21,7 +21,7 @@ export function Auth() {
     onSuccess() {
       console.log('success');
       reset()
-      push('/userList')
+      push('/')
     },
   })
 
