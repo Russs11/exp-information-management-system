@@ -19,9 +19,9 @@ export function Auth() {
     mutationKey: ['auth'],
     mutationFn: (data: IAuthForm) => authService.main(data),
     onSuccess() {
+      console.log('success');
       reset()
       push('/userList')
-      console.log('success')
     },
   })
 
@@ -51,17 +51,15 @@ export function Auth() {
           <form className='space-y-6' onSubmit={handleSubmit(onSubmit)}>
             <InputField
               id='email'
-              name='login'
               type='login'
               placeholder='Введите логин'
               label='Логин'
-              {...register('email', {
+              {...register('login', {
                 required: 'Email is required!',
               })}
             />
             <InputField
               id='password'
-              name='password'
               type='password'
               placeholder='Введите пароль'
               label='Пароль'

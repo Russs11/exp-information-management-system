@@ -1,19 +1,21 @@
 export interface IAuthForm {
-  email: string
+  login: string
   password: string
 }
 
 export interface IUser {
   id: string
+  createAt: string
+  updateAt:string
   login?: string
-  password?:string
   name?: string
   role?: string
+  password?: string
 }
 
 export interface IAuthResponse {
-  accessToken: string
   user: IUser
+  accessToken: string
 }
 
 export type TypeUserForm = Omit<IUser, 'id'> & { password?: string }
