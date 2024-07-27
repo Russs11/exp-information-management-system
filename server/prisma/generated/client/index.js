@@ -142,7 +142,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Vs Code Projects\\NextJs\\exp-information-management-system\\server\\prisma\\generated\\client",
+      "value": "E:\\vcCodeProjects\\NextJs\\exp-information-management-system\\server\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -156,7 +156,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Vs Code Projects\\NextJs\\exp-information-management-system\\server\\prisma\\schema.prisma",
+    "sourceFilePath": "E:\\vcCodeProjects\\NextJs\\exp-information-management-system\\server\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

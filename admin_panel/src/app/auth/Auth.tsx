@@ -19,14 +19,12 @@ export function Auth() {
     mutationKey: ['auth'],
     mutationFn: (data: IAuthForm) => authService.main(data),
     onSuccess() {
-      console.log('success');
       reset()
-      push('/')
+      push('/userList')
     },
   })
 
   const onSubmit: SubmitHandler<IAuthForm> = data => {
-    console.log(data)
     mutate(data)
   }
 
