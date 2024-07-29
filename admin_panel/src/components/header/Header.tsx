@@ -22,6 +22,7 @@ export function Header() {
       push('/auth')
     },
   })
+
   return (
     <>
       <div className='header'>
@@ -44,13 +45,14 @@ export function Header() {
                     <div className='ml-10 flex items-baseline space-x-4'>
                       <Link
                         href='/i/userList'
-                        className='bg-gray-900  hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium'
+                        className='focus:bg-gray-900  hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium'
                       >
                         Список пользователей
                       </Link>
                       <Link
                         href='/i/addUser'
-                        className='bg-gray-900  hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium'
+                        className='focus:bg-gray-900   hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium'
+                        
                       >
                         Добавить пользователя
                       </Link>
@@ -61,7 +63,12 @@ export function Header() {
                   <div className='ml-4 flex items-center md:ml-6'>
                     <RingButton />
                     <div className='relative ml-3'>
-                      <UserProfileButton onClick={() => setIsUserMenu(prev => !prev)} />
+                      <UserProfileButton
+                        onClick={() => setIsUserMenu(true)}
+                        onMouseLeave={() =>
+                          setTimeout(() => setIsUserMenu(false), 5000)
+                        }
+                      />
                       {isUserMenu && <UserMenu />}
                     </div>
                     <div className='relative ml-3'>
