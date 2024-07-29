@@ -1,7 +1,11 @@
 'use client'
+import { authService } from '@/services/auth.service'
+import { useMutation } from '@tanstack/react-query'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { Logout } from '../ui/buttons/logout'
 import { RingButton } from '../ui/buttons/RingButton'
 import { UserProfileButton } from '../ui/buttons/UserProfileButton'
 import { UserMenu } from '../ui/user-menu/UserMenu'
@@ -9,6 +13,15 @@ import { UserMenu } from '../ui/user-menu/UserMenu'
 export function Header() {
   const [isUserMenu, setIsUserMenu] = useState<boolean>(false)
 
+  const { push } = useRouter()
+
+  const { mutate } = useMutation({
+    mutationKey: ['logout'],
+    mutationFn: () => authService.logout(),
+    onSuccess() {
+      push('/auth')
+    },
+  })
   return (
     <>
       <div className='header'>
@@ -48,10 +61,11 @@ export function Header() {
                   <div className='ml-4 flex items-center md:ml-6'>
                     <RingButton />
                     <div className='relative ml-3'>
-                      <UserProfileButton
-                        onClick={() => setIsUserMenu(prev => !prev)}
-                      />
+                      <UserProfileButton onClick={() => setIsUserMenu(prev => !prev)} />
                       {isUserMenu && <UserMenu />}
+                    </div>
+                    <div className='relative ml-3'>
+                      <Logout onClick={() => mutate()} />
                     </div>
                   </div>
                 </div>
