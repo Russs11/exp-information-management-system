@@ -21,7 +21,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <div className='flex flex-col h-screen overflow-hidden'>
-            <Header />
             {children}
           </div>
         </Providers>

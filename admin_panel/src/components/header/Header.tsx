@@ -30,14 +30,14 @@ export function Header() {
                   <div className='hidden md:block'>
                     <div className='ml-10 flex items-baseline space-x-4'>
                       <Link
-                        href='/userList'
-                        className='bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium'
+                        href='/i/userList'
+                        className='bg-gray-900  hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium'
                       >
                         Список пользователей
                       </Link>
                       <Link
-                        href='/addUser'
-                        className='bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium'
+                        href='/i/addUser'
+                        className='bg-gray-900  hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium'
                       >
                         Добавить пользователя
                       </Link>
@@ -99,39 +99,20 @@ export function Header() {
               </div>
             </div>
 
-            {/* <div className='md:hidden' id='mobile-menu'>
+            <div className='md:hidden' id='mobile-menu'>
               <div className='space-y-1 px-2 pb-3 pt-2 sm:px-3'>
-                <a
-                  href='#'
-                  className='bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium'
-                  aria-current='page'
-                >
-                  Главная
-                </a>
-                <a
-                  href='#'
+                <Link
+                  href='/i/userList'
                   className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'
                 >
-                  Пользователи
-                </a>
-                <a
-                  href='#'
+                  Список пользователей
+                </Link>
+                <Link
+                  href='/i/addUser'
                   className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'
                 >
-                  Отчеты
-                </a>
-                <a
-                  href='#'
-                  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'
-                >
-                  Календарь
-                </a>
-                <a
-                  href='#'
-                  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'
-                >
-                  Настройки
-                </a>
+                  Добавить пользователя
+                </Link>
               </div>
               <div className='border-t border-gray-700 pb-3 pt-4'>
                 <div className='flex items-center px-5'>
@@ -196,7 +177,7 @@ export function Header() {
                   </a>
                 </div>
               </div>
-            </div> */}
+            </div>
           </nav>
         </div>
       </div>

@@ -20,7 +20,7 @@ export function Auth() {
     mutationFn: (data: IAuthForm) => authService.main(data),
     onSuccess() {
       reset()
-      push('/userList')
+      push('/i')
     },
   })
 
