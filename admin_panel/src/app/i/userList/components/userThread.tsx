@@ -51,7 +51,7 @@ export function UserThread({name, id}: IUserThread) {
       </td>
       <td className='p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
         <Link
-          href='/addUser'
+          href='/i/addUser'
           className='font-semibold leading-tight text-xs text-slate-400'
         >
           {' '}
