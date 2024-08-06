@@ -1,4 +1,5 @@
 'use client'
+import { userService } from '@/services/user.service'
 import { UserThread } from './components/userThread'
 
 
@@ -22,7 +23,13 @@ export function UserList() {
     return <UserThread key={item.id} name={item.name} id={item.id} />
   })
 
-  console.log(userArray)
+
+  async function getUser() {
+    const response = await userService.getProfile()
+    console.log(response);
+}
+
+getUser()
   return (
     <div className='flex-auto justify-center p-0 overflow-auto h-screen md:p-12'>
       <div className='relative flex flex-col w-full break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit'>
