@@ -9,6 +9,26 @@ import { UserDto } from './dto/user.dto'
 export class UserService {
 	constructor(private prisma: PrismaService) {}
 
+	async findAll(id: string) {
+		const user = await this.prisma.user.findUnique({
+			where: { id }
+		})
+		if (user.role === 'admin') {
+			return await this.prisma.user.findMany({
+				select: {
+					id: true,
+					createAt: true,
+					updateAt: true,
+					login: true,
+					name: true,
+					password: false,
+					role: true
+				}
+			})
+		}
+		return []
+	}
+
 	getById(id: string) {
 		return this.prisma.user.findUnique({
 			where: { id },
@@ -54,5 +74,15 @@ export class UserService {
 				role: true
 			}
 		})
+	}
+	async delete(id: string, forDeleteUserId: string) {
+		const user = await this.prisma.user.findUnique({
+			where: { id }
+		})
+		if (user.role === 'admin') {
+			const deletedUser = await this.prisma.user.delete({
+				where: { id: forDeleteUserId }
+			})
+		}
 	}
 }
