@@ -7,7 +7,7 @@ export const authService = {
   async main(data: IAuthForm) {
     const response = await axiosClassic.post<IAuthResponse>('/auth/login', data)
 
-    if (response.data.user.role !== 'user') {
+    if (response.data.user.role !== 'admin') {
       alert('Недостоточно прав для входа в админ панель')
       return NextResponse.redirect('/auth')
     }
