@@ -3,13 +3,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 
-interface IUserThread{
-  name: string,
-  id: number
+interface IUserThread {
+  id: string
+  createAt: string
+  updateAt: string
+  login?: string
+  name?: string
+  role?: string
+  password?: string
 }
 
-export function UserThread({name, id}: IUserThread) {
-	return (
+export function UserThread({ name, role, updateAt, id }: IUserThread) {
+  return (
     <tr>
       <td className='p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
         <div className='flex px-2 py-1'>
@@ -23,7 +28,7 @@ export function UserThread({name, id}: IUserThread) {
             />
           </div>
           <div className='flex flex-col justify-center'>
-            <h6 className='mb-0 leading-normal text-sm'>{`${name} ${id} Иван`}</h6>
+            <h6 className='mb-0 leading-normal text-sm'>{name}</h6>
             <p className='mb-0 leading-tight text-xs text-slate-400'>
               Иванович
             </p>
@@ -38,15 +43,15 @@ export function UserThread({name, id}: IUserThread) {
       </td>
       <td className='p-2 leading-normal text-center align-middle bg-transparent border-b text-sm whitespace-nowrap shadow-transparent'>
         <span className='text-xs rounded-1.8 py-2.2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none'>
-          User
+          {role}
         </span>
       </td>
       <td className='p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
         <span className='font-semibold leading-tight text-xs text-slate-400'>
-          23.04.24
+        {updateAt}
         </span>
         <span className='font-semibold leading-tight text-xs text-slate-400'>
-          в 23:05
+         
         </span>
       </td>
       <td className='p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
