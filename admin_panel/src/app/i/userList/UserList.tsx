@@ -5,16 +5,15 @@ import { UserThread } from './components/userThread'
 import { useUserList } from './useUserList'
 
 export function UserList() {
-
-  interface IUsersFromApi{
-    data: IUser[] | undefined,
+  interface IUsersFromApi {
+    data: IUser[] | undefined
     isLoading: boolean
   }
+
   const { data, isLoading }: IUsersFromApi = useUserList() //isLoading можно использовать для спиннера
 
   let threadsArr: JSX.Element[] = []
 
-  console.log(data)
   if (data?.length) {
     threadsArr = data?.map(item => {
       return (
