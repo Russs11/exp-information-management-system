@@ -7,8 +7,7 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { Logout } from '../ui/buttons/logout'
 import { RingButton } from '../ui/buttons/RingButton'
-import { UserProfileButton } from '../ui/buttons/UserProfileButton'
-import { UserMenu } from '../ui/user-menu/UserMenu'
+import { Profile } from '../ui/profile/Profile'
 
 export function Header() {
   const [isUserMenu, setIsUserMenu] = useState<boolean>(false)
@@ -52,7 +51,6 @@ export function Header() {
                       <Link
                         href='/i/addUser'
                         className='focus:bg-gray-900   hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium'
-                        
                       >
                         Добавить пользователя
                       </Link>
@@ -62,15 +60,7 @@ export function Header() {
                 <div className='hidden md:block'>
                   <div className='ml-4 flex items-center md:ml-6'>
                     <RingButton />
-                    <div className='relative ml-3'>
-                      <UserProfileButton
-                        onClick={() => setIsUserMenu(true)}
-                        onMouseLeave={() =>
-                          setTimeout(() => setIsUserMenu(false), 5000)
-                        }
-                      />
-                      {isUserMenu && <UserMenu />}
-                    </div>
+                    <Profile />
                     <div className='relative ml-3'>
                       <Logout onClick={() => mutate()} />
                     </div>
