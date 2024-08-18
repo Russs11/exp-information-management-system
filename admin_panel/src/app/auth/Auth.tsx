@@ -21,20 +21,14 @@ export function Auth() {
     mutationFn: (data: IAuthForm) => authService.main(data),
 
     onSuccess() {
-        const testAdmin = async () => {
-          const res = await userService.testAdmin()
-          if (res.role !== 'admin') {
-            push('/mainPage')
-          } else {
-            push('/i')
-          }
+      const testAdmin = async () => {
+        const res = await userService.testAdmin()
+        res.role !== 'admin' ? push('/mainPage') : push('/i')
       }
       reset()
       testAdmin()
     },
   })
-
-
 
   const onSubmit: SubmitHandler<IAuthForm> = data => {
     mutate(data)
