@@ -24,6 +24,10 @@ class UserService {
     const response = await axiosWithAuth.put(this.BASE_URL + '/update', data)
     return response.data
   }
+  async testAdmin() {
+    const response = await axiosWithAuth.get(this.BASE_URL + '/testAdmin')
+    return response.data
+  }
 }
 
 export const userService = new UserService()
