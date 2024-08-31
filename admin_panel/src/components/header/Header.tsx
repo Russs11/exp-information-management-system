@@ -4,14 +4,11 @@ import { useMutation } from '@tanstack/react-query'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
 import { Logout } from '../ui/buttons/logout'
 import { RingButton } from '../ui/buttons/RingButton'
 import { Profile } from '../ui/profile/Profile'
 
 export function Header() {
-  const [isUserMenu, setIsUserMenu] = useState<boolean>(false)
-
   const { push } = useRouter()
 
   const { mutate } = useMutation({

@@ -9,7 +9,7 @@ interface IProfile
 
 
 export const Profile = ({...props}:IProfile): JSX.Element => {
-	const [isUserMenu, setIsUserMenu] = useState<boolean>(false)
+
 	const {isShow, ref, setisShow} = useOutside(false)
 
 
