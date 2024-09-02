@@ -1,12 +1,17 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
+import { JwtService } from '@nestjs/jwt'
 import { hash } from 'argon2'
+import { Response } from 'express'
+import { Role } from 'prisma/generated/client'
 import { PrismaService } from 'src/prisma.service'
 import { CreateUserDto } from './dto/createUser.dto'
-import { Role } from 'prisma/generated/client'
-import { JwtService } from '@nestjs/jwt'
+import { LoginUserDto } from './dto/loginUser.dto'
 
 @Injectable()
 export class AdminService {
+	EXPIRE_DAY_REFRESH_TOKEN = 1
+	REFRESH_TOKEN_NAME = 'refreshToken'
+
 	constructor(
 		private prisma: PrismaService,
 		private jwt: JwtService
@@ -19,9 +24,11 @@ export class AdminService {
 
 		const { password, ...user } = await this.create(сreateUserDto)
 
-		const token = this.issueToken(user.id, user.role)
+		return user
+	}
 
-		return { user, token }
+	async loginUser(loginUserDto: LoginUserDto) {
+		
 	}
 
 	//service functions
@@ -45,12 +52,23 @@ export class AdminService {
 			data: user
 		})
 	}
-
 	private issueToken(userId: string, userRole: Role): string {
 		const data = { id: userId, role: userRole }
 
 		const jwtToken = this.jwt.sign(data, { expiresIn: '1h' })
 
 		return jwtToken
+	}
+	addRefreshTokenFromResponse(res: Response, refreshToken: string) {
+		const expiresIn = new Date()
+		expiresIn.setDate(expiresIn.getDate() + this.EXPIRE_DAY_REFRESH_TOKEN)
+
+		res.cookie(this.REFRESH_TOKEN_NAME, refreshToken, {
+			httpOnly: true,
+			domain: 'localhost',
+			expires: expiresIn,
+			secure: true,
+			sameSite: 'none'
+		})
 	}
 }

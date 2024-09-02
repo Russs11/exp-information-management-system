@@ -31,12 +31,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 5.14.0
- * Query Engine version: 34ace0eb2704183d2c05b60b52fba5c43c13f303
+ * Prisma Client JS version: 5.12.1
+ * Query Engine version: 473ed3124229e22d881cb7addf559799debae1ab
  */
 Prisma.prismaVersion = {
-  client: "5.14.0",
-  engine: "34ace0eb2704183d2c05b60b52fba5c43c13f303"
+  client: "5.12.1",
+  engine: "473ed3124229e22d881cb7addf559799debae1ab"
 }
 
 Prisma.PrismaClientKnownRequestError = PrismaClientKnownRequestError;
@@ -142,7 +142,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\OpenServer\\domains\\localhost\\react_lab\\exp-information-management-system\\server\\prisma\\generated\\client",
+      "value": "C:\\OSPanel\\domains\\localhost\\react_lab\\exp-information-management-system\\server\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -156,7 +156,6 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\OpenServer\\domains\\localhost\\react_lab\\exp-information-management-system\\server\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -164,8 +163,8 @@ const config = {
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../..",
-  "clientVersion": "5.14.0",
-  "engineVersion": "34ace0eb2704183d2c05b60b52fba5c43c13f303",
+  "clientVersion": "5.12.1",
+  "engineVersion": "473ed3124229e22d881cb7addf559799debae1ab",
   "datasourceNames": [
     "db"
   ],
@@ -178,8 +177,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"generated/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id                   String              @id @default(cuid())\n  createAt             DateTime            @default(now()) @map(\"create_at\")\n  updateAt             DateTime            @updatedAt @map(\"update_at\")\n  login                String              @unique\n  name                 String?\n  password             String\n  role                 Role                @default(user)\n  inspections_of_scene InspectionOfScene[]\n\n  @@map(\"user\")\n}\n\nmodel InspectionOfScene {\n  id                            String   @id @default(cuid())\n  createAt                      DateTime @default(now()) @map(\"create_at\")\n  updateAt                      DateTime @updatedAt @map(\"update_at\")\n  dateOfTheInspectionOfTheScene DateTime @map(\"date_of_the_inspection_of_the_scene\")\n  addressOfTheScene             String?  @default(\"\") @map(\"address_of_the_scene\")\n  reasonForInspectionOfTheScene String?  @default(\"\") @map(\"reason_for_inspection_of_the_scene\")\n  userId                        String   @map(\"user_id\")\n  user                          User     @relation(fields: [userId], references: [id])\n\n  @@map(\"inspection_of_scene\")\n}\n\nenum Role {\n  admin\n  user\n}\n",
-  "inlineSchemaHash": "22cd3c513482b067ba6756a0c55fe8df4df59bbe24d0140d2425e70ef995a73f",
+  "inlineSchema": "generator client {\r\n  provider = \"prisma-client-js\"\r\n  output   = \"generated/client\"\r\n}\r\n\r\ndatasource db {\r\n  provider = \"postgresql\"\r\n  url      = env(\"DATABASE_URL\")\r\n}\r\n\r\nmodel User {\r\n  id                   String              @id @default(cuid())\r\n  createAt             DateTime            @default(now()) @map(\"create_at\")\r\n  updateAt             DateTime            @updatedAt @map(\"update_at\")\r\n  login                String              @unique\r\n  name                 String?\r\n  password             String\r\n  role                 Role                @default(user)\r\n  inspections_of_scene InspectionOfScene[]\r\n\r\n  @@map(\"user\")\r\n}\r\n\r\nmodel InspectionOfScene {\r\n  id                            String   @id @default(cuid())\r\n  createAt                      DateTime @default(now()) @map(\"create_at\")\r\n  updateAt                      DateTime @updatedAt @map(\"update_at\")\r\n  dateOfTheInspectionOfTheScene DateTime @map(\"date_of_the_inspection_of_the_scene\")\r\n  addressOfTheScene             String?  @default(\"\") @map(\"address_of_the_scene\")\r\n  reasonForInspectionOfTheScene String?  @default(\"\") @map(\"reason_for_inspection_of_the_scene\")\r\n  userId                        String   @map(\"user_id\")\r\n  user                          User     @relation(fields: [userId], references: [id])\r\n\r\n  @@map(\"inspection_of_scene\")\r\n}\r\n\r\nenum Role {\r\n  admin\r\n  user\r\n}\r\n",
+  "inlineSchemaHash": "c3d2e8c789a1bae28ca399b1259d134218a0ee0a13c8f41ee21adf27507e246b",
   "copyEngine": true
 }
 
