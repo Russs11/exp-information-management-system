@@ -32,11 +32,11 @@ exports.$Enums = {}
 
 /**
  * Prisma Client JS version: 5.14.0
- * Query Engine version: 393aa359c9ad4a4bb28630fb5613f9c281cde053
+ * Query Engine version: 34ace0eb2704183d2c05b60b52fba5c43c13f303
  */
 Prisma.prismaVersion = {
   client: "5.14.0",
-  engine: "393aa359c9ad4a4bb28630fb5613f9c281cde053"
+  engine: "34ace0eb2704183d2c05b60b52fba5c43c13f303"
 }
 
 Prisma.PrismaClientKnownRequestError = PrismaClientKnownRequestError;
@@ -141,7 +141,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\vsCodeProjects\\NextJs\\exp-information-management-system\\server\\prisma\\generated\\client",
+      "value": "C:\\OpenServer\\domains\\localhost\\react_lab\\exp-information-management-system\\server\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -155,7 +155,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\vsCodeProjects\\NextJs\\exp-information-management-system\\server\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\OpenServer\\domains\\localhost\\react_lab\\exp-information-management-system\\server\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -164,7 +164,7 @@ const config = {
   },
   "relativePath": "../..",
   "clientVersion": "5.14.0",
-  "engineVersion": "393aa359c9ad4a4bb28630fb5613f9c281cde053",
+  "engineVersion": "34ace0eb2704183d2c05b60b52fba5c43c13f303",
   "datasourceNames": [
     "db"
   ],

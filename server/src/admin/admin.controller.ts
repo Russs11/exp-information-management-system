@@ -3,6 +3,7 @@ import {
 	Controller,
 	HttpCode,
 	Post,
+	Res,
 	UsePipes,
 	ValidationPipe
 } from '@nestjs/common'
@@ -15,9 +16,11 @@ export class AdminController {
 
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
-	@Post('create_user')
-	create(@Body() CreateUserDto: CreateUserDto) {
-		return this.adminService.createUser(CreateUserDto)
+	@Post('create_user_not_by_admin')
+	async create(
+		@Body() сreateUserDto: CreateUserDto,
+		@Res({ passthrough: true }) res: Response
+	) {
+		return await this.adminService.createUser(сreateUserDto)
 	}
-
 }

@@ -1,4 +1,4 @@
-import { Role } from '@prisma/client'
+import { Role } from 'prisma/generated/client'
 import { Transform } from 'class-transformer'
 import { IsEnum, IsOptional, IsString, MinLength } from 'class-validator'
 
