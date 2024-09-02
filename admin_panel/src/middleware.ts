@@ -8,7 +8,6 @@ export async function middleware(request: NextRequest, response: NextResponse) {
 
   const isDashboardPage = url.includes('/i')
   const isAuthPage = url.includes('/auth')
-
   
   if (isAuthPage && refreshToken) {
     return NextResponse.redirect(new URL('/i', url))
@@ -22,7 +21,6 @@ export async function middleware(request: NextRequest, response: NextResponse) {
   if (!refreshToken) {
     return NextResponse.redirect(new URL('/auth', request.url))
   }
-
   
   return NextResponse.next()
 }
