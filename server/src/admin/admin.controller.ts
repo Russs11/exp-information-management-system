@@ -10,6 +10,7 @@ import {
 import { AdminService } from './admin.service'
 import { CreateUserDto } from './dto/createUser.dto'
 import { LoginUserDto } from './dto/loginUser.dto'
+import { Response } from 'express'
 
 @Controller('admin')
 export class AdminController {
@@ -29,9 +30,8 @@ export class AdminController {
 		@Body() loginUserDto: LoginUserDto,
 		@Res({ passthrough: true }) res: Response
 	) {
-		const { refreshToken, ...response } =
-			await this.adminService.loginUser(loginUserDto)
-		this.adminService.addRefreshTokenFromResponse(res, refreshToken)
+		const { token, ...response } = await this.adminService.loginUser(loginUserDto)
+		this.adminService.addRefreshTokenFromResponse(res, token)
 		return response
 	}
 }

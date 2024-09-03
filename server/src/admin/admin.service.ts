@@ -1,6 +1,6 @@
-import { BadRequestException, Injectable } from '@nestjs/common'
+import { BadRequestException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
-import { hash } from 'argon2'
+import { hash, verify } from 'argon2'
 import { Response } from 'express'
 import { Role } from 'prisma/generated/client'
 import { PrismaService } from 'src/prisma.service'
@@ -9,8 +9,8 @@ import { LoginUserDto } from './dto/loginUser.dto'
 
 @Injectable()
 export class AdminService {
-	EXPIRE_DAY_REFRESH_TOKEN = 1
-	REFRESH_TOKEN_NAME = 'refreshToken'
+	EXPIRE_DAY_JWT_TOKEN = 1
+	JWT_TOKEN_NAME = 'jwtToken'
 
 	constructor(
 		private prisma: PrismaService,
@@ -28,7 +28,10 @@ export class AdminService {
 	}
 
 	async loginUser(loginUserDto: LoginUserDto) {
-		
+		const { password, ...user } = await this.validateUser(loginUserDto)
+
+		const token = this.issueToken(user.id, user.role)
+		return { user, token }
 	}
 
 	//service functions
@@ -61,14 +64,26 @@ export class AdminService {
 	}
 	addRefreshTokenFromResponse(res: Response, refreshToken: string) {
 		const expiresIn = new Date()
-		expiresIn.setDate(expiresIn.getDate() + this.EXPIRE_DAY_REFRESH_TOKEN)
+		expiresIn.setDate(expiresIn.getDate() + this.EXPIRE_DAY_JWT_TOKEN)
 
-		res.cookie(this.REFRESH_TOKEN_NAME, refreshToken, {
+		res.cookie(this.JWT_TOKEN_NAME, refreshToken, {
 			httpOnly: true,
 			domain: 'localhost',
 			expires: expiresIn,
 			secure: true,
 			sameSite: 'none'
 		})
+	}
+	private async validateUser(loginUserDto: LoginUserDto) {
+		const user = await this.getByLogin(loginUserDto.login)
+
+		if (!user) throw new NotFoundException('User not found')
+
+		const isValid = await verify(user.password, loginUserDto.password)
+
+		if (!isValid) throw new UnauthorizedException('Invalid password')
+
+		return user
+	
 	}
 }
