@@ -62,11 +62,11 @@ export class AdminService {
 
 		return jwtToken
 	}
-	addRefreshTokenFromResponse(res: Response, refreshToken: string) {
+	addJWTTokenFromResponse(res: Response, jwtToken: string) {
 		const expiresIn = new Date()
 		expiresIn.setDate(expiresIn.getDate() + this.EXPIRE_DAY_JWT_TOKEN)
 
-		res.cookie(this.JWT_TOKEN_NAME, refreshToken, {
+		res.cookie(this.JWT_TOKEN_NAME, jwtToken, {
 			httpOnly: true,
 			domain: 'localhost',
 			expires: expiresIn,

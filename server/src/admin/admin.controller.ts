@@ -31,7 +31,7 @@ export class AdminController {
 		@Res({ passthrough: true }) res: Response
 	) {
 		const { token, ...response } = await this.adminService.loginUser(loginUserDto)
-		this.adminService.addRefreshTokenFromResponse(res, token)
+		this.adminService.addJWTTokenFromResponse(res, token)
 		return response
 	}
 }
