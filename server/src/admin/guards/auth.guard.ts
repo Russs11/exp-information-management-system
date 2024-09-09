@@ -1,5 +1,10 @@
-import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common'
-import { JwtService, TokenExpiredError } from '@nestjs/jwt'
+import {
+	CanActivate,
+	ExecutionContext,
+	Injectable,
+	UnauthorizedException
+} from '@nestjs/common'
+import { JwtService } from '@nestjs/jwt'
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -17,8 +22,8 @@ export class AuthGuard implements CanActivate {
 			'left min ',
 			Math.round((result.exp * 1000 - +expiresIn) / 1000 / 60)
 		)
-		if (result.exp * 1000 - +expiresIn < 0) throw new TokenExpiredError('jwt token is expired', result.exp)
-		
+		if (result.exp * 1000 - +expiresIn < 0) throw new UnauthorizedException()
+
 		return true
 	}
 }
