@@ -1,6 +1,7 @@
 import {
 	Body,
 	Controller,
+	Get,
 	HttpCode,
 	Post,
 	Res,
@@ -11,6 +12,7 @@ import { AdminService } from './admin.service'
 import { CreateUserDto } from './dto/createUser.dto'
 import { LoginUserDto } from './dto/loginUser.dto'
 import { Response } from 'express'
+import { Auth } from './decorators/auth.decorator'
 
 @Controller('admin')
 export class AdminController {
@@ -30,8 +32,15 @@ export class AdminController {
 		@Body() loginUserDto: LoginUserDto,
 		@Res({ passthrough: true }) res: Response
 	) {
-		const { token, ...response } = await this.adminService.loginUser(loginUserDto)
+		const { token, ...response } =
+			await this.adminService.loginUser(loginUserDto)
 		this.adminService.addJWTTokenFromResponse(res, token)
 		return response
+	}
+
+	@Auth()
+	@Get('get_all')
+	async getAll() {
+		return 'get_all'
 	}
 }
