@@ -58,7 +58,7 @@ export class AdminService {
 	private issueToken(userId: string, userRole: Role): string {
 		const data = { id: userId, role: userRole }
 
-		const jwtToken = this.jwt.sign(data, { expiresIn: '1h' })
+		const jwtToken = this.jwt.sign(data, { expiresIn: 120 })
 
 		return jwtToken
 	}
