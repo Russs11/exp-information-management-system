@@ -2,21 +2,22 @@ import {
 	CanActivate,
 	ExecutionContext,
 	Injectable,
-	UnauthorizedException
+	ForbiddenException
 } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
 	constructor(private jwt: JwtService) {}
 
 	canActivate(context: ExecutionContext): boolean | Promise<boolean> {
 		const request = context.switchToHttp().getRequest()
 		try {
-			this.jwt.verify(request.cookies.jwtToken)
+			const { role } = this.jwt.verify(request.cookies.jwtToken)
+			if (!role || role !== 'admin' ) throw new ForbiddenException('not admin')
 			return true
 		} catch (error) {
-			throw new UnauthorizedException()
+			throw new ForbiddenException()
 		}
 	}
 }

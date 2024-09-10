@@ -13,6 +13,7 @@ import { CreateUserDto } from './dto/createUser.dto'
 import { LoginUserDto } from './dto/loginUser.dto'
 import { Response } from 'express'
 import { Auth } from './decorators/auth.decorator'
+import { IsAdmin } from './decorators/admin.decorator'
 
 @Controller('admin')
 export class AdminController {
@@ -39,6 +40,7 @@ export class AdminController {
 	}
 
 	@Auth()
+	@IsAdmin()
 	@Get('get_all')
 	async getAll() {
 		return 'get_all'
