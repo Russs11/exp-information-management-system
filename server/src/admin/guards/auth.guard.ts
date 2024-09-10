@@ -1,6 +1,8 @@
 import {
 	CanActivate,
 	ExecutionContext,
+	HttpException,
+	HttpStatus,
 	Injectable,
 	UnauthorizedException
 } from '@nestjs/common'
@@ -12,18 +14,11 @@ export class AuthGuard implements CanActivate {
 
 	canActivate(context: ExecutionContext): boolean | Promise<boolean> {
 		const request = context.switchToHttp().getRequest()
-		const result = this.jwt.verify(request.cookies.jwtToken)
-
-		const expiresIn = new Date()
-		expiresIn.setDate(expiresIn.getDate())
-
-		console.log('expiresIn: ', +expiresIn)
-		console.log(
-			'left min ',
-			Math.round((result.exp * 1000 - +expiresIn) / 1000 / 60)
-		)
-		if (result.exp * 1000 - +expiresIn < 0) throw new UnauthorizedException()
-
-		return true
+		try {
+			this.jwt.verify(request.cookies.jwtToken)
+			return true
+		} catch (error) {
+			throw new UnauthorizedException()
+		}
 	}
 }
