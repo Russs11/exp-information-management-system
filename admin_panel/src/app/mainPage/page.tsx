@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'mainApp',
 }
 export default function Home() {
   return (
-    <main className='flex min-h-screen flex-col  bg-gray-100'>Home</main>
+    <main className='flex min-h-screen flex-col  bg-gray-100'>main app</main>
   )
 }
