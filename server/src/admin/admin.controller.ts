@@ -48,7 +48,9 @@ export class AdminController {
 
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
-	@Post('create_user_not_by_admin')
+	@Auth()
+	@IsAdmin()
+	@Post('create_user_by_admin')
 	async createUser(@Body() сreateUserDto: CreateUserDto) {
 		return await this.adminService.createUser(сreateUserDto)
 	}
