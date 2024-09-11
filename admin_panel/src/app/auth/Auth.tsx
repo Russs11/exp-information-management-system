@@ -1,5 +1,6 @@
 'use client'
 import { authService } from '@/services/auth.service'
+import { userService } from '@/services/user.service'
 import { IAuthForm } from '@/types/auth.types'
 import { useMutation } from '@tanstack/react-query'
 import Image from 'next/image'
@@ -18,9 +19,14 @@ export function Auth() {
   const { mutate } = useMutation({
     mutationKey: ['auth'],
     mutationFn: (data: IAuthForm) => authService.main(data),
+
     onSuccess() {
+      const testAdmin = async () => {
+        const res = await userService.testAdmin()
+        res.role !== 'admin' ? push('/mainPage') : push('/i')
+      }
       reset()
-      push('/i')
+      testAdmin()
     },
   })
 

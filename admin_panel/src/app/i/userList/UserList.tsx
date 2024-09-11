@@ -1,35 +1,34 @@
 'use client'
-import { userService } from '@/services/user.service'
-import { UserThread } from './components/userThread'
 
+import { IUser } from '@/types/auth.types'
+import { UserThread } from './components/userThread'
+import { useUserList } from './useUserList'
 
 export function UserList() {
-  interface IUser {
-    name: string
-    id: number
+  interface IUsersFromApi {
+    data: IUser[] | undefined
+    isLoading: boolean
   }
+
+  const { data, isLoading }: IUsersFromApi = useUserList() //isLoading можно использовать для спиннера
 
   let threadsArr: JSX.Element[] = []
 
-  let userArray: IUser[] = []
-
-  for (let i = 0; i < 30; i++) {
-    userArray.push({ name: 'Петров', id: i + 1 })
+  if (data?.length) {
+    threadsArr = data?.map(item => {
+      return (
+        <UserThread
+          key={item.id}
+          id={item.id}
+          name={item.name}
+          role={item.role}
+          createAt={item.createAt}
+          updateAt={item.updateAt}
+        />
+      )
+    })
   }
 
-  // let userArray2 = new Array(30).fill({ name: 'Ivanov', id: 1 })
-
-  threadsArr = userArray.map((item, index) => {
-    return <UserThread key={item.id} name={item.name} id={item.id} />
-  })
-
-
-  async function getUser() {
-    const response = await userService.getProfile()
-    console.log(response);
-}
-
-getUser()
   return (
     <div className='flex-auto justify-center p-0 overflow-auto h-screen md:p-12'>
       <div className='relative flex flex-col w-full break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit'>
