@@ -1,4 +1,9 @@
-import { BadRequestException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common'
+import {
+	BadRequestException,
+	Injectable,
+	NotFoundException,
+	UnauthorizedException
+} from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 import { hash, verify } from 'argon2'
 import { Response } from 'express'
@@ -34,6 +39,21 @@ export class AdminService {
 		return { user, token }
 	}
 
+	async getAllUsers() {
+		return await this.prisma.user.findMany({
+			select: {
+				id: true,
+				createAt: true,
+				updateAt: true,
+				login: true,
+				name: true,
+				password: false,
+				role: true,
+				inspections_of_scene: true
+			}
+		})
+	}
+
 	//service functions
 	private getByLogin(login: string) {
 		return this.prisma.user.findUnique({
@@ -58,7 +78,7 @@ export class AdminService {
 	private issueToken(userId: string, userRole: Role): string {
 		const data = { id: userId, role: userRole }
 
-		const jwtToken = this.jwt.sign(data, { expiresIn: 30 })
+		const jwtToken = this.jwt.sign(data, { expiresIn: 10 })
 
 		return jwtToken
 	}
@@ -74,6 +94,15 @@ export class AdminService {
 			sameSite: 'none'
 		})
 	}
+	removeJWTTokenFromResponse(res: Response) {
+		res.cookie(this.JWT_TOKEN_NAME, '', {
+			httpOnly: true,
+			domain: 'localhost',
+			expires: new Date(0),
+			secure: true,
+			sameSite: 'none'
+		})
+	}
 	private async validateUser(loginUserDto: LoginUserDto) {
 		const user = await this.getByLogin(loginUserDto.login)
 
@@ -84,6 +113,5 @@ export class AdminService {
 		if (!isValid) throw new UnauthorizedException('Invalid password')
 
 		return user
-	
 	}
 }

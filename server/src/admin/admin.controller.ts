@@ -39,19 +39,28 @@ export class AdminController {
 		return response
 	}
 
-	@Auth()
+	@HttpCode(200)
+	@Get('logout')
+	logout(@Res({ passthrough: true }) res: Response) {
+		this.adminService.removeJWTTokenFromResponse(res)
+		return true
+	}
+
 	@IsAdmin()
+	@Auth()
 	@Get('get_all')
 	async getAll() {
-		return 'get_all'
+		return this.adminService.getAllUsers()
 	}
 
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
-	@Auth()
 	@IsAdmin()
+	@Auth()
 	@Post('create_user_by_admin')
 	async createUser(@Body() сreateUserDto: CreateUserDto) {
 		return await this.adminService.createUser(сreateUserDto)
 	}
+
+	
 }
