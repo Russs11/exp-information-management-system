@@ -4,6 +4,7 @@ import {
 	Get,
 	HttpCode,
 	Post,
+	Put,
 	Res,
 	UsePipes,
 	ValidationPipe
@@ -14,6 +15,7 @@ import { LoginUserDto } from './dto/loginUser.dto'
 import { Response } from 'express'
 import { Auth } from './decorators/auth.decorator'
 import { IsAdmin } from './decorators/admin.decorator'
+import { CookiesCurrentUser } from './decorators/user.decorator'
 
 @Controller('admin')
 export class AdminController {
@@ -62,5 +64,12 @@ export class AdminController {
 		return await this.adminService.createUser(сreateUserDto)
 	}
 
-	
+	@UsePipes(new ValidationPipe())
+	@HttpCode(200)
+	// @IsAdmin()
+	// @Auth()
+	@Put('update_user')
+	async updateUser(@CookiesCurrentUser() cookies: string) {
+		return cookies
+	}
 }
