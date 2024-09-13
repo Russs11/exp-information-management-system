@@ -11,15 +11,15 @@ export const authService = {
     return response
   },
 
-  // async getNewTokens() {
-  //   const response = await axiosClassic.post<IAuthResponse>(
-  //     '/auth/login/access-token'
-  //   )
+  async getNewTokens() {
+    const response = await axiosClassic.post<IAuthResponse>(
+      '/auth/login/access-token'
+    )
 
-  //   if (response.data.accessToken) saveTokenStorage(response.data.accessToken)
+    if (response.data.accessToken) saveTokenStorage(response.data.accessToken)
 
-  //   return response
-  // },
+    return response
+  },
 
   async logout() {
     const response = await axiosClassic.post<boolean>('auth/logout')

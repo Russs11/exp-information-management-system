@@ -7,7 +7,7 @@ export interface IProfileResponse {
 
 
 class UserService {
-  private BASE_URL = '/admin'
+  private BASE_URL = '/user'
 
   async getProfile() {
     const response = await axiosWithAuth.get<IProfileResponse>(
@@ -16,9 +16,7 @@ class UserService {
     return response.data
   }
   async getAll() {
-    const response = await axiosWithAuth.get<IUser[]>(
-      this.BASE_URL + '/get_all'
-    )
+    const response = await axiosWithAuth.get<IUser[]>(this.BASE_URL + '/getAll')
     return response.data
   }
 

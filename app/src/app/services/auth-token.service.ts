@@ -5,9 +5,7 @@ export enum EnumTokens {
 	'REFRESH_TOKEN' = 'refreshToken'
 }
 
-export enum JwtToken {
-'JWT_TOKEN' = 'jwtToken'
-}
+
 export const getAccessToken = () => {
 	const accessToken = Cookies.get(EnumTokens.ACCESS_TOKEN)
 	return accessToken || null

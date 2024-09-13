@@ -8,7 +8,6 @@ import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '../../components/ui/buttons/Button'
 import { InputField } from '../../components/ui/inputField/InputField'
-import { adminService } from '@/services/admin.service'
 
 export function Auth() {
   const { register, handleSubmit, reset } = useForm<IAuthForm>({
@@ -19,20 +18,17 @@ export function Auth() {
 
   const { mutate } = useMutation({
     mutationKey: ['auth'],
-    mutationFn: (data: IAuthForm) => adminService.main(data),
+    mutationFn: (data: IAuthForm) => authService.main(data),
 
     onSuccess() {
-      // const testAdmin = async () => {
-      //   const res = await userService.testAdmin()
-      //   res.role !== 'admin' ? push('/mainPage') : push('/i')
-      // }
+      const testAdmin = async () => {
+        const res = await userService.testAdmin()
+        res.role !== 'admin' ? push('/mainPage') : push('/i')
+      }
       reset()
-      push('/i')
-      // testAdmin()
+      testAdmin()
     },
   })
-
-
 
   const onSubmit: SubmitHandler<IAuthForm> = data => {
     mutate(data)
