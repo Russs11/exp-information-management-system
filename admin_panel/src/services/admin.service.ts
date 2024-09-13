@@ -1,6 +1,7 @@
 'use client'
 import { axiosClassic } from '@/api/interceptors'
 import { IAdminResponse, IAuthForm } from '@/types/auth.types'
+import { removeFromStorage } from './auth-token.service'
 
 export const adminService = {
   async main(data: IAuthForm) {
@@ -14,7 +15,9 @@ export const adminService = {
   },
 
   async logout() {
-    const response = await axiosClassic.post<boolean>('admin/logout')
+    const response = await axiosClassic.post<boolean>('auth/logout')
+
+    if (response.data) removeFromStorage()
 
     return response
   },

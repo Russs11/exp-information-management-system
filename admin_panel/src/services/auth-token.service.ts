@@ -14,13 +14,19 @@ export const getAccessToken = () => {
 }
 
 export const saveTokenStorage = (accessToken: string) => {
-	Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
-		domain: 'localhost',
-		sameSite: 'strict',
-		expires: 1
-	})
+	// Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
+	// 	domain: 'localhost',
+	// 	sameSite: 'strict',
+	// 	expires: 1
+	// })
+	Cookies.set(JwtToken.JWT_TOKEN, accessToken, {
+    domain: 'localhost',
+    sameSite: 'strict',
+    expires: 1,
+  })
 }
 
 export const removeFromStorage = () => {
-	Cookies.remove(EnumTokens.ACCESS_TOKEN)
+	// Cookies.remove(EnumTokens.ACCESS_TOKEN)
+	Cookies.remove(JwtToken.JWT_TOKEN)
 }

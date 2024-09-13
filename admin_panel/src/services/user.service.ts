@@ -9,12 +9,12 @@ export interface IProfileResponse {
 class UserService {
   private BASE_URL = '/admin'
 
-  async getProfile() {
-    const response = await axiosWithAuth.get<IProfileResponse>(
-      this.BASE_URL + '/profile'
-    )
-    return response.data
-  }
+  // async getProfile() {
+  //   const response = await axiosWithAuth.get<IProfileResponse>(
+  //     this.BASE_URL + '/profile'
+  //   )
+  //   return response.data
+  // }
   async getAll() {
     const response = await axiosWithAuth.get<IUser[]>(
       this.BASE_URL + '/get_all'
