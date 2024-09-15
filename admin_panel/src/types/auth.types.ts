@@ -18,7 +18,7 @@ export interface IAuthResponse {
   accessToken: string
 }
 
-export interface IAdminResponse {
+export interface IAuthAdminResponse {
   user: IUser
 }
 

@@ -1,11 +1,11 @@
 'use client'
 import { axiosClassic } from '@/api/interceptors'
-import { IAdminResponse, IAuthForm } from '@/types/auth.types'
+import { IAuthAdminResponse, IAuthForm } from '@/types/auth.types'
 import { removeFromStorage } from './auth-token.service'
 
 export const adminService = {
   async main(data: IAuthForm) {
-    const response = await axiosClassic.post<IAdminResponse>(
+    const response = await axiosClassic.post<IAuthAdminResponse>(
       '/admin/login',
       data
     )
