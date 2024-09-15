@@ -1,6 +1,5 @@
 'use client'
-import { authService } from '@/services/auth.service'
-import { userService } from '@/services/user.service'
+import { adminService } from '@/services/admin.service'
 import { IAuthForm } from '@/types/auth.types'
 import { useMutation } from '@tanstack/react-query'
 import Image from 'next/image'
@@ -8,7 +7,6 @@ import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '../../components/ui/buttons/Button'
 import { InputField } from '../../components/ui/inputField/InputField'
-import { adminService } from '@/services/admin.service'
 
 export function Auth() {
   const { register, handleSubmit, reset } = useForm<IAuthForm>({
@@ -30,9 +28,10 @@ export function Auth() {
       push('/i')
       // testAdmin()
     },
+    onError(error) {
+      console.log(error)
+    },
   })
-
-
 
   const onSubmit: SubmitHandler<IAuthForm> = data => {
     mutate(data)

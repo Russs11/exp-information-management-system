@@ -1,5 +1,4 @@
 'use client'
-import { authService } from '@/services/auth.service'
 import { useMutation } from '@tanstack/react-query'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -7,13 +6,14 @@ import { useRouter } from 'next/navigation'
 import { Logout } from '../ui/buttons/logout'
 import { RingButton } from '../ui/buttons/RingButton'
 import { Profile } from '../ui/profile/Profile'
+import { adminService } from '@/services/admin.service'
 
 export function Header() {
   const { push } = useRouter()
 
   const { mutate } = useMutation({
     mutationKey: ['logout'],
-    mutationFn: () => authService.logout(),
+    mutationFn: () => adminService.logout(),
     onSuccess() {
       push('/auth')
     },
