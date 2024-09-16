@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { EnumTokens, JwtToken } from './services/auth-token.service'
+import { JwtToken } from './services/auth-token.service'
 
 export async function middleware(request: NextRequest, response: NextResponse) {
   const { url, cookies } = request
 
-  const refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value
-
   const jwtToken = cookies.get(JwtToken.JWT_TOKEN)?.value
-  console.log(jwtToken)
+
   const isDashboardPage = url.includes('/i')
   const isAuthPage = url.includes('/auth')
 
