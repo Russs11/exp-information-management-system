@@ -2,6 +2,7 @@ import {
 	Body,
 	Controller,
 	Get,
+	Headers,
 	HttpCode,
 	Post,
 	Put,
@@ -15,7 +16,8 @@ import { LoginUserDto } from './dto/loginUser.dto'
 import { Response } from 'express'
 import { Auth } from './decorators/auth.decorator'
 import { IsAdmin } from './decorators/admin.decorator'
-import { CookiesCurrentUser } from './decorators/user.decorator'
+import { ParseCookiePipe } from './pipes/userID.pipe'
+import { CurrentUser } from './decorators/currentUser.decorator'
 
 @Controller('admin')
 export class AdminController {
@@ -67,9 +69,11 @@ export class AdminController {
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	// @IsAdmin()
-	// @Auth()
+	@Auth()
 	@Put('update_user')
-	async updateUser(@CookiesCurrentUser() cookies: string) {
-		return cookies
+	async updateUser(
+		@CurrentUser(ParseCookiePipe) user: string
+	) {
+		return user
 	}
 }
