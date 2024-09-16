@@ -16,7 +16,7 @@ export const adminService = {
 
   async logout() {
     const response = await axiosClassic.get<boolean>('/admin/logout')
-    removeFromStorage()
+    // removeFromStorage()
 
     return response
   },
