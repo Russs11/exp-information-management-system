@@ -11,21 +11,21 @@ export async function middleware(request: NextRequest, response: NextResponse) {
   const isDashboardPage = url.includes('/i')
   const isAuthPage = url.includes('/auth')
 
-  // if (isAuthPage) {
-  //   if (jwtToken) {
-  //     return NextResponse.redirect(new URL('/i', url))
-  //   }
-  //   return NextResponse.next()
-  // }
+  if (isAuthPage) {
+    if (jwtToken) {
+      return NextResponse.redirect(new URL('/i', url))
+    }
+    return NextResponse.next()
+  }
   // if (isAuthPage) {
   //   return NextResponse.next()
   // }
   // // if (isDashboardPage && !refreshToken) {
   // //   return NextResponse.redirect(new URL('/404', url))
   // // }
-  // if (!jwtToken) {
-  //   return NextResponse.redirect(new URL('/auth', request.url))
-  // }
+  if (!jwtToken) {
+    return NextResponse.redirect(new URL('/auth', request.url))
+  }
 
   return NextResponse.next()
 }
