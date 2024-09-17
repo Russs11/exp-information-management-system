@@ -1,11 +1,11 @@
-import { userService } from '@/services/user.service'
+import { adminService } from '@/services/user.service'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect } from 'react'
 
 export function useUserList() {
   const { data, isSuccess, isError, isLoading } = useQuery({
     queryKey: ['users'],
-    queryFn: () => userService.getAll(),
+    queryFn: () => adminService.getAll(),
     
   })
 
