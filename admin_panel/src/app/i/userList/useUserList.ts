@@ -6,6 +6,7 @@ export function useUserList() {
   const { data, isSuccess, isError, isLoading } = useQuery({
     queryKey: ['users'],
     queryFn: () => userService.getAll(),
+    
   })
 
   useEffect(() => {

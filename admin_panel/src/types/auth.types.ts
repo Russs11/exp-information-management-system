@@ -18,4 +18,8 @@ export interface IAuthResponse {
   accessToken: string
 }
 
+export interface IAuthAdminResponse {
+  user: IUser
+}
+
 export type TypeUserForm = Omit<IUser, 'id'> & { password?: string }
