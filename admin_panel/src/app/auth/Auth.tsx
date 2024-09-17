@@ -1,5 +1,5 @@
 'use client'
-import { authAdminService } from '@/services/admin.service'
+import { authAdminService } from '@/services/auth-admin.service'
 import { IAuthForm } from '@/types/auth.types'
 import { useMutation } from '@tanstack/react-query'
 import Image from 'next/image'

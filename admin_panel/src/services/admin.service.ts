@@ -1,20 +1,35 @@
-'use client'
-import { axiosClassic } from '@/api/interceptors'
-import { IAuthAdminResponse, IAuthForm } from '@/types/auth.types'
+import { axiosWithAuth } from '@/api/interceptors'
+import { IUser, TypeUserForm } from '@/types/auth.types'
 
-export const authAdminService = {
-  async main(data: IAuthForm) {
-    const response = await axiosClassic.post<IAuthAdminResponse>(
-      '/admin/login',
-      data
-    )
-    console.log(response)
-
-    return response
-  },
-
-  async logout() {
-    const response = await axiosClassic.get<boolean>('/admin/logout')
-    return response
-  },
+export interface IProfileResponse {
+  user: IUser
 }
+
+
+class AdminService {
+  private BASE_URL = '/admin'
+
+  // async getProfile() {
+  //   const response = await axiosWithAuth.get<IProfileResponse>(
+  //     this.BASE_URL + '/profile'
+  //   )
+  //   return response.data
+  // }
+  async getAll() {
+    const response = await axiosWithAuth.get<IUser[]>(
+      this.BASE_URL + '/get_all'
+    )
+    return response.data
+  }
+
+  // async update(data: TypeUserForm) {
+  //   const response = await axiosWithAuth.put(this.BASE_URL + '/update', data)
+  //   return response.data
+  // }
+  // async testAdmin() {
+  //   const response = await axiosWithAuth.get(this.BASE_URL + '/testAdmin')
+  //   return response.data
+  // }
+}
+
+export const adminService = new AdminService()

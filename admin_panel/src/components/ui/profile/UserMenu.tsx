@@ -1,4 +1,4 @@
-import { authService } from '@/services/auth.service'
+import { authAdminService } from '@/services/auth-admin.service'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { DetailedHTMLProps, forwardRef, HTMLAttributes } from 'react'
@@ -6,13 +6,13 @@ import { Button } from '../buttons/Button'
 interface IUserMenuProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
-export const UserMenu = forwardRef<HTMLElement, IUserMenuProps>(
+export const UserMenu = forwardRef<HTMLDivElement, IUserMenuProps>(
   ({ ...props }, ref) => {
     const { push } = useRouter()
 
     const { mutate } = useMutation({
       mutationKey: ['logout'],
-      mutationFn: () => authService.logout(),
+      mutationFn: () => authAdminService.logout(),
       onSuccess() {
         push('/auth')
       },
