@@ -6,7 +6,7 @@ export interface IProfileResponse {
 }
 
 
-class UserService {
+class AdminService {
   private BASE_URL = '/admin'
 
   // async getProfile() {
@@ -22,14 +22,14 @@ class UserService {
     return response.data
   }
 
-  async update(data: TypeUserForm) {
-    const response = await axiosWithAuth.put(this.BASE_URL + '/update', data)
-    return response.data
-  }
-  async testAdmin() {
-    const response = await axiosWithAuth.get(this.BASE_URL + '/testAdmin')
-    return response.data
-  }
+  // async update(data: TypeUserForm) {
+  //   const response = await axiosWithAuth.put(this.BASE_URL + '/update', data)
+  //   return response.data
+  // }
+  // async testAdmin() {
+  //   const response = await axiosWithAuth.get(this.BASE_URL + '/testAdmin')
+  //   return response.data
+  // }
 }
 
-export const userService = new UserService()
+export const userService = new AdminService()

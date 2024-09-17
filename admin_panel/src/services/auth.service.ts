@@ -1,13 +1,13 @@
 'use client'
 import { axiosClassic } from '@/api/interceptors'
 import { IAuthForm, IAuthResponse } from '@/types/auth.types'
-import { removeFromStorage, saveTokenStorage } from './auth-token.service'
+
 
 export const authService = {
   async main(data: IAuthForm) {
     const response = await axiosClassic.post<IAuthResponse>('/auth/login', data)
 
-    if (response.data.accessToken) saveTokenStorage(response.data.accessToken)
+    // if (response.data.accessToken) saveTokenStorage(response.data.accessToken)
     return response
   },
 
@@ -24,7 +24,7 @@ export const authService = {
   async logout() {
     const response = await axiosClassic.post<boolean>('auth/logout')
 
-    if (response.data) removeFromStorage()
+    // if (response.data) removeFromStorage()
 
     return response
   },

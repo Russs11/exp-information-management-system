@@ -6,14 +6,14 @@ import { useRouter } from 'next/navigation'
 import { Logout } from '../ui/buttons/logout'
 import { RingButton } from '../ui/buttons/RingButton'
 import { Profile } from '../ui/profile/Profile'
-import { adminService } from '@/services/admin.service'
+import { authAdminService } from '@/services/admin.service'
 
 export function Header() {
   const { push } = useRouter()
 
   const { mutate } = useMutation({
     mutationKey: ['logout'],
-    mutationFn: () => adminService.logout(),
+    mutationFn: () => authAdminService.logout(),
     onSuccess() {
       push('/auth')
     },
