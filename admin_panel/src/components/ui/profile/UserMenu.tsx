@@ -1,8 +1,9 @@
-import { authAdminService } from '@/services/auth-admin.service'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { DetailedHTMLProps, forwardRef, HTMLAttributes } from 'react'
 import { Button } from '../buttons/Button'
+import { authAdminService } from '@/services/auth-admin.service'
+
 interface IUserMenuProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 

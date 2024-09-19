@@ -8,6 +8,7 @@ export function useUserList() {
   const { data, isSuccess, isError, isLoading } = useQuery({
     queryKey: ['users'],
     queryFn: () => adminService.getAll(),
+
   })
   const { push } = useRouter()
   useEffect(() => {

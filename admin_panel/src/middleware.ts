@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { JwtToken } from './services/auth-token.service'
+import { JwtToken } from './types/auth.types'
+
 
 export async function middleware(request: NextRequest, response: NextResponse) {
   const { url, cookies } = request
