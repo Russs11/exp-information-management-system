@@ -17,7 +17,7 @@ export class AdminGuard implements CanActivate {
 			if (!role || role !== 'admin' ) throw new ForbiddenException('not admin')
 			return true
 		} catch (error) {
-			throw new ForbiddenException()
+			throw new ForbiddenException('not admin')
 		}
 	}
 }

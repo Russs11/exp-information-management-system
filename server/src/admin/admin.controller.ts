@@ -1,6 +1,7 @@
 import {
 	Body,
 	Controller,
+	Delete,
 	Get,
 	Headers,
 	HttpCode,
@@ -71,9 +72,16 @@ export class AdminController {
 	// @IsAdmin()
 	@Auth()
 	@Put('update_user')
-	async updateUser(
-		@CurrentUser(ParseCookiePipe) user: string
-	) {
+	async updateUser(@CurrentUser(ParseCookiePipe) user: string) {
+		return user
+	}
+
+	@UsePipes(new ValidationPipe())
+	@HttpCode(200)
+	// @IsAdmin()
+	@Auth()
+	@Delete('delete_user')
+	async deleteUser(@CurrentUser(ParseCookiePipe) user: string, userId: string) {
 		return user
 	}
 }
