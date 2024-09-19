@@ -19,6 +19,7 @@ class AdminService {
     const response = await axiosWithAuth.get<IUser[]>(
       this.BASE_URL + '/get_all'
     )
+    console.log();
     return response.data
   }
 

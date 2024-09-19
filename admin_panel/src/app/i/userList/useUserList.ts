@@ -21,6 +21,7 @@ export function useUserList() {
     if (isError) {
       console.log('Error fetching data')
       authAdminService.logout()
+      push('/auth')
     }
   }, [isError, push])
 
