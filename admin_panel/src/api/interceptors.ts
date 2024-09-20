@@ -6,21 +6,13 @@ const options: CreateAxiosDefaults = {
   baseURL: 'http://localhost:3000/api',
   headers: {
     'Content-Type': 'application/json',
+    // retry: 2
   },
   withCredentials: true,
 }
 
 const axiosClassic = axios.create(options)
 const axiosWithAuth = axios.create(options)
-
-// axiosWithAuth.interceptors.request.use(config => {
-//   const accesToken = getAccessToken()
-
-//   if (config?.headers && accesToken)
-//     config.headers.Authorization = `Bearer ${accesToken}`
-
-//   return config
-// })
 
 axiosWithAuth.interceptors.response.use(
   config => config,
@@ -33,15 +25,14 @@ axiosWithAuth.interceptors.response.use(
       !error.config._isRetry
     ) {
       originalRequest._isRetry = true
-      try {
-        authAdminService.logout()
-        // push('/auth')
-        return axiosWithAuth.request(originalRequest)
-      } catch (error) {
-        if (errorCatch(error) === 'Unauthorized') {
-          authAdminService.logout()
-        }
-      }
+      authAdminService.logout()
+      // try {
+      //   return axiosWithAuth.request(originalRequest)
+      // } catch (error) {
+      //   if (errorCatch(error) === 'Unauthorized') {
+      //     console.log(error)
+      //   }
+      // }
     }
     throw error
   }

@@ -8,8 +8,6 @@ export const authAdminService = {
       '/admin/login',
       data
     )
-    console.log(response)
-
     return response
   },
 
@@ -18,3 +16,4 @@ export const authAdminService = {
     return response
   },
 }
+

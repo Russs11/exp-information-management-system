@@ -20,7 +20,7 @@ export function useUserList() {
   useEffect(() => {
     if (isError) {
       console.log('Error fetching data')
-      authAdminService.logout()
+      // authAdminService.logout()
       push('/auth')
     }
   }, [isError, push])

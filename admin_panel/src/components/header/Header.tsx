@@ -19,6 +19,15 @@ export function Header() {
     },
   })
 
+  // useEffect(() => {
+  //   if (!jwtToken) {
+  //     push('/auth')
+  //   }
+  // }, [jwtToken, push])
+  // setTimeout(() => {
+  //   authAdminService.logout(), push('/auth')
+  // }, 10000 * 6)
+
   return (
     <>
       <div className='header'>
