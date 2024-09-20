@@ -7,6 +7,7 @@ import {
 	HttpCode,
 	Post,
 	Put,
+	Query,
 	Res,
 	UsePipes,
 	ValidationPipe
@@ -78,10 +79,11 @@ export class AdminController {
 
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
-	// @IsAdmin()
+	@IsAdmin()
 	@Auth()
 	@Delete('delete_user')
-	async deleteUser(@CurrentUser(ParseCookiePipe) user: string, userId: string) {
-		return user
+	async deleteUser(@CurrentUser(ParseCookiePipe) user: string, @Query('id') userId: string) {
+		if(!userId)return 'userId not found'
+		return await this.adminService.deleteUser(userId)
 	}
 }

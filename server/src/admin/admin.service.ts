@@ -54,10 +54,36 @@ export class AdminService {
 		})
 	}
 
+	async deleteUser(userId: string) {
+		const oldUser = await this.getById(userId)
+		if (!oldUser) throw new BadRequestException('User not found')
+
+		await this.prisma.user.delete({
+			where: { id: userId }
+		})
+
+		return `user with id=${userId} was deleted`
+	}
+
 	//service functions
 	private getByLogin(login: string) {
 		return this.prisma.user.findUnique({
 			where: { login }
+		})
+	}
+	private getById(id: string) {
+		return this.prisma.user.findUnique({
+			where: { id },
+			select: {
+				id: true,
+				createAt: true,
+				updateAt: true,
+				login: true,
+				name: true,
+				password: false,
+				role: true,
+				inspections_of_scene: true
+			}
 		})
 	}
 	private async create(dto: CreateUserDto) {
@@ -114,5 +140,4 @@ export class AdminService {
 
 		return user
 	}
-
 }
