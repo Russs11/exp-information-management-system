@@ -1,3 +1,6 @@
+export enum JwtToken {
+  'JWT_TOKEN' = 'jwtToken',
+}
 export interface IAuthForm {
   login: string
   password: string
@@ -6,16 +9,11 @@ export interface IAuthForm {
 export interface IUser {
   id: string
   createAt: string
-  updateAt:string
+  updateAt: string
   login?: string
   name?: string
   role?: string
   password?: string
-}
-
-export interface IAuthResponse {
-  user: IUser
-  accessToken: string
 }
 
 export interface IAuthAdminResponse {

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { JwtToken } from './services/auth-token.service'
+import { JwtToken } from './types/auth.types'
+
 
 export async function middleware(request: NextRequest, response: NextResponse) {
   const { url, cookies } = request
@@ -21,8 +22,10 @@ export async function middleware(request: NextRequest, response: NextResponse) {
   // // if (isDashboardPage && !refreshToken) {
   // //   return NextResponse.redirect(new URL('/404', url))
   // // }
-  if (!jwtToken) {
-    return NextResponse.redirect(new URL('/auth', request.url))
+  if (isDashboardPage) {
+    if (!jwtToken) {
+      return NextResponse.redirect(new URL('/auth', request.url))
+    }
   }
 
   return NextResponse.next()
