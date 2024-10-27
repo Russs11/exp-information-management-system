@@ -2,14 +2,35 @@
 import { Button } from '@/components/ui/buttons/Button'
 import { InputField } from '@/components/ui/inputField/InputField'
 import { SelectField } from '@/components/ui/inputField/SelectField'
+import { adminService } from '@/services/admin.service'
+import { IUser } from '@/types/auth.types'
+import { useMutation } from '@tanstack/react-query'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 export function AddUser() {
+  const { register, handleSubmit, reset } = useForm<IUser>({
+    mode: 'onChange',
+  })
+
+  const { mutate } = useMutation({
+    mutationKey: ['createUser'],
+    mutationFn: (data: IUser) => adminService.createUser(data),
+    onSuccess() {
+      reset()
+    }
+  })
+
+  const onSubmit: SubmitHandler<IUser> = data => {
+    mutate(data)
+    console.log(data);
+  }
+
   return (
     <>
       <div className='flex-auto h-full'>
         <div className='flex justify-center overflow-auto md:p-10 h-full '>
           <div className='border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit w-1/3 h-fit p-10  bg-white'>
-            <form>
+            <form noValidate>
               <div className='space-y-12 '>
                 <div className='border-b border-gray-900/10 pb-12'>
                   <h2 className='text-base font-semibold leading-7 text-gray-900'>
@@ -106,7 +127,9 @@ export function AddUser() {
                     <InputField
                       type='login'
                       id='email'
-                      name='login'
+                      {...register('login', {
+                        required: 'Email is required!',
+                      })}
                       autoComplete='login'
                       placeholder='пример Ivanov_Ivan@gmail.com'
                       label='Логин'
@@ -116,7 +139,9 @@ export function AddUser() {
                       <InputField
                         type='text'
                         id='password'
-                        name='password'
+                        {...register('password', {
+                          required: 'password is required!',
+                        })}
                         autoComplete='password'
                         placeholder='Введите пароль'
                         label='Пароль'
@@ -127,7 +152,9 @@ export function AddUser() {
                       <InputField
                         type='text'
                         id='first-name'
-                        name='first-name'
+                        {...register('name', {
+                          required: 'Name is required!',
+                        })}
                         autoComplete='first-name'
                         placeholder='Введите имя'
                         label='Имя'
@@ -170,7 +197,9 @@ export function AddUser() {
                       <InputField
                         type='text'
                         id='role'
-                        name='role'
+                        {...register('role', {
+                          required: 'Role is required!',
+                        })}
                         autoComplete='role'
                         placeholder='Введите роль'
                         label='Роль'
@@ -208,6 +237,7 @@ export function AddUser() {
                 <Button
                   type='submit'
                   className='rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                  onSubmit={handleSubmit(onSubmit)}
                 >
                   Сохранить
                 </Button>

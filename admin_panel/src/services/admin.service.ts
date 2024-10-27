@@ -16,6 +16,12 @@ class AdminService {
     return response.data
   }
 
+  async createUser(data:IUser) {
+    const response = await axiosWithAuth.post(
+      this.BASE_URL + '/create_user_by_admin', data
+    )
+    return response
+  }
 }
 
 export const adminService = new AdminService()
