@@ -25,8 +25,6 @@ export function AddUser() {
   })
 
   const onSubmit: SubmitHandler<IUser> = data => {
-    console.log(register)
-    console.log(data)
     mutate(data)
   }
 
