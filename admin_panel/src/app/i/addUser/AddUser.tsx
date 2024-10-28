@@ -144,7 +144,8 @@ export function AddUser() {
                         type='text'
                         id='password'
                         {...register('password', {
-                          required: 'Введите пароль!',
+                          required: 'Введите пароль длинной не менее 6-ти символов!',
+                          minLength: 6,
                         })}
                         autoComplete='password'
                         placeholder='Введите пароль'
