@@ -17,10 +17,11 @@ class AdminService {
   }
 
   async createUser(data:IUser) {
-    const response = await axiosWithAuth.post(
+    const response = await axiosWithAuth.post<IUser>(
       this.BASE_URL + '/create_user_by_admin', data
     )
-    return response
+    console.log(response.data);
+    return response.data
   }
 }
 

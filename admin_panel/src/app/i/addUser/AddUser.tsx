@@ -16,13 +16,18 @@ export function AddUser() {
     mutationKey: ['createUser'],
     mutationFn: (data: IUser) => adminService.createUser(data),
     onSuccess() {
+      console.log('data')
       reset()
-    }
+    },
+    onError(error) {
+      console.log(error)
+    },
   })
 
   const onSubmit: SubmitHandler<IUser> = data => {
+    console.log(register)
+    console.log(data)
     mutate(data)
-    console.log(data);
   }
 
   return (
@@ -30,7 +35,7 @@ export function AddUser() {
       <div className='flex-auto h-full'>
         <div className='flex justify-center overflow-auto md:p-10 h-full '>
           <div className='border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit w-1/3 h-fit p-10  bg-white'>
-            <form noValidate>
+            <form noValidate onSubmit={handleSubmit(onSubmit)}>
               <div className='space-y-12 '>
                 <div className='border-b border-gray-900/10 pb-12'>
                   <h2 className='text-base font-semibold leading-7 text-gray-900'>
@@ -237,7 +242,6 @@ export function AddUser() {
                 <Button
                   type='submit'
                   className='rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                  onSubmit={handleSubmit(onSubmit)}
                 >
                   Сохранить
                 </Button>
