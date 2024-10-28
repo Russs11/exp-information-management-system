@@ -10,6 +10,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 export function AddUser() {
   const { register, handleSubmit, reset } = useForm<IUser>({
     mode: 'onChange',
+    shouldUseNativeValidation: true,
   })
 
   const { mutate } = useMutation({
@@ -33,7 +34,7 @@ export function AddUser() {
       <div className='flex-auto h-full'>
         <div className='flex justify-center overflow-auto md:p-10 h-full '>
           <div className='border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit w-1/3 h-fit p-10  bg-white'>
-            <form noValidate onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className='space-y-12 '>
                 <div className='border-b border-gray-900/10 pb-12'>
                   <h2 className='text-base font-semibold leading-7 text-gray-900'>
@@ -131,10 +132,10 @@ export function AddUser() {
                       type='login'
                       id='email'
                       {...register('login', {
-                        required: 'Email is required!',
+                        required: 'Введите логин!',
                       })}
                       autoComplete='login'
-                      placeholder='пример Ivanov_Ivan@gmail.com'
+                      placeholder='Введите логин'
                       label='Логин'
                     />
 
@@ -143,7 +144,7 @@ export function AddUser() {
                         type='text'
                         id='password'
                         {...register('password', {
-                          required: 'password is required!',
+                          required: 'Введите пароль!',
                         })}
                         autoComplete='password'
                         placeholder='Введите пароль'
@@ -156,7 +157,7 @@ export function AddUser() {
                         type='text'
                         id='first-name'
                         {...register('name', {
-                          required: 'Name is required!',
+                          required: 'Введите имя!',
                         })}
                         autoComplete='first-name'
                         placeholder='Введите имя'
@@ -201,7 +202,7 @@ export function AddUser() {
                         type='text'
                         id='role'
                         {...register('role', {
-                          required: 'Role is required!',
+                          required: 'Введите роль!',
                         })}
                         autoComplete='role'
                         placeholder='Введите роль'
