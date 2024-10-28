@@ -1,4 +1,5 @@
 'use client'
+import { errorCatch } from '@/api/error'
 import { Button } from '@/components/ui/buttons/Button'
 import { InputField } from '@/components/ui/inputField/InputField'
 import { SelectField } from '@/components/ui/inputField/SelectField'
@@ -21,7 +22,8 @@ export function AddUser() {
       reset()
     },
     onError(error) {
-      console.log(error)
+      errorCatch(error)
+      alert(errorCatch(error))
     },
   })
 
@@ -144,8 +146,9 @@ export function AddUser() {
                         type='text'
                         id='password'
                         {...register('password', {
-                          required: 'Введите пароль длинной не менее 6-ти символов!',
-                          minLength: 6,
+                          required:
+                            'Введите пароль длинной не менее 6-ти символов!',
+                          // minLength: 6,
                         })}
                         autoComplete='password'
                         placeholder='Введите пароль'
