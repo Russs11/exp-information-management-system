@@ -8,6 +8,7 @@ import { IUser } from '@/types/auth.types'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 
 export function AddUser() {
   const { push } = useRouter()
@@ -22,10 +23,11 @@ export function AddUser() {
     onSuccess() {
       console.log('data')
       reset()
+      toast('Пользователь добавлен!')
     },
     onError(error) {
       errorCatch(error)
-      alert(errorCatch(error))
+      toast(errorCatch(error))
     },
   })
 
