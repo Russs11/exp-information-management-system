@@ -26,8 +26,7 @@ export function AddUser() {
       toast('Пользователь добавлен!')
     },
     onError(error) {
-      errorCatch(error)
-      toast(errorCatch(error))
+      toast.error(errorCatch(error))
     },
   })
 
@@ -141,7 +140,7 @@ export function AddUser() {
                       type='login'
                       id='email'
                       {...register('login', {
-                        required: 'Введите логин!',
+                        required: 'Поле логин обязательное',
                       })}
                       autoComplete='login'
                       placeholder='Введите логин'
@@ -154,7 +153,7 @@ export function AddUser() {
                         id='password'
                         {...register('password', {
                           required:
-                            'Введите пароль длинной не менее 6-ти символов!',
+                            'Пароль должен быть не менее 6-ти символов',
                           // minLength: 6,
                         })}
                         autoComplete='password'
@@ -168,7 +167,7 @@ export function AddUser() {
                         type='text'
                         id='first-name'
                         {...register('name', {
-                          required: 'Введите имя!',
+                          required: 'Укажите имя',
                         })}
                         autoComplete='first-name'
                         placeholder='Введите имя'
@@ -213,7 +212,7 @@ export function AddUser() {
                         type='text'
                         id='role'
                         {...register('role', {
-                          required: 'Введите роль!',
+                          required: 'Введите роль: admin или user',
                         })}
                         autoComplete='role'
                         placeholder='Введите роль'

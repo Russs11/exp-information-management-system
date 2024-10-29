@@ -22,7 +22,7 @@ export default function RootLayout({
         <Providers>
           <div className='flex flex-col h-screen overflow-hidden'>
             {children}
-            <Toaster/>
+            <Toaster />
           </div>
         </Providers>
       </body>
