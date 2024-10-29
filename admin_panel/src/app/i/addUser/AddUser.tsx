@@ -6,9 +6,11 @@ import { SelectField } from '@/components/ui/inputField/SelectField'
 import { adminService } from '@/services/admin.service'
 import { IUser } from '@/types/auth.types'
 import { useMutation } from '@tanstack/react-query'
+import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 export function AddUser() {
+  const { push } = useRouter()
   const { register, handleSubmit, reset } = useForm<IUser>({
     mode: 'onChange',
     shouldUseNativeValidation: true,
@@ -27,6 +29,9 @@ export function AddUser() {
     },
   })
 
+  const cancelHandler = () => {
+    push('/i/userList')
+  }
   const onSubmit: SubmitHandler<IUser> = data => {
     mutate(data)
   }
@@ -239,6 +244,7 @@ export function AddUser() {
                 <Button
                   type='button'
                   className='text-sm font-semibold leading-6 text-gray-900'
+                  onClick={cancelHandler}
                 >
                   Отмена
                 </Button>

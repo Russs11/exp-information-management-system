@@ -3,9 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 interface IUserThread {
-  id: string
-  createAt: string
-  updateAt: string
+  id?: string
+  createAt?: string
+  updateAt?: string
   login?: string
   name?: string
   role?: string
