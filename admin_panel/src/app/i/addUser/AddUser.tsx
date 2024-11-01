@@ -21,7 +21,6 @@ export function AddUser() {
     mutationKey: ['createUser'],
     mutationFn: (data: IUser) => adminService.createUser(data),
     onSuccess() {
-      console.log('data')
       reset()
       toast.success('Пользователь добавлен!')
       push('/i/userList')
