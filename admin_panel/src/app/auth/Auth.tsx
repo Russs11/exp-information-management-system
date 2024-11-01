@@ -23,7 +23,7 @@ export function Auth() {
 
     onSuccess() {
       reset()
-      toast('Успешный вход!')
+      toast.success('Успешный вход!')
       push('/i')
     },
     onError(error) {
@@ -43,7 +43,7 @@ export function Auth() {
           <Image
             src='/auth.svg'
             alt='auth_logo'
-            className='dark:invert justify-self-center mx-auto h-10 w-auto'
+            className='justify-self-center mx-auto h-10 w-auto'
             width={36}
             height={36}
             priority
