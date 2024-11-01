@@ -23,7 +23,8 @@ export function AddUser() {
     onSuccess() {
       console.log('data')
       reset()
-      toast('Пользователь добавлен!')
+      toast.success('Пользователь добавлен!')
+      push('/i/userList')
     },
     onError(error) {
       toast.error(errorCatch(error))

@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '../../components/ui/buttons/Button'
 import { InputField } from '../../components/ui/inputField/InputField'
+import { toast } from 'sonner'
+import { errorCatch } from '@/api/error'
 
 export function Auth() {
   const { register, handleSubmit, reset } = useForm<IAuthForm>({
@@ -21,10 +23,11 @@ export function Auth() {
 
     onSuccess() {
       reset()
+      toast('Успешный вход!')
       push('/i')
     },
     onError(error) {
-      console.log(error)
+      toast.error(errorCatch(error))
     },
   })
 
