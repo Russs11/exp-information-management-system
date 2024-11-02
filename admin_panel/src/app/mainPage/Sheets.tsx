@@ -6,6 +6,9 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
 
@@ -51,28 +54,23 @@ export function SheetDemo() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button className='rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'>
-          Open
-        </Button>
+        <div>
+          <Button className='rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'>
+            Open
+          </Button>
+        </div>
       </SheetTrigger>
       <SheetContent>
-        {/* <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
+        <SheetHeader>
+          <SheetTitle>Профиль пользователя</SheetTitle>
           <SheetDescription>
-            Make changes to your profile here. Click save when you're done.
+            Эта страница содержит данные о пользователе.
           </SheetDescription>
-        </SheetHeader> */}
+        </SheetHeader>
         <div className='grid gap-4 py-4'>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className='space-y-12 '>
               <div className='border-b border-gray-900/10 pb-12'>
-                <h2 className='text-base font-semibold leading-7 text-gray-900'>
-                  Профиль пользователя
-                </h2>
-                <p className='mt-1 text-sm leading-6 text-gray-600'>
-                  Эта страница содержит данные о пользователе.
-                </p>
-
                 <div className='col-span-full'>
                   <label
                     htmlFor='photo'
