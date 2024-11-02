@@ -5,7 +5,7 @@ import { InputField } from '@/components/ui/inputField/InputField'
 import { SelectField } from '@/components/ui/inputField/SelectField'
 import { adminService } from '@/services/admin.service'
 import { IUser } from '@/types/auth.types'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -16,13 +16,14 @@ export function AddUser() {
     mode: 'onChange',
     shouldUseNativeValidation: true,
   })
-
+  const queryClient = useQueryClient()
   const { mutate } = useMutation({
     mutationKey: ['createUser'],
     mutationFn: (data: IUser) => adminService.createUser(data),
     onSuccess() {
       reset()
       toast.success('Пользователь добавлен!')
+      queryClient.invalidateQueries({ queryKey: ['users'] })
       push('/i/userList')
     },
     onError(error) {
@@ -152,8 +153,7 @@ export function AddUser() {
                         type='text'
                         id='password'
                         {...register('password', {
-                          required:
-                            'Пароль должен быть не менее 6-ти символов',
+                          required: 'Пароль должен быть не менее 6-ти символов',
                           // minLength: 6,
                         })}
                         autoComplete='password'
