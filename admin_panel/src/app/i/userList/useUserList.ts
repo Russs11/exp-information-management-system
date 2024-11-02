@@ -1,8 +1,8 @@
 import { adminService} from '@/services/admin.service'
-import { authAdminService } from '@/services/auth-admin.service'
+import { IUser } from '@/types/auth.types'
 import { useQuery } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export function useUserList() {
   const { data, isSuccess, isError, isLoading } = useQuery({
@@ -10,7 +10,11 @@ export function useUserList() {
     queryFn: () => adminService.getAll(),
 
   })
+
+ 
   const { push } = useRouter()
+  
+  
   useEffect(() => {
     if (isSuccess) {
       console.log('Data fetched succesfully')

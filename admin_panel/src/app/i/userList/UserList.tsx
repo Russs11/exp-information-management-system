@@ -3,6 +3,7 @@
 import { IUser } from '@/types/auth.types'
 import { UserThread } from './components/userThread'
 import { useUserList } from './useUserList'
+import { SheetDemo } from '@/app/mainPage/Sheets'
 
 export function UserList() {
   interface IUsersFromApi {
@@ -60,7 +61,8 @@ export function UserList() {
             </table>
           </div>
         </div>
-      </div>
+        </div>
+        <SheetDemo/>
       </div> :
       undefined
   )

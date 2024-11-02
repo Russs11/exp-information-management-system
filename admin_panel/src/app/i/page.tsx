@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 }
 export default function Dashboard() {
   return (
-    <main className='flex min-h-screen flex-col  bg-gray-100'>
+    <main className='flex min-h-screen flex-col pb-12 bg-gray-100'>
       <UserList />
     </main>
   )
