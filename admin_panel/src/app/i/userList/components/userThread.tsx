@@ -1,4 +1,6 @@
 'use client'
+import { Button } from '@/components/ui/buttons/Button'
+import { useMutation } from '@tanstack/react-query'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -13,6 +15,14 @@ interface IUserThread {
 }
 
 export function UserThread({ name, role, updateAt, id }: IUserThread) {
+
+
+  const { mutate } = useMutation({
+    mutationKey: ['users'],
+    // mutattionFn:
+  })
+
+
   return (
     <tr>
       <td className='p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
@@ -59,6 +69,9 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
           {' '}
           Редакт.{' '}
         </Link>
+        <td className='p-2 text-center align-middle bg-transparent whitespace-nowrap shadow-transparent'>
+          <Button className='rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50' />
+        </td>
       </td>
     </tr>
   )
