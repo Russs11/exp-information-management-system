@@ -28,6 +28,7 @@ export function AddUser() {
     },
     onError(error) {
       toast.error(errorCatch(error))
+      push('/auth')
     },
   })
 
