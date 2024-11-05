@@ -27,6 +27,7 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
     mutationFn: ({ id }: {id:string}) => adminService.deleteUser({ id }),
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['users'] })
+      toast.success(`Пользователь ${name} удален!`)
       console.log('success!!!')
     },
     onError(error) {
