@@ -1,10 +1,9 @@
 import { axiosWithAuth } from '@/api/interceptors'
-import { IUser, TypeUserForm } from '@/types/auth.types'
+import { IUser } from '@/types/auth.types'
 
 export interface IProfileResponse {
   user: IUser
 }
-
 
 class AdminService {
   private BASE_URL = '/admin'
@@ -16,12 +15,21 @@ class AdminService {
     return response.data
   }
 
-  async createUser(data:IUser) {
+  async createUser(data: IUser) {
     const response = await axiosWithAuth.post<IUser>(
-      this.BASE_URL + '/create_user_by_admin', data
+      this.BASE_URL + '/create_user_by_admin',
+      data
     )
-    console.log(response.data);
+    console.log(response.data)
     return response.data
+  }
+
+  async deleteUser(id: { id: string }) {
+    const response = await axiosWithAuth.delete(
+      this.BASE_URL + '/delete_user',
+      { params: id }
+    )
+    return response
   }
 }
 

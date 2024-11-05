@@ -7,7 +7,7 @@ export interface IAuthForm {
 }
 
 export interface IUser {
-  id?: string
+  id: string
   createAt?: string
   updateAt?: string
   login?: string

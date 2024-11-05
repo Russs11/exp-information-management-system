@@ -1,11 +1,14 @@
 'use client'
+import { errorCatch } from '@/api/error'
 import { Button } from '@/components/ui/buttons/Button'
-import { useMutation } from '@tanstack/react-query'
+import { adminService } from '@/services/admin.service'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import Image from 'next/image'
 import Link from 'next/link'
+import { toast } from 'sonner'
 
 interface IUserThread {
-  id?: string
+  id: string
   createAt?: string
   updateAt?: string
   login?: string
@@ -15,13 +18,21 @@ interface IUserThread {
 }
 
 export function UserThread({ name, role, updateAt, id }: IUserThread) {
+  console.log(id)
 
+  const queryClient = useQueryClient()
 
   const { mutate } = useMutation({
-    mutationKey: ['users'],
-    // mutattionFn:
+    mutationKey: ['delete_user'],
+    mutationFn: ({ id }: {id:string}) => adminService.deleteUser({ id }),
+    onSuccess() {
+      queryClient.invalidateQueries({ queryKey: ['users'] })
+      console.log('success!!!')
+    },
+    onError(error) {
+      toast.error(errorCatch(error))
+    },
   })
-
 
   return (
     <tr>
@@ -38,9 +49,7 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
           </div>
           <div className='flex flex-col justify-center'>
             <h6 className='mb-0 leading-normal text-sm'>{name}</h6>
-            <p className='mb-0 leading-tight text-xs text-slate-400'>
-              Иванович
-            </p>
+            <p className='mb-0 leading-tight text-xs text-slate-400'>{id}</p>
           </div>
         </div>
       </td>
@@ -70,7 +79,11 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
           Редакт.{' '}
         </Link>
         <td className='p-2 text-center align-middle bg-transparent whitespace-nowrap shadow-transparent'>
-          <Button className='rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50' />
+          <Button
+            type={'submit'}
+            className='rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'
+            onClick={() => mutate({ id })}
+          />
         </td>
       </td>
     </tr>
