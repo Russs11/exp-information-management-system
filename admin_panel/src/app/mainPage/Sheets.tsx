@@ -55,8 +55,23 @@ export function SheetDemo() {
     <Sheet>
       <SheetTrigger asChild>
         <div>
-          <Button className='rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'>
-            Open
+          <Button className='rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 hover:bg-gray-50'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='#94a3b8'
+              stroke-width='2'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+            >
+              <path d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2' />
+              <circle cx='9' cy='7' r='4' />
+              <line x1='19' x2='19' y1='8' y2='14' />
+              <line x1='22' x2='16' y1='11' y2='11' />
+            </svg>
           </Button>
         </div>
       </SheetTrigger>
