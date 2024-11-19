@@ -50,7 +50,7 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
           </div>
           <div className='flex flex-col justify-center'>
             <h6 className='mb-0 leading-normal text-sm'>{name}</h6>
-            <p className='mb-0 leading-tight text-xs text-slate-400'>{id}</p>
+            <p className='mb-0 leading-tight text-xs text-slate-400'></p>
           </div>
         </div>
       </td>
