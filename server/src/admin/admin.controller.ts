@@ -3,8 +3,8 @@ import {
 	Controller,
 	Delete,
 	Get,
-	Headers,
 	HttpCode,
+	Param,
 	Post,
 	Put,
 	Query,
@@ -12,14 +12,15 @@ import {
 	UsePipes,
 	ValidationPipe
 } from '@nestjs/common'
+import { Response } from 'express'
 import { AdminService } from './admin.service'
+import { IsAdmin } from './decorators/admin.decorator'
+import { Auth } from './decorators/auth.decorator'
+import { CurrentUser } from './decorators/currentUser.decorator'
 import { CreateUserDto } from './dto/createUser.dto'
 import { LoginUserDto } from './dto/loginUser.dto'
-import { Response } from 'express'
-import { Auth } from './decorators/auth.decorator'
-import { IsAdmin } from './decorators/admin.decorator'
+import { UpdateUserDto } from './dto/updateUser.dto'
 import { ParseCookiePipe } from './pipes/userID.pipe'
-import { CurrentUser } from './decorators/currentUser.decorator'
 
 @Controller('admin')
 export class AdminController {
@@ -68,13 +69,22 @@ export class AdminController {
 		return await this.adminService.createUser(сreateUserDto)
 	}
 
+	// @UsePipes(new ValidationPipe())
+	// @HttpCode(200)
+	// // @IsAdmin()
+	// @Auth()
+	// @Put('update_user')
+	// async updateUser(@CurrentUser(ParseCookiePipe) user: string) {
+	// 	return user
+	// }
+
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	// @IsAdmin()
 	@Auth()
-	@Put('update_user')
-	async updateUser(@CurrentUser(ParseCookiePipe) user: string) {
-		return user
+	@Put('update_user/:id')
+	async updateUser(@CurrentUser(ParseCookiePipe) user: string, @Param('id') id: string,  @Body() data: UpdateUserDto) {
+			return this.adminService.updateUser(id, data)
 	}
 
 	@UsePipes(new ValidationPipe())
@@ -82,8 +92,11 @@ export class AdminController {
 	@IsAdmin()
 	@Auth()
 	@Delete('delete_user')
-	async deleteUser(@CurrentUser(ParseCookiePipe) user: string, @Query('id') userId: string) {
-		if(!userId)return 'userId not found'
+	async deleteUser(
+		@CurrentUser(ParseCookiePipe) user: string,
+		@Query('id') userId: string
+	) {
+		if (!userId) return 'userId not found'
 		return await this.adminService.deleteUser(userId)
 	}
 }

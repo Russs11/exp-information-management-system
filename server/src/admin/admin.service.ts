@@ -11,6 +11,7 @@ import { Role } from 'prisma/generated/client'
 import { PrismaService } from 'src/prisma.service'
 import { CreateUserDto } from './dto/createUser.dto'
 import { LoginUserDto } from './dto/loginUser.dto'
+import { UserDto } from 'src/user/dto/user.dto'
 
 @Injectable()
 export class AdminService {
@@ -50,6 +51,28 @@ export class AdminService {
 				password: false,
 				role: true,
 				inspections_of_scene: true
+			}
+		})
+	}
+
+	async updateUser(id: string, dto: UserDto) {
+		let data = dto
+
+		if (dto.password) {
+			data = { ...dto, password: await hash(dto.password) }
+		}
+
+		return this.prisma.user.update({
+			where: { id },
+			data,
+			select: {
+				id: true,
+				createAt: true,
+				updateAt: true,
+				login: true,
+				name: true,
+				password: false,
+				role: true
 			}
 		})
 	}
