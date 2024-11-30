@@ -24,6 +24,13 @@ class AdminService {
     return response.data
   }
 
+  async getUserProfile(userId: string | null) {
+    const response = await axiosWithAuth.get<IUser>(
+      this.BASE_URL + `/get_user_profile/${userId}`
+    )
+    return response.data
+  }
+
   async deleteUser(id: { id: string }) {
     const response = await axiosWithAuth.delete(
       this.BASE_URL + '/delete_user',
