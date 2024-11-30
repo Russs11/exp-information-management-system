@@ -9,9 +9,9 @@ import { hash, verify } from 'argon2'
 import { Response } from 'express'
 import { Role } from 'prisma/generated/client'
 import { PrismaService } from 'src/prisma.service'
+import { UserDto } from 'src/user/dto/user.dto'
 import { CreateUserDto } from './dto/createUser.dto'
 import { LoginUserDto } from './dto/loginUser.dto'
-import { UserDto } from 'src/user/dto/user.dto'
 
 @Injectable()
 export class AdminService {
@@ -55,7 +55,12 @@ export class AdminService {
 		})
 	}
 
-	async updateUser(id: string, dto: UserDto) {
+	async getUserProfile(userId: string) {
+		const { ...user } = await this.getById(userId)
+		return user
+	}
+
+	async updateUser(userId: string, dto: UserDto) {
 		let data = dto
 
 		if (dto.password) {
@@ -63,7 +68,7 @@ export class AdminService {
 		}
 
 		return this.prisma.user.update({
-			where: { id },
+			where: { id: userId },
 			data,
 			select: {
 				id: true,

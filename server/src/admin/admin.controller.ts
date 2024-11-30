@@ -77,14 +77,30 @@ export class AdminController {
 	// async updateUser(@CurrentUser(ParseCookiePipe) user: string) {
 	// 	return user
 	// }
+	@UsePipes(new ValidationPipe())
+	@HttpCode(200)
+	// @IsAdmin()
+	@Auth()
+	@Get('get_user_profile/:id')
+	async getUserProfile(
+		@CurrentUser(ParseCookiePipe) user: string,
+		@Param('id') userId: string
+	) {
+		if (!userId) return 'userId not found'
+		return this.adminService.getUserProfile(userId)
+	}
 
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	// @IsAdmin()
 	@Auth()
 	@Put('update_user/:id')
-	async updateUser(@CurrentUser(ParseCookiePipe) user: string, @Param('id') id: string,  @Body() data: UpdateUserDto) {
-			return this.adminService.updateUser(id, data)
+	async updateUser(
+		@CurrentUser(ParseCookiePipe) user: string,
+		@Param('id') userId: string,
+		@Body() data: UpdateUserDto
+	) {
+		return this.adminService.updateUser(userId, data)
 	}
 
 	@UsePipes(new ValidationPipe())
