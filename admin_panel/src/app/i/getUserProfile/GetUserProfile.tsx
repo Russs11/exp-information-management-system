@@ -4,40 +4,47 @@ import { Button } from '@/components/ui/buttons/Button'
 import { InputField } from '@/components/ui/inputField/InputField'
 import { SelectField } from '@/components/ui/inputField/SelectField'
 import { adminService } from '@/services/admin.service'
-import { IUser } from '@/types/auth.types'
+import { TypeUserForm } from '@/types/auth.types'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 export function GetUserProfile() {
   const { push } = useRouter()
-  const { register, handleSubmit, reset } = useForm<IUser>({
-    mode: 'onChange',
-    shouldUseNativeValidation: true,
-  })
 
   const searchParams = useSearchParams()
   const userId = searchParams.get('id')
 
-  console.log('userId', userId);
+  const { register, handleSubmit, reset } = useForm<TypeUserForm>({
+    mode: 'onChange',
+    shouldUseNativeValidation: true,
+  })
 
+  const { data, isSuccess, isError, isLoading } = useQuery({
+    queryKey: ['getUserProfile'],
+    queryFn: () => adminService.getUserProfile(userId),
+  })
 
-const { data, isSuccess, isError, isLoading } = useQuery({
-  queryKey: ['getUserProfile'],
-  queryFn: () => adminService.getUserProfile(userId),
-})
-console.log('data', data)
-  
-  
+  useEffect(() => {
+    if (isSuccess && data) {
+      reset({
+        login: data.login,
+        name: data.name,
+        role: data.role,
+      })
+    }
+  }, [isSuccess, data])
+
   const queryClient = useQueryClient()
   const { mutate } = useMutation({
-    mutationKey: ['getUserProfile'],
-    mutationFn: (data: IUser) => adminService.getUserProfile(userId),
+    mutationKey: ['updateUser'],
+    mutationFn: (data: TypeUserForm) => adminService.updateUser(userId, data),
     onSuccess() {
       reset()
-      toast.success('Пользователь добавлен!')
-      queryClient.invalidateQueries({ queryKey: ['users'] })
+      toast.success('Данные успешно обновлены!')
+      queryClient.invalidateQueries({ queryKey: ['users', 'getUserProfile'] })
       push('/i/userList')
     },
     onError(error) {
@@ -46,13 +53,15 @@ console.log('data', data)
     },
   })
 
-
-
   const cancelHandler = () => {
     push('/i/userList')
   }
-  const onSubmit: SubmitHandler<IUser> = data => {
-    mutate(data)
+  const onSubmit: SubmitHandler<TypeUserForm> = data => {
+    const { password, ...rest } = data
+    mutate({
+      ...rest,
+      password: password || undefined
+    })
   }
 
   return (
@@ -160,7 +169,7 @@ console.log('data', data)
                       {...register('login', {
                         required: 'Поле логин обязательное',
                       })}
-                      value={data?.login}
+                      // value={data?.login}
                       autoComplete='login'
                       placeholder='Введите логин'
                       label='Логин'
@@ -171,7 +180,7 @@ console.log('data', data)
                         type='text'
                         id='password'
                         {...register('password', {
-                          required: 'Пароль должен быть не менее 6-ти символов',
+                          // required: 'Пароль должен быть не менее 6-ти символов',
                           // minLength: 6,
                         })}
                         autoComplete='password'

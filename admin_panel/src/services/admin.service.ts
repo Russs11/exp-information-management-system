@@ -1,5 +1,5 @@
 import { axiosWithAuth } from '@/api/interceptors'
-import { IUser } from '@/types/auth.types'
+import { IUser, TypeUserForm } from '@/types/auth.types'
 
 export interface IProfileResponse {
   user: IUser
@@ -27,6 +27,14 @@ class AdminService {
   async getUserProfile(userId: string | null) {
     const response = await axiosWithAuth.get<IUser>(
       this.BASE_URL + `/get_user_profile/${userId}`
+    )
+    return response.data
+  }
+
+  async updateUser(userId: string | null, data: TypeUserForm) {
+    const response = await axiosWithAuth.put<TypeUserForm>(
+      this.BASE_URL + `/update_user/${userId}`,
+      data
     )
     return response.data
   }
