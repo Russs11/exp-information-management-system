@@ -30,10 +30,10 @@ export function UserList() {
     })
   }
 
-  return (
-    !isLoading && data? 
+  return !isLoading && data ? (
     <div className='flex-auto justify-center p-0 overflow-auto h-screen md:p-12'>
-      <div className='relative flex flex-col w-full break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit'>
+        <SheetDemo />
+      <div className='relative flex flex-col w-full break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit mt-10'>
         <div className='p-6 pb-0 mb-0 bg-white rounded-t-2xl'>
           <h6>Список пользователей</h6>
         </div>
@@ -61,11 +61,10 @@ export function UserList() {
             </table>
           </div>
         </div>
-        </div>
-        <div className='fixed bottom-10 left-12'>
+      </div>
+      {/* <div className='fixed bottom-10 left-12'>
         <SheetDemo/>
-        </div>
-      </div> :
-      undefined
-  )
+        </div> */}
+    </div>
+  ) : undefined
 }
