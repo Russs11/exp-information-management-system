@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { SheetDemo } from './Sheets'
+import { SheetDemo } from '../i/userList/components/Sheets'
 
 export const metadata: Metadata = {
   title: 'mainApp',
