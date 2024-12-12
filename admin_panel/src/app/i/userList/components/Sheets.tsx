@@ -130,7 +130,7 @@ export function SheetDemo() {
                     type='login'
                     id='email'
                     {...register('login', {
-                      required: 'Поле логин обязательное',
+                      required: 'Поле логин обязятельно для ввода',
                     })}
                     autoComplete='login'
                     placeholder='Введите логин'
@@ -142,7 +142,7 @@ export function SheetDemo() {
                       type='text'
                       id='password'
                       {...register('password', {
-                        required: 'Пароль должен быть не менее 6-ти символов',
+                        required: 'Пароль должен состоять минимум из 6-ти символов',
                         // minLength: 6,
                       })}
                       autoComplete='password'
