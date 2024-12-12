@@ -43,13 +43,13 @@ export function GetUserProfile() {
     mutationFn: (data: TypeUserForm) => adminService.updateUser(userId, data),
     onSuccess() {
       reset()
-      toast.success('Данные успешно обновлены!')
+      toast.success('Данные успешно сохранены!')
       queryClient.invalidateQueries({ queryKey: ['users', 'getUserProfile'] })
       push('/i/userList')
     },
     onError(error) {
       toast.error(errorCatch(error))
-      push('/auth')
+      // push('/auth')
     },
   })
 
