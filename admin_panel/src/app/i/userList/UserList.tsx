@@ -1,9 +1,9 @@
 'use client'
 
+import { SheetDemo } from '@/app/i/userList/components/Sheets'
 import { IUser } from '@/types/auth.types'
 import { UserThread } from './components/userThread'
 import { useUserList } from './useUserList'
-import { SheetDemo } from '@/app/i/userList/components/Sheets'
 
 export function UserList() {
   interface IUsersFromApi {
@@ -31,8 +31,10 @@ export function UserList() {
   }
 
   return !isLoading && data ? (
-    <div className='flex-auto justify-center p-0 overflow-auto h-screen md:p-12'>
+    <div className='flex-auto justify-center overflow-auto h-screen md:px-20 py-5'>
+      <div className='fixed z-10 left-5'>
         <SheetDemo />
+      </div>
       <div className='relative flex flex-col w-full break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border min-w-fit mt-5'>
         <div className='p-6 pb-0 mb-0 bg-white rounded-t-2xl'>
           <h6>Список пользователей</h6>
@@ -62,9 +64,9 @@ export function UserList() {
           </div>
         </div>
       </div>
-      {/* <div className='fixed bottom-10 left-12'>
-        <SheetDemo/>
-        </div> */}
+      {/* <div className='fixed bottom-10 left-[112rem]'>
+        <SheetDemo />
+      </div> */}
     </div>
   ) : undefined
 }
