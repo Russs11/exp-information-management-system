@@ -18,17 +18,14 @@ interface IUserThread {
 }
 
 export function UserThread({ name, role, updateAt, id }: IUserThread) {
-
-
   const queryClient = useQueryClient()
 
   const { mutate } = useMutation({
     mutationKey: ['delete_user'],
-    mutationFn: ({ id }: {id:string}) => adminService.deleteUser({ id }),
+    mutationFn: ({ id }: { id: string }) => adminService.deleteUser({ id }),
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['users'] })
       toast.success(`Пользователь ${name} удален!`)
-
     },
     onError(error) {
       toast.error(errorCatch(error))
@@ -85,7 +82,19 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
           <Button
             // type={'submit'}
             className='rounded-md text-sm font-semibold shadow-sm hover:bg-gray-50'
-            onClick={() => mutate({ id })}
+            onClick={() =>
+              toast('Удалить пользователя?', {
+                action: {
+                  label: 'Да?',
+                  onClick: () => mutate({ id }),
+                },
+                cancel: {
+                  label: 'Нет?',
+                  onClick:()=> console.log('')
+                }
+                
+              })
+            }
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
