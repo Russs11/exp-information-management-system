@@ -28,7 +28,7 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['users'] })
       toast.success(`Пользователь ${name} удален!`)
-      
+
     },
     onError(error) {
       toast.error(errorCatch(error))

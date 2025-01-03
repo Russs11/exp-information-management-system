@@ -21,7 +21,6 @@ export function Auth() {
     mutationKey: ['auth'],
     mutationFn: (data: IAuthForm) => authAdminService.main(data),
     onSuccess() {
-
       reset()
       toast.success('Успешный вход!')
       push('/i')
