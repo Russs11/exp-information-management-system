@@ -17,11 +17,11 @@ export function Auth() {
 
   const { push } = useRouter()
 
-  const { mutate } = useMutation({
+  const { mutate} = useMutation({
     mutationKey: ['auth'],
     mutationFn: (data: IAuthForm) => authAdminService.main(data),
-
     onSuccess() {
+
       reset()
       toast.success('Успешный вход!')
       push('/i')

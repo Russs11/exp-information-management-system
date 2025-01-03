@@ -82,7 +82,6 @@ export class AdminController {
 		return this.adminService.getUserProfile(userId)
 	}
 
-
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	// @IsAdmin()

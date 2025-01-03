@@ -18,7 +18,7 @@ interface IUserThread {
 }
 
 export function UserThread({ name, role, updateAt, id }: IUserThread) {
-  console.log(id)
+
 
   const queryClient = useQueryClient()
 
@@ -28,7 +28,7 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['users'] })
       toast.success(`Пользователь ${name} удален!`)
-      console.log('success!!!')
+      
     },
     onError(error) {
       toast.error(errorCatch(error))
