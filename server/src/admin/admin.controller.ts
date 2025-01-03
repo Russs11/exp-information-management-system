@@ -69,14 +69,6 @@ export class AdminController {
 		return await this.adminService.createUser(сreateUserDto)
 	}
 
-	// @UsePipes(new ValidationPipe())
-	// @HttpCode(200)
-	// // @IsAdmin()
-	// @Auth()
-	// @Put('update_user')
-	// async updateUser(@CurrentUser(ParseCookiePipe) user: string) {
-	// 	return user
-	// }
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	// @IsAdmin()
@@ -89,6 +81,7 @@ export class AdminController {
 		if (!userId) return 'userId not found'
 		return this.adminService.getUserProfile(userId)
 	}
+
 
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
