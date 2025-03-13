@@ -21,6 +21,7 @@ import { CreateUserDto } from './dto/createUser.dto'
 import { LoginUserDto } from './dto/loginUser.dto'
 import { UpdateUserDto } from './dto/updateUser.dto'
 import { ParseCookiePipe } from './pipes/userID.pipe'
+import { User } from './interfaces/interfaces'
 
 @Controller('admin')
 export class AdminController {
@@ -106,5 +107,19 @@ export class AdminController {
 	) {
 		if (!userId) return 'userId not found'
 		return await this.adminService.deleteUser(userId)
+	}
+
+	@UsePipes(new ValidationPipe())
+	@HttpCode(200)
+	// @IsAdmin()
+	@Auth()
+	@Get('get_current_user_profile')
+	async getCurrentUserProfile(
+		@CurrentUser(ParseCookiePipe) user: User,
+		
+	) {
+		console.log(user.id);
+		if (!user.id) return 'userId not found'
+		return this.adminService.getUserProfile(user.id)
 	}
 }

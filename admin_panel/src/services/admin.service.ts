@@ -31,6 +31,13 @@ class AdminService {
     return response.data
   }
 
+  async getCurrentUserProfile() {
+    const response = await axiosWithAuth.get<IUser>(
+      this.BASE_URL + `/get_current_user_profile`
+    )
+    return response.data
+  }
+
   async updateUser(userId: string | null, data: TypeUserForm) {
     const response = await axiosWithAuth.put<TypeUserForm>(
       this.BASE_URL + `/update_user/${userId}`,

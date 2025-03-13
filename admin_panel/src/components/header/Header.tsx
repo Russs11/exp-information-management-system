@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 import { Logout } from '../ui/buttons/logout'
 import { RingButton } from '../ui/buttons/RingButton'
 import { Profile } from '../ui/profile/Profile'
+import { useProfile } from '@/hooks/useProfile'
 
 export function Header() {
   const { push } = useRouter()
@@ -19,7 +20,9 @@ export function Header() {
     },
   })
 
-
+  const { data, isLoading } = useProfile()
+  
+  console.log('useProfile', data);
 
   return (
     <>
