@@ -54,7 +54,7 @@ export class AdminController {
 		return true
 	}
 
-	@IsAdmin()
+	// @IsAdmin()
 	@Auth()
 	@Get('get_all')
 	async getAll() {
@@ -85,7 +85,7 @@ export class AdminController {
 
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
-	// @IsAdmin()
+	@IsAdmin()
 	@Auth()
 	@Put('update_user/:id')
 	async updateUser(
@@ -118,7 +118,7 @@ export class AdminController {
 		@CurrentUser(ParseCookiePipe) user: User,
 		
 	) {
-		console.log(user.id);
+		
 		if (!user.id) return 'userId not found'
 		return this.adminService.getUserProfile(user.id)
 	}
