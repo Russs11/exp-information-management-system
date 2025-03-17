@@ -55,11 +55,11 @@ export function SheetDemo() {
     <Sheet>
       <SheetTrigger asChild>
         <div>
-          <Button className='rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 hover:bg-gray-50'>
+          <Button className='rounded-xl bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 hover:bg-gray-50'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              width='24'
-              height='24'
+              width='26'
+              height='26'
               viewBox='0 0 24 24'
               fill='none'
               stroke='#94a3b8'
