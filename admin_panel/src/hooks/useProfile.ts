@@ -4,8 +4,9 @@ import { useQuery } from '@tanstack/react-query'
 export function useProfile() {
 	
 	const {data, isLoading } = useQuery({
-		queryKey: ['profile'],
+		queryKey: ['currentProfile'],
 		queryFn: ()=> adminService.getCurrentUserProfile()
 	})
+	
 	return {data, isLoading}
 }

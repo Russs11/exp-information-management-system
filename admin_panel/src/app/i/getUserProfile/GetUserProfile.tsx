@@ -44,7 +44,9 @@ export function GetUserProfile() {
     onSuccess() {
       reset()
       toast.success('Данные успешно сохранены!')
-      queryClient.invalidateQueries({ queryKey: ['users', 'getUserProfile'] })
+      queryClient.invalidateQueries({
+        queryKey: ['currentProfile'],
+      })
       push('/i/userList')
     },
     onError(error) {
@@ -60,10 +62,10 @@ export function GetUserProfile() {
     const { password, ...rest } = data
     mutate({
       ...rest,
-      password: password || undefined
+      password: password || undefined,
     })
   }
-
+  console.log('getProfile', data)
   return (
     <>
       <div className='flex-auto h-full'>
