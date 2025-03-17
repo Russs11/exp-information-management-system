@@ -17,12 +17,12 @@ export const Profile = ({ data, ...props }: IProfile): JSX.Element => {
       <UserProfileButton data={data} onClick={() => setisShow(!isShow)} />
       {isShow && <UserMenu data={data} ref={ref} />}
       <div className='ml-3'>
-        <div className='text-base font-medium leading-none text-white'>
+        <p className='text-base font-medium leading-none text-white'>
           {data?.name}
-        </div>
-        <div className='text-sm font-medium leading-none text-gray-400'>
+        </p>
+        <p className='text-sm font-medium leading-none text-gray-400 mt-2'>
           {data?.login}
-        </div>
+        </p>
       </div>
     </div>
   )
