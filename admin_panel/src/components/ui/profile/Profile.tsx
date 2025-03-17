@@ -16,11 +16,11 @@ export const Profile = ({ data, ...props }: IProfile): JSX.Element => {
     <div className='flex relative ml-3'>
       <UserProfileButton data={data} onClick={() => setisShow(!isShow)} />
       {isShow && <UserMenu data={data} ref={ref} />}
-      <div className='ml-3'>
+      <div className='flex flex-col items-start gap-1 ml-3'>
         <p className='text-base font-medium leading-none text-white'>
           {data?.name}
         </p>
-        <p className='text-sm font-medium leading-none text-gray-400 mt-2'>
+        <p className='text-sm font-medium leading-none text-gray-400 '>
           {data?.login}
         </p>
       </div>
