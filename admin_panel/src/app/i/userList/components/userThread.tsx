@@ -35,8 +35,8 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
   return (
     <tr>
       <td className='p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
-        <div className='flex px-2 py-1'>
-          <div>
+        <div className='flex gap-2 px-2 py-1'>
+          {/* <div>
             <Image
               src='/Petrov_cr.jpg'
               className='inline-flex items-center justify-center mr-4 text-white transition-all duration-200 ease-in-out text-sm h-9 w-9 rounded-xl'
@@ -44,6 +44,9 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
               width={36}
               height={36}
             />
+          </div> */}
+          <div className='flex items-center justify-center w-8 h-8 rounded-full text-xl text-white bg-slate-400 uppercase '>
+            {name?.charAt(0)}
           </div>
           <div className='flex flex-col justify-center'>
             <h6 className='mb-0 leading-normal text-sm'>{name}</h6>
@@ -90,9 +93,8 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
                 },
                 cancel: {
                   label: 'Нет?',
-                  onClick:()=> console.log('')
-                }
-                
+                  onClick: () => console.log(''),
+                },
               })
             }
           >
