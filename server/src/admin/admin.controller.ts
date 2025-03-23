@@ -85,7 +85,7 @@ export class AdminController {
 
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
-	@IsAdmin()
+	// @IsAdmin()
 	@Auth()
 	@Put('update_user/:id')
 	async updateUser(
