@@ -3,8 +3,8 @@ import { errorCatch } from '@/api/error'
 import { Button } from '@/components/ui/buttons/Button'
 import { adminService } from '@/services/admin.service'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 
 interface IUserThread {
@@ -19,19 +19,25 @@ interface IUserThread {
 
 export function UserThread({ name, role, updateAt, id }: IUserThread) {
   const queryClient = useQueryClient()
+  const [formattedDate, setFormattedDate] = useState('')
 
-  const date = new Date(updateAt)
-   const day = String(date.getDate()).padStart(2, '0')
-   const month = String(date.getMonth() + 1).padStart(2, '0') 
-   const year = date.getFullYear()
-   const hours = String(date.getHours()).padStart(2, '0')
-   const minutes = String(date.getMinutes()).padStart(2, '0')
+
+  useEffect(() => {
+    if (!updateAt || typeof updateAt !== 'string') return 
+
+    
+    const date = new Date(updateAt)
+    const day = String(date.getDate()).padStart(2, '0')
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const year = date.getFullYear()
+    const hours = String(date.getHours()).padStart(2, '0')
+    const minutes = String(date.getMinutes()).padStart(2, '0')
+    const formatted = `${day}.${month}.${year} ${hours}:${minutes}`
+    setFormattedDate(formatted)
   
+  }, [updateAt])
+
   
-
-  // Форматируем строку в нужном формате
-  const formattedDate = `${day}.${month}.${year} ${hours}:${minutes}`
-
 
   const { mutate } = useMutation({
     mutationKey: ['delete_user'],
@@ -44,7 +50,6 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
       toast.error(errorCatch(error))
     },
   })
-
 
   return (
     <tr>
