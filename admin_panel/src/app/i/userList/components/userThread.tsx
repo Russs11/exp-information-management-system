@@ -20,6 +20,19 @@ interface IUserThread {
 export function UserThread({ name, role, updateAt, id }: IUserThread) {
   const queryClient = useQueryClient()
 
+  const date = new Date(updateAt)
+   const day = String(date.getDate()).padStart(2, '0')
+   const month = String(date.getMonth() + 1).padStart(2, '0') 
+   const year = date.getFullYear()
+   const hours = String(date.getHours()).padStart(2, '0')
+   const minutes = String(date.getMinutes()).padStart(2, '0')
+  
+  
+
+  // Форматируем строку в нужном формате
+  const formattedDate = `${day}.${month}.${year} ${hours}:${minutes}`
+
+
   const { mutate } = useMutation({
     mutationKey: ['delete_user'],
     mutationFn: ({ id }: { id: string }) => adminService.deleteUser({ id }),
@@ -31,6 +44,7 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
       toast.error(errorCatch(error))
     },
   })
+
 
   return (
     <tr>
@@ -60,7 +74,7 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
       </td>
       <td className='p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
         <span className='font-semibold leading-tight text-xs text-slate-400'>
-          {updateAt}
+          {formattedDate}
         </span>
         <span className='font-semibold leading-tight text-xs text-slate-400'></span>
       </td>
