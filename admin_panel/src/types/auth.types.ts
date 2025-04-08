@@ -8,8 +8,8 @@ export interface IAuthForm {
 
 export interface IUser {
   id: string
-  createAt: string
-  updateAt: string
+  createAt?: string
+  updateAt?: string
   login?: string
   name?: string
   role?: string

@@ -10,6 +10,7 @@ export interface IInputFieldProps
   name: string
   label: string
   placeholder?: string
+  value?:string
   autoComplete?: string
   isNumber?: boolean
   state?: 'error' | 'success'

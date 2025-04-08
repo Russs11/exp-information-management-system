@@ -9,6 +9,7 @@ import { hash, verify } from 'argon2'
 import { Response } from 'express'
 import { Role } from 'prisma/generated/client'
 import { PrismaService } from 'src/prisma.service'
+import { UserDto } from 'src/user/dto/user.dto'
 import { CreateUserDto } from './dto/createUser.dto'
 import { LoginUserDto } from './dto/loginUser.dto'
 
@@ -50,6 +51,33 @@ export class AdminService {
 				password: false,
 				role: true,
 				inspections_of_scene: true
+			}
+		})
+	}
+
+	async getUserProfile(userId: string) {
+		const { ...user } = await this.getById(userId)
+		return user
+	}
+
+	async updateUser(userId: string, dto: UserDto) {
+		let data = dto
+
+		if (dto.password) {
+			data = { ...dto, password: await hash(dto.password) }
+		}
+
+		return this.prisma.user.update({
+			where: { id: userId },
+			data,
+			select: {
+				id: true,
+				createAt: true,
+				updateAt: true,
+				login: true,
+				name: true,
+				password: false,
+				role: true
 			}
 		})
 	}

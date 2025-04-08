@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 import { Logout } from '../ui/buttons/logout'
 import { RingButton } from '../ui/buttons/RingButton'
 import { Profile } from '../ui/profile/Profile'
+import { useProfile } from '@/hooks/useProfile'
 
 export function Header() {
   const { push } = useRouter()
@@ -19,14 +20,8 @@ export function Header() {
     },
   })
 
-  // useEffect(() => {
-  //   if (!jwtToken) {
-  //     push('/auth')
-  //   }
-  // }, [jwtToken, push])
-  // setTimeout(() => {
-  //   authAdminService.logout(), push('/auth')
-  // }, 10000 * 6)
+  const { data, isLoading } = useProfile()
+  console.log('header', data);
 
   return (
     <>
@@ -48,25 +43,19 @@ export function Header() {
                   </div>
                   <div className='hidden md:block'>
                     <div className='ml-10 flex items-baseline space-x-4'>
-                      <Link
+                      {/* <Link
                         href='/i/userList'
                         className='focus:bg-gray-900  hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium'
                       >
                         Список пользователей
-                      </Link>
-                      <Link
-                        href='/i/addUser'
-                        className='focus:bg-gray-900   hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium'
-                      >
-                        Добавить пользователя
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </div>
                 <div className='hidden md:block'>
                   <div className='ml-4 flex items-center md:ml-6'>
                     <RingButton />
-                    <Profile />
+                    <Profile data={data} />
                     <div className='relative ml-3'>
                       <Logout onClick={() => mutate()} />
                     </div>
@@ -134,21 +123,24 @@ export function Header() {
               <div className='border-t border-gray-700 pb-3 pt-4'>
                 <div className='flex items-center px-5'>
                   <div className='flex-shrink-0'>
-                    <Image
+                    {/* <Image
                       src='/Petrov_cr.jpg'
                       alt='avatar'
                       className='h-8 w-8 rounded-full'
                       width={36}
                       height={36}
                       priority
-                    />
+                    /> */}
+                    <div className='flex items-center justify-center w-8 h-8 rounded-full text-2xl text-white bg-slate-600 uppercase '>
+                      {data?.name?.charAt(0)}
+                    </div>
                   </div>
                   <div className='ml-3'>
                     <div className='text-base font-medium leading-none text-white'>
-                      Иван Иванов
+                      {data?.name}
                     </div>
                     <div className='text-sm font-medium leading-none text-gray-400'>
-                      Ivan@example.com
+                      {data?.login}
                     </div>
                   </div>
                   <button

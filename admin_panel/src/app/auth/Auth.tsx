@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '../../components/ui/buttons/Button'
 import { InputField } from '../../components/ui/inputField/InputField'
+import { toast } from 'sonner'
+import { errorCatch } from '@/api/error'
 
 export function Auth() {
   const { register, handleSubmit, reset } = useForm<IAuthForm>({
@@ -15,16 +17,16 @@ export function Auth() {
 
   const { push } = useRouter()
 
-  const { mutate } = useMutation({
+  const { mutate} = useMutation({
     mutationKey: ['auth'],
     mutationFn: (data: IAuthForm) => authAdminService.main(data),
-
     onSuccess() {
       reset()
+      toast.success('Успешный вход!')
       push('/i')
     },
     onError(error) {
-      console.log(error)
+      toast.error(errorCatch(error))
     },
   })
 
@@ -40,7 +42,7 @@ export function Auth() {
           <Image
             src='/auth.svg'
             alt='auth_logo'
-            className='dark:invert justify-self-center mx-auto h-10 w-auto'
+            className='justify-self-center mx-auto h-10 w-auto'
             width={36}
             height={36}
             priority

@@ -5,6 +5,8 @@ export const metadata: Metadata = {
 }
 export default function Home() {
   return (
-    <main className='flex min-h-screen flex-col  bg-gray-100'>Home</main>
+    <main className='flex min-h-screen flex-col bg-gray-100  text-gray-900'>
+      Home
+    </main>
   )
 }

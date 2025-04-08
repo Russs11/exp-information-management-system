@@ -239,8 +239,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.12.1
-   * Query Engine version: 473ed3124229e22d881cb7addf559799debae1ab
+   * Prisma Client JS version: 5.14.0
+   * Query Engine version: a9055b89e58b4b5bfb59600785423b1db3d0e75d
    */
   export type PrismaVersion = {
     client: string
@@ -367,6 +367,11 @@ export namespace Prisma {
     include: any
   }
 
+  type SelectAndOmit = {
+    select: any
+    omit: any
+  }
+
   /**
    * Get the type of the value, that the Promise holds.
    */
@@ -415,7 +420,9 @@ export namespace Prisma {
   } &
     (T extends SelectAndInclude
       ? 'Please either choose `select` or `include`.'
-      : {})
+      : T extends SelectAndOmit
+        ? 'Please either choose `select` or `omit`.'
+        : {})
 
   /**
    * Subset + Intersection
@@ -706,6 +713,10 @@ export namespace Prisma {
             args: Prisma.UserCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
+          createManyAndReturn: {
+            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
           delete: {
             args: Prisma.UserDeleteArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$UserPayload>
@@ -771,6 +782,10 @@ export namespace Prisma {
           createMany: {
             args: Prisma.InspectionOfSceneCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.InspectionOfSceneCreateManyAndReturnArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InspectionOfScenePayload>[]
           }
           delete: {
             args: Prisma.InspectionOfSceneDeleteArgs<ExtArgs>,
@@ -911,6 +926,7 @@ export namespace Prisma {
     | 'findFirstOrThrow'
     | 'create'
     | 'createMany'
+    | 'createManyAndReturn'
     | 'update'
     | 'updateMany'
     | 'upsert'
@@ -973,7 +989,6 @@ export namespace Prisma {
   }
 
   // Custom InputTypes
-
   /**
    * UserCountOutputType without action
    */
@@ -984,14 +999,12 @@ export namespace Prisma {
     select?: UserCountOutputTypeSelect<ExtArgs> | null
   }
 
-
   /**
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountInspections_of_sceneArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: InspectionOfSceneWhereInput
   }
-
 
 
   /**
@@ -1192,6 +1205,7 @@ export namespace Prisma {
     role?: boolean
   }
 
+
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     inspections_of_scene?: boolean | User$inspections_of_sceneArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1241,8 +1255,8 @@ export namespace Prisma {
     ): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one User that matches the filter or throw an error  with `error.code='P2025'` 
-     *     if no matches were found.
+     * Find one User that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
      * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
      * @example
      * // Get one User
@@ -1295,7 +1309,7 @@ export namespace Prisma {
      * Find zero or more Users that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all Users
      * const users = await prisma.user.findMany()
@@ -1329,19 +1343,45 @@ export namespace Prisma {
 
     /**
      * Create many Users.
-     *     @param {UserCreateManyArgs} args - Arguments to create many Users.
-     *     @example
-     *     // Create many Users
-     *     const user = await prisma.user.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
+     * @param {UserCreateManyArgs} args - Arguments to create many Users.
+     * @example
+     * // Create many Users
+     * const user = await prisma.user.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
      *     
     **/
     createMany<T extends UserCreateManyArgs<ExtArgs>>(
       args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Users and returns the data saved in the database.
+     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
+     * @example
+     * // Create many Users
+     * const user = await prisma.user.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Users and only return the `id`
+     * const userWithIdOnly = await prisma.user.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+    **/
+    createManyAndReturn<T extends UserCreateManyAndReturnArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'createManyAndReturn'>>
 
     /**
      * Delete a User.
@@ -1617,7 +1657,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * User findUnique
    */
@@ -1627,7 +1666,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -1635,7 +1674,6 @@ export namespace Prisma {
      */
     where: UserWhereUniqueInput
   }
-
 
   /**
    * User findUniqueOrThrow
@@ -1646,7 +1684,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -1654,7 +1692,6 @@ export namespace Prisma {
      */
     where: UserWhereUniqueInput
   }
-
 
   /**
    * User findFirst
@@ -1665,7 +1702,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -1703,7 +1740,6 @@ export namespace Prisma {
      */
     distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
-
 
   /**
    * User findFirstOrThrow
@@ -1714,7 +1750,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -1753,7 +1789,6 @@ export namespace Prisma {
     distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
-
   /**
    * User findMany
    */
@@ -1763,7 +1798,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -1797,7 +1832,6 @@ export namespace Prisma {
     distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
-
   /**
    * User create
    */
@@ -1807,7 +1841,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -1815,7 +1849,6 @@ export namespace Prisma {
      */
     data: XOR<UserCreateInput, UserUncheckedCreateInput>
   }
-
 
   /**
    * User createMany
@@ -1828,6 +1861,24 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  /**
+   * User createManyAndReturn
+   */
+  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data used to create many Users.
+     */
+    data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
 
   /**
    * User update
@@ -1838,7 +1889,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -1850,7 +1901,6 @@ export namespace Prisma {
      */
     where: UserWhereUniqueInput
   }
-
 
   /**
    * User updateMany
@@ -1864,8 +1914,8 @@ export namespace Prisma {
      * Filter which Users to update
      */
     where?: UserWhereInput
+    limit?: number
   }
-
 
   /**
    * User upsert
@@ -1876,7 +1926,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -1893,7 +1943,6 @@ export namespace Prisma {
     update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
   }
 
-
   /**
    * User delete
    */
@@ -1903,7 +1952,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -1911,7 +1960,6 @@ export namespace Prisma {
      */
     where: UserWhereUniqueInput
   }
-
 
   /**
    * User deleteMany
@@ -1921,8 +1969,8 @@ export namespace Prisma {
      * Filter which Users to delete
      */
     where?: UserWhereInput
+    limit?: number
   }
-
 
   /**
    * User.inspections_of_scene
@@ -1933,7 +1981,7 @@ export namespace Prisma {
      */
     select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: InspectionOfSceneInclude<ExtArgs> | null
     where?: InspectionOfSceneWhereInput
@@ -1944,7 +1992,6 @@ export namespace Prisma {
     distinct?: InspectionOfSceneScalarFieldEnum | InspectionOfSceneScalarFieldEnum[]
   }
 
-
   /**
    * User without action
    */
@@ -1954,11 +2001,10 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -2154,6 +2200,7 @@ export namespace Prisma {
     userId?: boolean
   }
 
+
   export type InspectionOfSceneInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -2202,8 +2249,8 @@ export namespace Prisma {
     ): Prisma__InspectionOfSceneClient<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one InspectionOfScene that matches the filter or throw an error  with `error.code='P2025'` 
-     *     if no matches were found.
+     * Find one InspectionOfScene that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
      * @param {InspectionOfSceneFindUniqueOrThrowArgs} args - Arguments to find a InspectionOfScene
      * @example
      * // Get one InspectionOfScene
@@ -2256,7 +2303,7 @@ export namespace Prisma {
      * Find zero or more InspectionOfScenes that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {InspectionOfSceneFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {InspectionOfSceneFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all InspectionOfScenes
      * const inspectionOfScenes = await prisma.inspectionOfScene.findMany()
@@ -2290,19 +2337,45 @@ export namespace Prisma {
 
     /**
      * Create many InspectionOfScenes.
-     *     @param {InspectionOfSceneCreateManyArgs} args - Arguments to create many InspectionOfScenes.
-     *     @example
-     *     // Create many InspectionOfScenes
-     *     const inspectionOfScene = await prisma.inspectionOfScene.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
+     * @param {InspectionOfSceneCreateManyArgs} args - Arguments to create many InspectionOfScenes.
+     * @example
+     * // Create many InspectionOfScenes
+     * const inspectionOfScene = await prisma.inspectionOfScene.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
      *     
     **/
     createMany<T extends InspectionOfSceneCreateManyArgs<ExtArgs>>(
       args?: SelectSubset<T, InspectionOfSceneCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many InspectionOfScenes and returns the data saved in the database.
+     * @param {InspectionOfSceneCreateManyAndReturnArgs} args - Arguments to create many InspectionOfScenes.
+     * @example
+     * // Create many InspectionOfScenes
+     * const inspectionOfScene = await prisma.inspectionOfScene.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many InspectionOfScenes and only return the `id`
+     * const inspectionOfSceneWithIdOnly = await prisma.inspectionOfScene.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+    **/
+    createManyAndReturn<T extends InspectionOfSceneCreateManyAndReturnArgs<ExtArgs>>(
+      args?: SelectSubset<T, InspectionOfSceneCreateManyAndReturnArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InspectionOfScenePayload<ExtArgs>, T, 'createManyAndReturn'>>
 
     /**
      * Delete a InspectionOfScene.
@@ -2578,7 +2651,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * InspectionOfScene findUnique
    */
@@ -2588,7 +2660,7 @@ export namespace Prisma {
      */
     select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
@@ -2596,7 +2668,6 @@ export namespace Prisma {
      */
     where: InspectionOfSceneWhereUniqueInput
   }
-
 
   /**
    * InspectionOfScene findUniqueOrThrow
@@ -2607,7 +2678,7 @@ export namespace Prisma {
      */
     select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
@@ -2615,7 +2686,6 @@ export namespace Prisma {
      */
     where: InspectionOfSceneWhereUniqueInput
   }
-
 
   /**
    * InspectionOfScene findFirst
@@ -2626,7 +2696,7 @@ export namespace Prisma {
      */
     select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
@@ -2664,7 +2734,6 @@ export namespace Prisma {
      */
     distinct?: InspectionOfSceneScalarFieldEnum | InspectionOfSceneScalarFieldEnum[]
   }
-
 
   /**
    * InspectionOfScene findFirstOrThrow
@@ -2675,7 +2744,7 @@ export namespace Prisma {
      */
     select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
@@ -2714,7 +2783,6 @@ export namespace Prisma {
     distinct?: InspectionOfSceneScalarFieldEnum | InspectionOfSceneScalarFieldEnum[]
   }
 
-
   /**
    * InspectionOfScene findMany
    */
@@ -2724,7 +2792,7 @@ export namespace Prisma {
      */
     select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
@@ -2758,7 +2826,6 @@ export namespace Prisma {
     distinct?: InspectionOfSceneScalarFieldEnum | InspectionOfSceneScalarFieldEnum[]
   }
 
-
   /**
    * InspectionOfScene create
    */
@@ -2768,7 +2835,7 @@ export namespace Prisma {
      */
     select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
@@ -2776,7 +2843,6 @@ export namespace Prisma {
      */
     data: XOR<InspectionOfSceneCreateInput, InspectionOfSceneUncheckedCreateInput>
   }
-
 
   /**
    * InspectionOfScene createMany
@@ -2789,6 +2855,24 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  /**
+   * InspectionOfScene createManyAndReturn
+   */
+  export type InspectionOfSceneCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InspectionOfScene
+     */
+    select?: InspectionOfSceneSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InspectionOfSceneInclude<ExtArgs> | null
+    /**
+     * The data used to create many InspectionOfScenes.
+     */
+    data: InspectionOfSceneCreateManyInput | InspectionOfSceneCreateManyInput[]
+    skipDuplicates?: boolean
+  }
 
   /**
    * InspectionOfScene update
@@ -2799,7 +2883,7 @@ export namespace Prisma {
      */
     select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
@@ -2811,7 +2895,6 @@ export namespace Prisma {
      */
     where: InspectionOfSceneWhereUniqueInput
   }
-
 
   /**
    * InspectionOfScene updateMany
@@ -2825,8 +2908,8 @@ export namespace Prisma {
      * Filter which InspectionOfScenes to update
      */
     where?: InspectionOfSceneWhereInput
+    limit?: number
   }
-
 
   /**
    * InspectionOfScene upsert
@@ -2837,7 +2920,7 @@ export namespace Prisma {
      */
     select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
@@ -2854,7 +2937,6 @@ export namespace Prisma {
     update: XOR<InspectionOfSceneUpdateInput, InspectionOfSceneUncheckedUpdateInput>
   }
 
-
   /**
    * InspectionOfScene delete
    */
@@ -2864,7 +2946,7 @@ export namespace Prisma {
      */
     select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: InspectionOfSceneInclude<ExtArgs> | null
     /**
@@ -2872,7 +2954,6 @@ export namespace Prisma {
      */
     where: InspectionOfSceneWhereUniqueInput
   }
-
 
   /**
    * InspectionOfScene deleteMany
@@ -2882,8 +2963,8 @@ export namespace Prisma {
      * Filter which InspectionOfScenes to delete
      */
     where?: InspectionOfSceneWhereInput
+    limit?: number
   }
-
 
   /**
    * InspectionOfScene without action
@@ -2894,11 +2975,10 @@ export namespace Prisma {
      */
     select?: InspectionOfSceneSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: InspectionOfSceneInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -3105,7 +3185,7 @@ export namespace Prisma {
     addressOfTheScene?: StringNullableFilter<"InspectionOfScene"> | string | null
     reasonForInspectionOfTheScene?: StringNullableFilter<"InspectionOfScene"> | string | null
     userId?: StringFilter<"InspectionOfScene"> | string
-    user?: XOR<UserRelationFilter, UserWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type InspectionOfSceneOrderByWithRelationInput = {
@@ -3130,7 +3210,7 @@ export namespace Prisma {
     addressOfTheScene?: StringNullableFilter<"InspectionOfScene"> | string | null
     reasonForInspectionOfTheScene?: StringNullableFilter<"InspectionOfScene"> | string | null
     userId?: StringFilter<"InspectionOfScene"> | string
-    user?: XOR<UserRelationFilter, UserWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
   export type InspectionOfSceneOrderByWithAggregationInput = {
@@ -3455,7 +3535,7 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
-  export type UserRelationFilter = {
+  export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
   }

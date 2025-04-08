@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { UserList } from './UserList'
 
+
 export const metadata: Metadata = {
   title: 'UserList',
 }

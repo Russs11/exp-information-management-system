@@ -1,11 +1,16 @@
 'use client'
-import Image from 'next/image'
+import { errorCatch } from '@/api/error'
+import { Button } from '@/components/ui/buttons/Button'
+import { adminService } from '@/services/admin.service'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
 
 interface IUserThread {
   id: string
-  createAt: string
-  updateAt: string
+  createAt?: string
+  updateAt?: string
   login?: string
   name?: string
   role?: string
@@ -13,23 +18,50 @@ interface IUserThread {
 }
 
 export function UserThread({ name, role, updateAt, id }: IUserThread) {
+  const queryClient = useQueryClient()
+  const [formattedDate, setFormattedDate] = useState('')
+
+
+  useEffect(() => {
+    if (!updateAt || typeof updateAt !== 'string') return 
+
+    
+    const date = new Date(updateAt)
+    const day = String(date.getDate()).padStart(2, '0')
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const year = date.getFullYear()
+    const hours = String(date.getHours()).padStart(2, '0')
+    const minutes = String(date.getMinutes()).padStart(2, '0')
+    const formatted = `${day}.${month}.${year} ${hours}:${minutes}`
+    setFormattedDate(formatted)
+  
+  }, [updateAt])
+
+  
+
+  const { mutate } = useMutation({
+    mutationKey: ['delete_user'],
+    mutationFn: ({ id }: { id: string }) => adminService.deleteUser({ id }),
+    onSuccess() {
+      queryClient.invalidateQueries({ queryKey: ['users'] })
+      toast.success(`Пользователь ${name} удален!`)
+    },
+    onError(error) {
+      toast.error(errorCatch(error))
+    },
+  })
+
   return (
     <tr>
       <td className='p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
-        <div className='flex px-2 py-1'>
-          <div>
-            <Image
-              src='/Petrov_cr.jpg'
-              className='inline-flex items-center justify-center mr-4 text-white transition-all duration-200 ease-in-out text-sm h-9 w-9 rounded-xl'
-              alt='user1'
-              width={36}
-              height={36}
-            />
+        <div className='flex gap-2 px-2 py-1'>
+          <div className='flex items-center justify-center w-8 h-8 rounded-full text-xl text-white bg-slate-400 uppercase '>
+            {name?.charAt(0)}
           </div>
           <div className='flex flex-col justify-center'>
             <h6 className='mb-0 leading-normal text-sm'>{name}</h6>
             <p className='mb-0 leading-tight text-xs text-slate-400'>
-              Иванович
+              Алексеевич
             </p>
           </div>
         </div>
@@ -47,18 +79,54 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
       </td>
       <td className='p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
         <span className='font-semibold leading-tight text-xs text-slate-400'>
-          {updateAt}
+          {formattedDate}
         </span>
         <span className='font-semibold leading-tight text-xs text-slate-400'></span>
       </td>
       <td className='p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
         <Link
-          href='/i/addUser'
+          href={`/i/getUserProfile/?id=${id}`}
           className='font-semibold leading-tight text-xs text-slate-400'
         >
           {' '}
           Редакт.{' '}
         </Link>
+        <td className='p-2 text-center align-middle bg-transparent whitespace-nowrap shadow-transparent'>
+          <Button
+            // type={'submit'}
+            className='rounded-md text-sm font-semibold shadow-sm hover:bg-gray-50'
+            onClick={() =>
+              toast('Удалить пользователя?', {
+                action: {
+                  label: 'Да?',
+                  onClick: () => mutate({ id }),
+                },
+                cancel: {
+                  label: 'Нет?',
+                  onClick: () => console.log(''),
+                },
+              })
+            }
+          >
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='18'
+              height='18'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='#94a3b8'
+              stroke-width='2'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+            >
+              <path d='M3 6h18' />
+              <path d='M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6' />
+              <path d='M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2' />
+              <line x1='10' x2='10' y1='11' y2='17' />
+              <line x1='14' x2='14' y1='11' y2='17' />
+            </svg>
+          </Button>
+        </td>
       </td>
     </tr>
   )
