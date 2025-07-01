@@ -9,6 +9,7 @@ const options: CreateAxiosDefaults = {
     // retry: 2
   },
   withCredentials: true,
+   
 }
 
 const axiosClassic = axios.create(options)

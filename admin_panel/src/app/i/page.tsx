@@ -4,6 +4,8 @@ import { UserList } from './userList/UserList'
 export const metadata: Metadata = {
   title: 'Dashboard',
 }
+export const revalidate = 60
+
 export default function Dashboard() {
   return (
     <main className='flex min-h-screen flex-col pb-12 bg-gray-100'>
