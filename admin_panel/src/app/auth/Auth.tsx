@@ -21,9 +21,9 @@ export function Auth() {
     mutationKey: ['auth'],
     mutationFn: (data: IAuthForm) => authAdminService.main(data),
     onSuccess() {
-      reset()
-      toast.success('Успешный вход!')
       push('/i')
+      toast.success('Успешный вход!')
+      reset()
     },
     onError(error) {
       toast.error(errorCatch(error))
@@ -31,7 +31,7 @@ export function Auth() {
   })
 
 
-  const onSubmit: SubmitHandler<IAuthForm> = data => {
+  const onSubmit: SubmitHandler<IAuthForm> = (data) => {
     mutate(data)
   }
 

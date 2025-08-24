@@ -83,7 +83,7 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
         </span>
         <span className='font-semibold leading-tight text-xs text-slate-400'></span>
       </td>
-      <td className='p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent'>
+      <td className='p-2 flex flex-col justify-center items-center bg-transparent border-b whitespace-nowrap shadow-transparent'>
         <Link
           href={`/i/getUserProfile/?id=${id}`}
           className='font-semibold leading-tight text-xs text-slate-400'
@@ -91,9 +91,8 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
           {' '}
           Редакт.{' '}
         </Link>
-        <td className='p-2 text-center align-middle bg-transparent whitespace-nowrap shadow-transparent'>
+        <div className='p-2 text-center align-middle bg-transparent whitespace-nowrap shadow-transparent'>
           <Button
-            // type={'submit'}
             className='rounded-md text-sm font-semibold shadow-sm hover:bg-gray-50'
             onClick={() =>
               toast('Удалить пользователя?', {
@@ -109,15 +108,15 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
             }
           >
             <svg
-              xmlns='http://www.w3.org/2000/svg'
+              // xmlns='http://www.w3.org/2000/svg'
               width='18'
               height='18'
               viewBox='0 0 24 24'
               fill='none'
               stroke='#94a3b8'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
             >
               <path d='M3 6h18' />
               <path d='M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6' />
@@ -126,7 +125,7 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
               <line x1='14' x2='14' y1='11' y2='17' />
             </svg>
           </Button>
-        </td>
+        </div>
       </td>
     </tr>
   )

@@ -35,7 +35,7 @@ export function GetUserProfile() {
         role: data.role,
       })
     }
-  }, [isSuccess, data])
+  }, [isSuccess, data, reset])
 
   const queryClient = useQueryClient()
   const { mutate } = useMutation({
