@@ -21,8 +21,28 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
+import { useState } from 'react'
 
 export function SheetDemo() {
+
+const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  let timer: NodeJS.Timeout;
+
+  const handleMouseEnter = () => {
+    // Запускаем отображение через небольшую задержку (например, 500ms)
+    timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 500); // Время задержки до появления подсказки
+  };
+
+  const handleMouseLeave = () => {
+    // Очищаем предыдущий таймер, если он ещё активен
+    clearTimeout(timer);
+    // Немедленно скрываем подсказку
+    setIsVisible(false);
+  };
+
   const { push } = useRouter()
   const { register, handleSubmit, reset } = useForm<IUser>({
     mode: 'onChange',
@@ -51,6 +71,7 @@ export function SheetDemo() {
     mutate(data)
   }
 
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -66,6 +87,8 @@ export function SheetDemo() {
               strokeWidth='2'
               strokeLinecap='round'
               strokeLinejoin='round'
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={ handleMouseLeave}
             >
               <path d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2' />
               <circle cx='9' cy='7' r='4' />
@@ -73,6 +96,15 @@ export function SheetDemo() {
               <line x1='22' x2='16' y1='11' y2='11' />
             </svg>
           </Button>
+           { isVisible && (
+        <>
+      <span className='text-xs absolute group-hover:block bg-gray-800 text-white
+       p-2 rounded-md shadow-lg z-10 top-full left-2/3 transform -translate-x-1/2 whitespace-no-wrap'>
+        Добавить пользователя
+        </span>
+        </>
+    )
+    }
         </div>
       </SheetTrigger>
       <SheetContent>

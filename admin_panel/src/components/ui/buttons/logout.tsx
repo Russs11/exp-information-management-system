@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { IButtonProps } from './ButtonProps'
 
 export const Logout = ({
@@ -5,10 +6,32 @@ export const Logout = ({
   className,
   ...props
 }: IButtonProps): JSX.Element => {
+
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  let timer: NodeJS.Timeout;
+
+  const handleMouseEnter = () => {
+    // Запускаем отображение через небольшую задержку (например, 500ms)
+    timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 500); // Время задержки до появления подсказки
+  };
+
+  const handleMouseLeave = () => {
+    // Очищаем предыдущий таймер, если он ещё активен
+    clearTimeout(timer);
+    // Немедленно скрываем подсказку
+    setIsVisible(false);
+  };
+
+
   return (
     <button
       type='button'
       className='relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-gray-800'
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={ handleMouseLeave}
       {...props}
     >
       <svg
@@ -37,6 +60,13 @@ export const Logout = ({
           strokeLinejoin='round'
         />
       </svg>
+      { isVisible && (
+        <>
+      <span className='text-sm absolute group-hover:block bg-gray-800 text-white p-2 rounded-md shadow-lg
+       z-10 top-full mt-5 left-1/2 transform -translate-x-1/2 whitespace-no-wrap'>Выход</span>
+        </>
+    )
+    }
     </button>
   )
 }
