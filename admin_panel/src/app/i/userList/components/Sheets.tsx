@@ -96,10 +96,10 @@ const [isVisible, setIsVisible] = useState<boolean>(false);
               <line x1='22' x2='16' y1='11' y2='11' />
             </svg>
           </Button>
-           { isVisible && (
+          { isVisible && (
         <>
       <span className='text-xs absolute group-hover:block bg-gray-800 text-white
-       p-2 rounded-md shadow-lg z-10 top-full left-2/3 transform -translate-x-1/2 whitespace-no-wrap'>
+      p-2 rounded-md shadow-lg z-10 top-full left-2/3 transform -translate-x-1/2 whitespace-no-wrap'>
         Добавить пользователя
         </span>
         </>
