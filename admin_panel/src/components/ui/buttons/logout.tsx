@@ -63,7 +63,7 @@ export const Logout = ({
       { isVisible && (
         <>
       <span className='text-sm absolute group-hover:block bg-gray-800 text-white p-2 rounded-md shadow-lg
-       z-10 top-full mt-5 left-1/2 transform -translate-x-1/2 whitespace-no-wrap'>Выход</span>
+      z-10 top-full mt-5 left-1/2 transform -translate-x-1/2 whitespace-no-wrap'>Выход</span>
         </>
     )
     }
