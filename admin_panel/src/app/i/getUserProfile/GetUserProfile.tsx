@@ -32,6 +32,8 @@ export function GetUserProfile() {
       reset({
         login: data.login,
         name: data.name,
+        surname: data.surname,
+        patronymic: data.patronymic,
         role: data.role,
       })
     }
