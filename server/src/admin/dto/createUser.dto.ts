@@ -14,6 +14,14 @@ export class CreateUserDto {
 	@IsOptional()
 	name: string
 
+	@IsString()
+	@IsOptional()
+	surname: string
+
+	@IsString()
+	@IsOptional()
+	patronymic: string
+
 	@IsEnum(Role)
 	@IsOptional()
 	@Transform(({ value }) => ('' + value).toLowerCase())

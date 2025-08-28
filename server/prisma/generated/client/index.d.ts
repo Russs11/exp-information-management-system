@@ -240,7 +240,7 @@ export namespace Prisma {
 
   /**
    * Prisma Client JS version: 5.14.0
-   * Query Engine version: a9055b89e58b4b5bfb59600785423b1db3d0e75d
+   * Query Engine version: e9771e62de70f79a5e1c604a2d7c8e2a0a874b48
    */
   export type PrismaVersion = {
     client: string
@@ -1027,6 +1027,8 @@ export namespace Prisma {
     updateAt: Date | null
     login: string | null
     name: string | null
+    surname: string | null
+    patronymic: string | null
     password: string | null
     role: $Enums.Role | null
   }
@@ -1037,6 +1039,8 @@ export namespace Prisma {
     updateAt: Date | null
     login: string | null
     name: string | null
+    surname: string | null
+    patronymic: string | null
     password: string | null
     role: $Enums.Role | null
   }
@@ -1047,6 +1051,8 @@ export namespace Prisma {
     updateAt: number
     login: number
     name: number
+    surname: number
+    patronymic: number
     password: number
     role: number
     _all: number
@@ -1059,6 +1065,8 @@ export namespace Prisma {
     updateAt?: true
     login?: true
     name?: true
+    surname?: true
+    patronymic?: true
     password?: true
     role?: true
   }
@@ -1069,6 +1077,8 @@ export namespace Prisma {
     updateAt?: true
     login?: true
     name?: true
+    surname?: true
+    patronymic?: true
     password?: true
     role?: true
   }
@@ -1079,6 +1089,8 @@ export namespace Prisma {
     updateAt?: true
     login?: true
     name?: true
+    surname?: true
+    patronymic?: true
     password?: true
     role?: true
     _all?: true
@@ -1162,6 +1174,8 @@ export namespace Prisma {
     updateAt: Date
     login: string
     name: string | null
+    surname: string | null
+    patronymic: string | null
     password: string
     role: $Enums.Role
     _count: UserCountAggregateOutputType | null
@@ -1189,6 +1203,8 @@ export namespace Prisma {
     updateAt?: boolean
     login?: boolean
     name?: boolean
+    surname?: boolean
+    patronymic?: boolean
     password?: boolean
     role?: boolean
     inspections_of_scene?: boolean | User$inspections_of_sceneArgs<ExtArgs>
@@ -1201,6 +1217,8 @@ export namespace Prisma {
     updateAt?: boolean
     login?: boolean
     name?: boolean
+    surname?: boolean
+    patronymic?: boolean
     password?: boolean
     role?: boolean
   }
@@ -1223,6 +1241,8 @@ export namespace Prisma {
       updateAt: Date
       login: string
       name: string | null
+      surname: string | null
+      patronymic: string | null
       password: string
       role: $Enums.Role
     }, ExtArgs["result"]["user"]>
@@ -1651,6 +1671,8 @@ export namespace Prisma {
     readonly updateAt: FieldRef<"User", 'DateTime'>
     readonly login: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
+    readonly surname: FieldRef<"User", 'String'>
+    readonly patronymic: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'Role'>
   }
@@ -1914,7 +1936,6 @@ export namespace Prisma {
      * Filter which Users to update
      */
     where?: UserWhereInput
-    limit?: number
   }
 
   /**
@@ -1969,7 +1990,6 @@ export namespace Prisma {
      * Filter which Users to delete
      */
     where?: UserWhereInput
-    limit?: number
   }
 
   /**
@@ -2908,7 +2928,6 @@ export namespace Prisma {
      * Filter which InspectionOfScenes to update
      */
     where?: InspectionOfSceneWhereInput
-    limit?: number
   }
 
   /**
@@ -2963,7 +2982,6 @@ export namespace Prisma {
      * Filter which InspectionOfScenes to delete
      */
     where?: InspectionOfSceneWhereInput
-    limit?: number
   }
 
   /**
@@ -3001,6 +3019,8 @@ export namespace Prisma {
     updateAt: 'updateAt',
     login: 'login',
     name: 'name',
+    surname: 'surname',
+    patronymic: 'patronymic',
     password: 'password',
     role: 'role'
   };
@@ -3118,6 +3138,8 @@ export namespace Prisma {
     updateAt?: DateTimeFilter<"User"> | Date | string
     login?: StringFilter<"User"> | string
     name?: StringNullableFilter<"User"> | string | null
+    surname?: StringNullableFilter<"User"> | string | null
+    patronymic?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
     inspections_of_scene?: InspectionOfSceneListRelationFilter
@@ -3129,6 +3151,8 @@ export namespace Prisma {
     updateAt?: SortOrder
     login?: SortOrder
     name?: SortOrderInput | SortOrder
+    surname?: SortOrderInput | SortOrder
+    patronymic?: SortOrderInput | SortOrder
     password?: SortOrder
     role?: SortOrder
     inspections_of_scene?: InspectionOfSceneOrderByRelationAggregateInput
@@ -3143,6 +3167,8 @@ export namespace Prisma {
     createAt?: DateTimeFilter<"User"> | Date | string
     updateAt?: DateTimeFilter<"User"> | Date | string
     name?: StringNullableFilter<"User"> | string | null
+    surname?: StringNullableFilter<"User"> | string | null
+    patronymic?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
     inspections_of_scene?: InspectionOfSceneListRelationFilter
@@ -3154,6 +3180,8 @@ export namespace Prisma {
     updateAt?: SortOrder
     login?: SortOrder
     name?: SortOrderInput | SortOrder
+    surname?: SortOrderInput | SortOrder
+    patronymic?: SortOrderInput | SortOrder
     password?: SortOrder
     role?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -3170,6 +3198,8 @@ export namespace Prisma {
     updateAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     login?: StringWithAggregatesFilter<"User"> | string
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
+    surname?: StringNullableWithAggregatesFilter<"User"> | string | null
+    patronymic?: StringNullableWithAggregatesFilter<"User"> | string | null
     password?: StringWithAggregatesFilter<"User"> | string
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
   }
@@ -3185,7 +3215,7 @@ export namespace Prisma {
     addressOfTheScene?: StringNullableFilter<"InspectionOfScene"> | string | null
     reasonForInspectionOfTheScene?: StringNullableFilter<"InspectionOfScene"> | string | null
     userId?: StringFilter<"InspectionOfScene"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    user?: XOR<UserRelationFilter, UserWhereInput>
   }
 
   export type InspectionOfSceneOrderByWithRelationInput = {
@@ -3210,7 +3240,7 @@ export namespace Prisma {
     addressOfTheScene?: StringNullableFilter<"InspectionOfScene"> | string | null
     reasonForInspectionOfTheScene?: StringNullableFilter<"InspectionOfScene"> | string | null
     userId?: StringFilter<"InspectionOfScene"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    user?: XOR<UserRelationFilter, UserWhereInput>
   }, "id">
 
   export type InspectionOfSceneOrderByWithAggregationInput = {
@@ -3245,6 +3275,8 @@ export namespace Prisma {
     updateAt?: Date | string
     login: string
     name?: string | null
+    surname?: string | null
+    patronymic?: string | null
     password: string
     role?: $Enums.Role
     inspections_of_scene?: InspectionOfSceneCreateNestedManyWithoutUserInput
@@ -3256,6 +3288,8 @@ export namespace Prisma {
     updateAt?: Date | string
     login: string
     name?: string | null
+    surname?: string | null
+    patronymic?: string | null
     password: string
     role?: $Enums.Role
     inspections_of_scene?: InspectionOfSceneUncheckedCreateNestedManyWithoutUserInput
@@ -3267,6 +3301,8 @@ export namespace Prisma {
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     login?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    patronymic?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     inspections_of_scene?: InspectionOfSceneUpdateManyWithoutUserNestedInput
@@ -3278,6 +3314,8 @@ export namespace Prisma {
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     login?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    patronymic?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     inspections_of_scene?: InspectionOfSceneUncheckedUpdateManyWithoutUserNestedInput
@@ -3289,6 +3327,8 @@ export namespace Prisma {
     updateAt?: Date | string
     login: string
     name?: string | null
+    surname?: string | null
+    patronymic?: string | null
     password: string
     role?: $Enums.Role
   }
@@ -3299,6 +3339,8 @@ export namespace Prisma {
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     login?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    patronymic?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
@@ -3309,6 +3351,8 @@ export namespace Prisma {
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     login?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    patronymic?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
@@ -3451,6 +3495,8 @@ export namespace Prisma {
     updateAt?: SortOrder
     login?: SortOrder
     name?: SortOrder
+    surname?: SortOrder
+    patronymic?: SortOrder
     password?: SortOrder
     role?: SortOrder
   }
@@ -3461,6 +3507,8 @@ export namespace Prisma {
     updateAt?: SortOrder
     login?: SortOrder
     name?: SortOrder
+    surname?: SortOrder
+    patronymic?: SortOrder
     password?: SortOrder
     role?: SortOrder
   }
@@ -3471,6 +3519,8 @@ export namespace Prisma {
     updateAt?: SortOrder
     login?: SortOrder
     name?: SortOrder
+    surname?: SortOrder
+    patronymic?: SortOrder
     password?: SortOrder
     role?: SortOrder
   }
@@ -3535,7 +3585,7 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
-  export type UserScalarRelationFilter = {
+  export type UserRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
   }
@@ -3831,6 +3881,8 @@ export namespace Prisma {
     updateAt?: Date | string
     login: string
     name?: string | null
+    surname?: string | null
+    patronymic?: string | null
     password: string
     role?: $Enums.Role
   }
@@ -3841,6 +3893,8 @@ export namespace Prisma {
     updateAt?: Date | string
     login: string
     name?: string | null
+    surname?: string | null
+    patronymic?: string | null
     password: string
     role?: $Enums.Role
   }
@@ -3867,6 +3921,8 @@ export namespace Prisma {
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     login?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    patronymic?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
@@ -3877,6 +3933,8 @@ export namespace Prisma {
     updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
     login?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    patronymic?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }

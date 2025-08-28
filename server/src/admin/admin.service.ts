@@ -21,7 +21,7 @@ export class AdminService {
 	constructor(
 		private prisma: PrismaService,
 		private jwt: JwtService
-	) {}
+	) { }
 
 	async createUser(сreateUserDto: CreateUserDto) {
 		const oldUser = await this.getByLogin(сreateUserDto.login)
@@ -48,6 +48,8 @@ export class AdminService {
 				updateAt: true,
 				login: true,
 				name: true,
+				surname: true,
+				patronymic: true,
 				password: false,
 				role: true,
 				inspections_of_scene: true
@@ -75,6 +77,8 @@ export class AdminService {
 				createAt: true,
 				updateAt: true,
 				login: true,
+				surname: true,
+				patronymic: true,
 				name: true,
 				password: false,
 				role: true
@@ -108,6 +112,8 @@ export class AdminService {
 				updateAt: true,
 				login: true,
 				name: true,
+				surname: true,
+				patronymic: true,
 				password: false,
 				role: true,
 				inspections_of_scene: true
@@ -116,11 +122,15 @@ export class AdminService {
 	}
 	private async create(dto: CreateUserDto) {
 		const name = dto.name ? dto.name : ''
+		const surname = dto.surname ? dto.surname : ''
+		const patronymic = dto.patronymic ? dto.patronymic : ''
 		const role = dto.role ? dto.role : 'user'
 
 		const user = {
 			login: dto.login,
 			name,
+			surname,
+			patronymic,
 			password: await hash(dto.password),
 			role
 		}

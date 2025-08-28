@@ -15,6 +15,7 @@ export function UserList() {
 
   let threadsArr: JSX.Element[] = []
 
+
   if (data?.length) {
     threadsArr = data?.map(item => {
       return (
@@ -22,6 +23,8 @@ export function UserList() {
           key={item.id}
           id={item.id}
           name={item.name}
+          surname={item.surname}
+          patronymic={item.patronymic}
           role={item.role}
           createAt={item.createAt}
           updateAt={item.updateAt}

@@ -199,9 +199,12 @@ const [isVisible, setIsVisible] = useState<boolean>(false);
                   <div className='sm:col-span-3'>
                     <InputField
                       type='text'
-                      id='last-name'
-                      name='last-name'
-                      autoComplete='last-name'
+                      id='surname'
+                      {...register('surname', {
+                        required: 'Укажите фамилию',
+                      })}
+                      name='surname'
+                      autoComplete='surname'
                       placeholder='Введите фамилию'
                       label='Фамилия'
                     />
@@ -210,9 +213,12 @@ const [isVisible, setIsVisible] = useState<boolean>(false);
                   <div className='sm:col-span-3'>
                     <InputField
                       type='text'
-                      id='middle-name'
-                      name='middle-name'
-                      autoComplete='middle-name'
+                      id='patronymic'
+                      {...register('patronymic', {
+                        required: 'Укажите отчество',
+                      })}
+                      name='patronymic'
+                      autoComplete='patronymic'
                       placeholder='Введите отчество'
                       label='Отчество'
                     />

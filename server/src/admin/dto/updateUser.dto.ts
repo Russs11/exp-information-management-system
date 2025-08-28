@@ -11,6 +11,14 @@ export class UpdateUserDto {
 	@IsOptional()
 	name: string
 
+	@IsString()
+	@IsOptional()
+	surname: string
+
+	@IsString()
+	@IsOptional()
+	patronymic: string
+
 	@MinLength(6, { message: 'Password must be at least 6 characters long' })
 	@IsString()
 	@IsOptional()

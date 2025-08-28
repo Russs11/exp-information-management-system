@@ -13,11 +13,13 @@ interface IUserThread {
   updateAt?: string
   login?: string
   name?: string
+  surname?: string
+  patronymic?: string
   role?: string
   password?: string
 }
 
-export function UserThread({ name, role, updateAt, id }: IUserThread) {
+export function UserThread({ name, surname, patronymic, role, updateAt, id }: IUserThread) {
   const queryClient = useQueryClient()
   const [formattedDate, setFormattedDate] = useState('')
 
@@ -37,7 +39,6 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
   
   }, [updateAt])
 
-  
 
   const { mutate } = useMutation({
     mutationKey: ['delete_user'],
@@ -59,9 +60,9 @@ export function UserThread({ name, role, updateAt, id }: IUserThread) {
             {name?.charAt(0)}
           </div>
           <div className='flex flex-col justify-center'>
-            <h6 className='mb-0 leading-normal text-sm'>{name}</h6>
+            <h6 className='mb-0 leading-normal text-sm'>{`${surname} ${name}`}</h6>
             <p className='mb-0 leading-tight text-xs text-slate-400'>
-              Алексеевич
+              {patronymic}
             </p>
           </div>
         </div>

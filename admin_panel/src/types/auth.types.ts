@@ -12,6 +12,8 @@ export interface IUser {
   updateAt?: string
   login?: string
   name?: string
+  surname?: string
+  patronymic?: string
   role?: string
   password?: string
 }
