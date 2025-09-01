@@ -21,7 +21,7 @@ export function Header() {
   })
 
   const { data, isLoading } = useProfile()
-  console.log('header', data);
+  
 
   return (
     <>
@@ -43,12 +43,7 @@ export function Header() {
                   </div>
                   <div className='hidden md:block'>
                     <div className='ml-10 flex items-baseline space-x-4'>
-                      {/* <Link
-                        href='/i/userList'
-                        className='focus:bg-gray-900  hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium'
-                      >
-                        Список пользователей
-                      </Link> */}
+                      
                     </div>
                   </div>
                 </div>
@@ -123,14 +118,6 @@ export function Header() {
               <div className='border-t border-gray-700 pb-3 pt-4'>
                 <div className='flex items-center px-5'>
                   <div className='flex-shrink-0'>
-                    {/* <Image
-                      src='/Petrov_cr.jpg'
-                      alt='avatar'
-                      className='h-8 w-8 rounded-full'
-                      width={36}
-                      height={36}
-                      priority
-                    /> */}
                     <div className='flex items-center justify-center w-8 h-8 rounded-full text-2xl text-white bg-slate-600 uppercase '>
                       {data?.name?.charAt(0)}
                     </div>
